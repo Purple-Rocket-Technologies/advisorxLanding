@@ -353,7 +353,7 @@ const AdvisorXLanding = () => {
               delay: 2,
             }}
           />
-          <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[length:50px_50px]" />
+          <div className="absolute inset-0" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center">
@@ -436,7 +436,7 @@ const AdvisorXLanding = () => {
       {/* Footer */}
       <footer className="relative w-full bg-background dark:bg-background/50 border-t border-border/5 pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-black/[0.02] dark:bg-grid-white/[0.02] bg-[length:20px_20px]" />
+          <div className="absolute inset-0  bg-[length:20px_20px]" />
           <motion.div
             className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-y-1/2"
             animate={{
