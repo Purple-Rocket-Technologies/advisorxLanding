@@ -121,7 +121,7 @@ export default function Pricing() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Rome wasn't built in a day, but your marketing assets will be.
+            Rome wasn&apos;t built in a day, but your marketing assets will be.
           </motion.p>
         </div>
 

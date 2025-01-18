@@ -11,7 +11,6 @@ import {
   MoreVertical,
   Calendar,
   Users,
-  Clock,
 } from "lucide-react";
 
 interface Project {

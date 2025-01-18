@@ -12,8 +12,8 @@ import {
   FileText,
   Shield,
   Search,
-  Users,
 } from "lucide-react";
+import Image from "next/image";
 
 const inputSources = [
   { title: "Brand Analysis", icon: Search },
@@ -63,10 +63,9 @@ interface Connection {
   id: string;
   start: { x: number; y: number };
   end: { x: number; y: number };
-  isInput: boolean;
 }
 
-const FlowPath = React.memo<Connection>(({ start, end, isInput }) => {
+const FlowPath = React.memo<Connection>(({ start, end }) => {
   const path = `M ${start.x} ${start.y} Q ${(start.x + end.x) / 2} ${start.y} ${
     end.x
   } ${end.y}`;
@@ -95,15 +94,15 @@ FlowPath.displayName = "FlowPath";
 const InputCard = React.memo(
   ({
     item,
-    ref,
+    innerRef,
   }: {
     item: (typeof inputSources)[number];
-    ref: React.RefObject<HTMLDivElement | null>;
+    innerRef: (node: HTMLDivElement | null) => void;
   }) => {
     const Icon = item.icon;
     return (
       <motion.div
-        ref={ref}
+        ref={innerRef}
         whileHover={{ x: 10 }}
         className="w-full h-[120px] max-w-[280px] px-6 flex flex-row items-center gap-4 text-muted-foreground rounded-xl border border-border backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-card/50"
         style={{
@@ -126,14 +125,14 @@ InputCard.displayName = "InputCard";
 const IntegrationCard = React.memo(
   ({
     item,
-    ref,
+    innerRef,
   }: {
     item: (typeof crmIntegrations)[number];
-    ref: React.RefObject<HTMLDivElement | null>;
+    innerRef: (node: HTMLDivElement | null) => void;
   }) => {
     return (
       <motion.div
-        ref={ref}
+        ref={innerRef}
         whileHover={{ x: -10 }}
         className="w-full h-[120px] max-w-[280px] px-6 flex flex-row items-center gap-4 text-muted-foreground rounded-xl border border-border backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-card/50 relative"
         style={{
@@ -146,10 +145,12 @@ const IntegrationCard = React.memo(
           </div>
         )}
         <div className="w-10 h-10 transform-gpu p-2 rounded-lg bg-primary/10">
-          <img
+          <Image
             src={item.logo}
-            alt={item.title}
-            className="w-full h-full object-contain"
+            alt={`${item.title} logo`}
+            width={32}
+            height={32}
+            className="w-8 h-8 object-contain"
           />
         </div>
         <span className="text-lg font-semibold text-foreground">
@@ -167,9 +168,22 @@ const WorkflowSection: React.FC = () => {
   const [currentIntegrationIndex, setCurrentIntegrationIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const aiHubRef = useRef<HTMLDivElement>(null);
+
+  // Create refs for input sources and integrations
+  const inputRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const integrationRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Initialize refs
+  if (inputRefs.current.length === 0) {
+    inputRefs.current = Array(inputSources.length).fill(null);
+  }
+  if (integrationRefs.current.length === 0) {
+    integrationRefs.current = Array(crmIntegrations.length).fill(null);
+  }
+
   const cardRefs = {
-    input: inputSources.map(() => useRef<HTMLDivElement>(null)),
-    integration: crmIntegrations.map(() => useRef<HTMLDivElement>(null)),
+    input: inputRefs.current,
+    integration: integrationRefs.current,
   };
 
   const getRandomIndices = (max: number, count: number) => {
@@ -200,7 +214,7 @@ const WorkflowSection: React.FC = () => {
 
     const inputConnections = selectedInputIndices
       .map((index) => {
-        const inputRef = cardRefs.input[index].current;
+        const inputRef = cardRefs.input[index];
         if (!inputRef) return null;
 
         const inputRect = inputRef.getBoundingClientRect();
@@ -211,13 +225,12 @@ const WorkflowSection: React.FC = () => {
             y: inputRect.top - sectionRect.top + inputRect.height / 2,
           },
           end: hubCenter,
-          isInput: true,
         };
       })
       .filter(Boolean) as Connection[];
 
     // Create CRM connection
-    const outputRef = cardRefs.integration[currentIntegrationIndex].current;
+    const outputRef = cardRefs.integration[currentIntegrationIndex];
     if (!outputRef) return;
 
     const outputRect = outputRef.getBoundingClientRect();
@@ -228,7 +241,6 @@ const WorkflowSection: React.FC = () => {
         x: outputRect.left - sectionRect.left,
         y: outputRect.top - sectionRect.top + outputRect.height / 2,
       },
-      isInput: false,
     };
 
     setConnections([...inputConnections, outputConnection]);
@@ -237,7 +249,7 @@ const WorkflowSection: React.FC = () => {
       setConnections([]);
       setCurrentIntegrationIndex((prev) => (prev + 1) % crmIntegrations.length);
     }, 3000);
-  }, [currentIntegrationIndex]);
+  }, [currentIntegrationIndex, cardRefs.input, cardRefs.integration]);
 
   useEffect(() => {
     const interval = setInterval(createConnections, 5000);
@@ -294,7 +306,9 @@ const WorkflowSection: React.FC = () => {
                 <InputCard
                   key={item.title}
                   item={item}
-                  ref={cardRefs.input[index]}
+                  innerRef={(node) => {
+                    cardRefs.input[index] = node;
+                  }}
                 />
               ))}
             </div>
@@ -355,7 +369,9 @@ const WorkflowSection: React.FC = () => {
                 <IntegrationCard
                   key={item.title}
                   item={item}
-                  ref={cardRefs.integration[index]}
+                  innerRef={(node) => {
+                    cardRefs.integration[index] = node;
+                  }}
                 />
               ))}
             </div>

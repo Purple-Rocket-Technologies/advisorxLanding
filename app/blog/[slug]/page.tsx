@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -11,14 +11,14 @@ import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import readingTime from "reading-time";
 
-interface Props {
-  params: {
-    slug: string;
-  };
+// Define the props type for the page component
+interface PageProps {
+  params: Promise<{ slug: string }>;
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
 
   if (!post) {
@@ -56,7 +56,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({ params }: Props) {
+// Make the page component async and export it as default
+export default async function BlogPost(props: PageProps) {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
 
   if (!post) {
@@ -66,7 +68,7 @@ export default async function BlogPost({ params }: Props) {
   const stats = readingTime(post.content);
 
   return (
-    <div className="min-h-screen bg-background">
+    (<div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 max-w-screen-2xl items-center">
@@ -83,7 +85,6 @@ export default async function BlogPost({ params }: Props) {
           </Button>
         </div>
       </nav>
-
       {/* Hero Section */}
       <div className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
         <Image
@@ -112,7 +113,6 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </div>
       </div>
-
       <div className="container max-w-screen-md py-12">
         {/* Author */}
         <div className="flex items-center gap-4 mb-12 p-6 rounded-lg bg-muted/50">
@@ -166,24 +166,21 @@ export default async function BlogPost({ params }: Props) {
                   {children}
                 </blockquote>
               ),
-              code({ node, inline, className, children, ...props }) {
+              code: function Code({ className, children }) {
                 const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
+                const isInline = !match;
+                return !isInline ? (
                   <div className="my-6 rounded-lg overflow-hidden">
                     <SyntaxHighlighter
                       style={vscDarkPlus}
                       language={match[1]}
                       PreTag="div"
-                      {...props}
                     >
                       {String(children).replace(/\n$/, "")}
                     </SyntaxHighlighter>
                   </div>
                 ) : (
-                  <code
-                    className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm"
-                    {...props}
-                  >
+                  <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
                     {children}
                   </code>
                 );
@@ -210,6 +207,6 @@ export default async function BlogPost({ params }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }

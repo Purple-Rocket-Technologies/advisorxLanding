@@ -2,12 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  CheckCircle,
-  ArrowRight,
-  Play,
-  Mail,
-} from "lucide-react";
+import { CheckCircle, ArrowRight, Play, Mail } from "lucide-react";
 import { AnimatedText } from "./components/animated-text";
 import { GridBackground } from "./components/grid-background";
 import { TrustedBy } from "./components/trusted-by";
@@ -111,13 +106,13 @@ const AdvisorXLanding = () => {
                 <AnimatedText text="AI Marketing " delay={0.2} />
               </span>
               <span>
-                <AnimatedText text="Suite for " delay={0.4} />
+                <AnimatedText text="Suite for " delay={0.8} />
               </span>
               <span>
-                <AnimatedText text="Wealth " delay={0.6} />
+                <AnimatedText text="Wealth " delay={1.2} />
               </span>
               <span>
-                <AnimatedText text="Advisors " delay={0.8} />
+                <AnimatedText text="Advisors " delay={1.6} />
               </span>
             </h1>
 

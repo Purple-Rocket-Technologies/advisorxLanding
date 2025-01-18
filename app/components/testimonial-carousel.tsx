@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -183,13 +184,13 @@ export const TestimonialCarousel = () => {
                       transition={{ duration: 0.5, delay: 0.4 }}
                       className="flex items-center gap-6"
                     >
-                      <div className="w-16 h-16 rounded-full overflow-hidden bg-muted ring-4 ring-border/50 group-hover:ring-primary/20 transition-all duration-300">
-                        <img
-                          src={testimonials[current].image}
-                          alt={testimonials[current].author}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                      <Image
+                        src={testimonials[current].image}
+                        alt={`${testimonials[current].author}'s avatar`}
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
                       <div className="text-left">
                         <div className="font-semibold text-lg text-foreground">
                           {testimonials[current].author}

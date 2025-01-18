@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Search, Mail, FileText, ChevronRight } from "lucide-react";
 
 interface ComplianceItem {

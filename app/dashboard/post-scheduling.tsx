@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Plus,
-  Calendar as CalendarIcon,
   Image as ImageIcon,
   Link,
   Linkedin,
@@ -12,7 +11,6 @@ import {
   Twitter,
   MessageCircle,
   Clock,
-  Globe,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -59,7 +57,6 @@ const platforms: Platform[] = [
 const PostScheduling = () => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
   const [postContent, setPostContent] = useState("");
-  const [postImage, setPostImage] = useState<string | null>(null);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 

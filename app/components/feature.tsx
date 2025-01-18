@@ -1,10 +1,9 @@
 "use client";
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import {
   LineChart,
   BarChart,
-  MessageSquare,
   Bot,
   Shield,
   BookOpen,
@@ -76,8 +75,8 @@ const FeatureCard = React.memo(
     opacity,
   }: {
     card: (typeof cardsData)[number];
-    y: any;
-    opacity: any;
+    y: MotionValue<number>;
+    opacity: MotionValue<number>;
   }) => (
     <motion.div
       style={{
@@ -157,6 +156,22 @@ const AppleStyleDashboard = () => {
     offset: ["start center", "center center"],
   });
 
+  // Pre-calculate transforms outside the map function
+  const transforms = {
+    0: {
+      y: useTransform(scrollYProgress, [0, 0.25], [120, 0]),
+      opacity: useTransform(scrollYProgress, [0, 0.25], [0, 1]),
+    },
+    1: {
+      y: useTransform(scrollYProgress, [0.15, 0.4], [120, 0]),
+      opacity: useTransform(scrollYProgress, [0.15, 0.4], [0, 1]),
+    },
+    2: {
+      y: useTransform(scrollYProgress, [0.3, 0.55], [120, 0]),
+      opacity: useTransform(scrollYProgress, [0.3, 0.55], [0, 1]),
+    },
+  } as const;
+
   return (
     <div
       ref={containerRef}
@@ -221,10 +236,8 @@ const AppleStyleDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
           {cardsData.map((card, index) => {
             const columnPosition = index % 3;
-            const start = columnPosition * 0.15;
-            const end = start + 0.25;
-            const y = useTransform(scrollYProgress, [start, end], [120, 0]);
-            const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+            const { y, opacity } =
+              transforms[columnPosition as keyof typeof transforms];
             return (
               <FeatureCard
                 key={card.title}

@@ -124,7 +124,7 @@ const FeatureCard = React.memo(
                 </div>
               </motion.div>
               <div className="flex flex-col gap-2">
-                {feature.ui.items.map((item, index) => (
+                {feature.ui.items.map((item) => (
                   <motion.div
                     key={item}
                     whileHover={{ x: 10 }}

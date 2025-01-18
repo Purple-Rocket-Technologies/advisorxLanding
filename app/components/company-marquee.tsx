@@ -1,6 +1,8 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const companies = [
   {
@@ -41,10 +43,12 @@ export const CompanyMarquee = () => {
             className="flex flex-col items-center gap-3"
           >
             <div className="w-12 h-12 relative grayscale hover:grayscale-0 transition-all duration-300">
-              <img
+              <Image
                 src={company.logo}
-                alt={company.name}
-                className="w-full h-full object-contain"
+                alt={`${company.name} logo`}
+                width={150}
+                height={50}
+                className="h-8 w-auto object-contain grayscale opacity-50 hover:opacity-100 transition-opacity"
               />
             </div>
             <span className="text-sm font-medium">{company.name}</span>

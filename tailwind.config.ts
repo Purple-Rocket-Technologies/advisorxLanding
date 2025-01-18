@@ -17,6 +17,7 @@ const config: Config = {
         "mask-wave-2": "mask-wave-2 12s ease-in-out infinite",
         "mask-wave-3": "mask-wave-3 10s ease-in-out infinite",
         "gradient-x": "gradient-x 3s ease infinite",
+        "fade-up": "fade-up 0.5s ease-out forwards",
       },
       keyframes: {
         "trusted-in": {
@@ -56,7 +57,7 @@ const config: Config = {
         "fade-up": {
           "0%": {
             opacity: "0",
-            transform: "translateY(8px)",
+            transform: "translateY(20px)",
           },
           "100%": {
             opacity: "1",

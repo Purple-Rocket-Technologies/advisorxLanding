@@ -220,21 +220,19 @@ export function BlogEditor() {
           <div className="prose prose-lg dark:prose-invert max-w-none">
             <Markdown
               components={{
-                code(props: any) {
-                  const { inline, className, children } = props;
+                code: function Code({ className, children }) {
                   const match = /language-(\w+)/.exec(className || "");
-                  return !inline && match ? (
+                  const isInline = !match;
+                  return !isInline ? (
                     <SyntaxHighlighter
-                      style={vscDarkPlus as any}
-                      language={match[1]}
+                      style={vscDarkPlus}
+                      language={match![1]}
                       PreTag="div"
                     >
                       {String(children).replace(/\n$/, "")}
                     </SyntaxHighlighter>
                   ) : (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
+                    <code className={className}>{children}</code>
                   );
                 },
               }}
