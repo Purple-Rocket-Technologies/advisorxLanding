@@ -1,19 +1,14 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   CheckCircle,
   ArrowRight,
   Play,
-  BarChart3,
-  Shield,
-  Users,
   Mail,
 } from "lucide-react";
 import { AnimatedText } from "./components/animated-text";
-import { AgentIcon } from "./components/agent-icon";
 import { GridBackground } from "./components/grid-background";
 import { TrustedBy } from "./components/trusted-by";
 import { CompanyMarquee } from "./components/company-marquee";

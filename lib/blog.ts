@@ -70,7 +70,7 @@ export async function getPostBySlug(
       coverImage: data.coverImage,
       content,
     } as BlogPost;
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }
