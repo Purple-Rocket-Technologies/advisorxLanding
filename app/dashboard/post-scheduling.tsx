@@ -108,7 +108,7 @@ const PostScheduling = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-2rem)] overflow-y-auto flex gap-6">
+    <div className="h-[calc(80vh-2rem)] overflow-y-auto flex gap-6">
       {/* Left Column - Post Creation and Previews */}
       <div className="w-[60%] space-y-6">
         <div className="flex items-center justify-between">

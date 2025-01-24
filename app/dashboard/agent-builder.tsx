@@ -19,7 +19,7 @@ import {
 const agents = [
   {
     id: "seo",
-    name: "SEO Agent",
+    name: "SEO Persona",
     icon: <Search className="h-6 w-6" />,
     description:
       "Optimize content for search engines and generate SEO-friendly articles",
@@ -27,7 +27,7 @@ const agents = [
   },
   {
     id: "linkedin",
-    name: "LinkedIn Agent",
+    name: "LinkedIn Persona",
     icon: <Linkedin className="h-6 w-6" />,
     description:
       "Create and manage professional LinkedIn content and engagement",
@@ -35,42 +35,42 @@ const agents = [
   },
   {
     id: "market",
-    name: "Market Commentary Agent",
+    name: "Market Commentary Persona",
     icon: <LineChart className="h-6 w-6" />,
     description: "Generate market analysis and financial commentary",
     status: "Active",
   },
   {
     id: "youtube",
-    name: "YouTube Transcripts Agent",
+    name: "YouTube Transcripts Persona",
     icon: <Video className="h-6 w-6" />,
     description: "Process and analyze YouTube video transcripts",
     status: "Inactive",
   },
   {
     id: "blog",
-    name: "Blog Agent",
+    name: "Blog Persona",
     icon: <PenTool className="h-6 w-6" />,
     description: "Create engaging blog posts and articles",
     status: "Active",
   },
   {
     id: "newsletter",
-    name: "Newsletter Agent",
+    name: "Newsletter Persona",
     icon: <Mail className="h-6 w-6" />,
     description: "Design and write compelling newsletters",
     status: "Active",
   },
   {
     id: "twitter",
-    name: "X/Twitter Agent",
+    name: "X/Twitter Persona",
     icon: <Twitter className="h-6 w-6" />,
     description: "Manage social media presence on X/Twitter",
     status: "Active",
   },
   {
     id: "sec",
-    name: "SEC Compliance Agent",
+    name: "SEC Compliance Persona",
     icon: <Shield className="h-6 w-6" />,
     description: "Ensure content compliance with SEC regulations",
     status: "Active",
@@ -83,9 +83,11 @@ const AgentBuilder = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Agent Builder</h1>
+          <h1 className="text-2xl font-bold text-foreground">
+            Persona Builder
+          </h1>
           <p className="text-muted-foreground">
-            Create and manage your AI agents
+            Create and manage your AI personas
           </p>
         </div>
         <Button className="bg-primary hover:bg-primary/90 flex items-center gap-2">

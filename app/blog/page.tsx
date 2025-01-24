@@ -2,8 +2,10 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
+import { Button } from "@/components/ui/button";
+import { AnimatedText } from "@/app/components/animated-text";
 
 // Metadata for SEO
 export const metadata: Metadata = {
@@ -26,14 +28,15 @@ export default async function BlogPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
-        </div>
+        <div className="absolute inset-0 bg-dot-muted/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-transparent mb-6">
-              Insights for Modern Advisors
-            </h1>
+            <AnimatedText
+              text="Insights for Modern Advisors"
+              className="text-4xl md:text-6xl font-bold mb-6"
+              delay={0.2}
+            />
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Expert insights, strategies, and tips to help you grow your
               practice and better serve your clients.
@@ -42,13 +45,44 @@ export default async function BlogPage() {
         </div>
       </section>
 
+      {/* Featured Post */}
+      {posts[0] && (
+        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <Link href={`/blog/${posts[0].slug}`} className="group">
+            <article className="relative overflow-hidden rounded-3xl border border-border bg-card">
+              <div className="aspect-[2/1] relative">
+                <Image
+                  src={posts[0].coverImage}
+                  alt={posts[0].title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 p-8 w-full">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  <Calendar className="h-4 w-4" />
+                  <time>{format(new Date(posts[0].date), "MMMM d, yyyy")}</time>
+                </div>
+                <h2 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                  {posts[0].title}
+                </h2>
+                <p className="text-muted-foreground line-clamp-2">
+                  {posts[0].excerpt}
+                </p>
+              </div>
+            </article>
+          </Link>
+        </section>
+      )}
+
       {/* Blog Posts Grid */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
+          {posts.slice(1).map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
               <article className="flex flex-col h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-200 hover:border-primary/50 hover:shadow-lg">
-                <div className="relative h-48 overflow-hidden">
+                <div className="aspect-[16/9] relative">
                   <Image
                     src={post.coverImage}
                     alt={post.title}
@@ -56,35 +90,24 @@ export default async function BlogPage() {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-col flex-grow p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden">
-                      <Image
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-medium">
-                        {post.author.name}
-                      </span>
-                      <time className="text-xs text-muted-foreground">
-                        {format(new Date(post.date), "MMM d, yyyy")}
-                      </time>
-                    </div>
+                <div className="p-6 flex-1">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <Calendar className="h-4 w-4" />
+                    <time>{format(new Date(post.date), "MMMM d, yyyy")}</time>
                   </div>
-                  <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  <h2 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-muted-foreground mb-4 flex-grow">
+                  <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center text-sm font-medium text-primary">
-                    Read More
-                    <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                  </div>
+                  <Button
+                    variant="ghost"
+                    className="group/btn mt-auto text-primary hover:text-primary"
+                  >
+                    Read more
+                    <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                  </Button>
                 </div>
               </article>
             </Link>

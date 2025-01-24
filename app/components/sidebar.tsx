@@ -16,7 +16,7 @@ import {
 const menuItems = [
   { id: "home" as const, icon: Home, label: "Home" },
   { id: "chat" as const, icon: MessageSquare, label: "Chat" },
-  { id: "agent-builder" as const, icon: Wand2, label: "Agent Builder" },
+  { id: "persona-builder" as const, icon: Wand2, label: "Persona Builder" },
   { id: "post-scheduling" as const, icon: Calendar, label: "Post Scheduling" },
   { id: "projects" as const, icon: FolderKanban, label: "Projects" },
   { id: "compliance" as const, icon: Shield, label: "Compliance" },

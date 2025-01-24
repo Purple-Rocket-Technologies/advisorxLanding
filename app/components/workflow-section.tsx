@@ -1,26 +1,36 @@
 "use client";
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
-  BarChart2,
-  MessageSquare,
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+import {
   Book,
   Calendar,
   Globe,
-  Palette,
-  FileText,
   Shield,
-  Search,
+  PenTool,
+  Settings,
+  Users,
+  Target,
+  BrainCircuit,
+  PencilRuler,
+  Share2,
+  Newspaper,
+  ScrollText,
+  Megaphone,
+  LayoutTemplate,
 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./moving-border";
 
 const inputSources = [
-  { title: "Brand Analysis", icon: Search },
-  { title: "CRM Notes", icon: FileText },
+  { title: "Brand Guidelines", icon: PenTool },
+  { title: "CRM Notes", icon: Users },
   { title: "Web Sources", icon: Globe },
-  { title: "Documents", icon: Book },
-  { title: "Brand Colors", icon: Palette },
+  { title: "Documents", icon: ScrollText },
+  { title: "Brand Colors", icon: PencilRuler },
 ] as const;
 
 const crmIntegrations = [
@@ -52,11 +62,26 @@ const crmIntegrations = [
 ] as const;
 
 const capabilities = [
-  { title: "Growth Analytics", icon: BarChart2 },
-  { title: "On-Brand Content", icon: MessageSquare },
+  { title: "Growth Analytics", icon: Target },
+  { title: "On-Brand Content", icon: LayoutTemplate },
   { title: "Compliance Reviews", icon: Shield },
   { title: "Schedule Posts", icon: Calendar },
-  { title: "Engaging Visuals", icon: Palette },
+  { title: "Engaging Visuals", icon: BrainCircuit },
+] as const;
+
+const crmLogos = [
+  "/logos/wealthbox.svg",
+  "/logos/redtail.svg",
+  "/logos/salesforce.svg",
+] as const;
+
+const outputTypes = [
+  { title: "LinkedIn Posts", icon: Share2 },
+  { title: "Newsletters", icon: ScrollText },
+  { title: "Whitepapers", icon: Book },
+  { title: "Articles", icon: Newspaper },
+  { title: "Ad Copy", icon: Megaphone },
+  { title: "& More", icon: Settings },
 ] as const;
 
 interface Connection {
@@ -78,7 +103,8 @@ const FlowPath = React.memo<Connection>(({ start, end }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1.2, ease: "easeInOut" }}
       stroke="url(#glowGradient)"
-      strokeWidth="1.5"
+      strokeWidth="3"
+      filter="url(#glow)"
       fill="none"
       strokeLinecap="round"
       style={{
@@ -104,14 +130,34 @@ const InputCard = React.memo(
       <motion.div
         ref={innerRef}
         whileHover={{ x: 10 }}
-        className="w-full h-[120px] max-w-[280px] px-6 flex flex-row items-center gap-4 text-muted-foreground rounded-xl border border-border backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-card/50"
+        className="w-full h-[120px] max-w-[280px] px-6 flex flex-row items-center gap-4 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-background/80 shadow-sm"
         style={{
           transform: "translate3d(0,0,0)",
         }}
       >
-        <div className="w-10 h-10 transform-gpu p-2 rounded-lg bg-primary/10">
-          <Icon className="w-full h-full stroke-primary stroke-[1.5]" />
-        </div>
+        {item.title === "CRM Notes" ? (
+          <div className="flex -space-x-2">
+            {crmLogos.map((logo, i) => (
+              <div
+                key={logo}
+                className="w-8 h-8 rounded-lg bg-primary/10 p-1.5 relative"
+                style={{ zIndex: crmLogos.length - i }}
+              >
+                <Image
+                  src={logo}
+                  alt="CRM Logo"
+                  width={20}
+                  height={20}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="w-10 h-10 transform-gpu p-2 rounded-lg bg-primary/10">
+            <Icon className="w-full h-full stroke-primary stroke-[1.5]" />
+          </div>
+        )}
         <span className="text-lg font-semibold text-foreground">
           {item.title}
         </span>
@@ -162,6 +208,38 @@ const IntegrationCard = React.memo(
 );
 
 IntegrationCard.displayName = "IntegrationCard";
+
+const OutputCard = React.memo(
+  ({
+    item,
+    innerRef,
+  }: {
+    item: (typeof outputTypes)[number];
+    innerRef: (node: HTMLDivElement | null) => void;
+  }) => {
+    const Icon = item.icon;
+    return (
+      <motion.div
+        ref={innerRef}
+        whileHover={{ x: -10 }}
+        className="w-full h-[120px] max-w-[280px] px-6 flex flex-row items-center gap-4 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-background/80 shadow-sm"
+        style={{
+          transform: "translate3d(0,0,0)",
+        }}
+      >
+        <div className="w-10 h-10 transform-gpu p-2 rounded-lg bg-primary/10">
+          <Icon className="w-full h-full stroke-primary stroke-[1.5]" />
+        </div>
+        <span className="text-lg font-semibold text-foreground">
+          {item.title}
+        </span>
+      </motion.div>
+    );
+  }
+);
+
+OutputCard.displayName = "OutputCard";
+
 
 const WorkflowSection: React.FC = () => {
   const [connections, setConnections] = useState<Connection[]>([]);
@@ -265,21 +343,9 @@ const WorkflowSection: React.FC = () => {
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
         <defs>
           <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop
-              offset="0%"
-              stopColor="hsl(var(--primary))"
-              stopOpacity="0.15"
-            />
-            <stop
-              offset="50%"
-              stopColor="hsl(var(--primary))"
-              stopOpacity="0.8"
-            />
-            <stop
-              offset="100%"
-              stopColor="hsl(var(--primary))"
-              stopOpacity="0.15"
-            />
+            <stop offset="0%" stopColor="#9640FF" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#9640FF" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#9640FF" stopOpacity="0.15" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
@@ -292,16 +358,16 @@ const WorkflowSection: React.FC = () => {
         </AnimatePresence>
       </svg>
 
-      <div className="relative z-20 mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-center justify-center">
+      <div className="relative z-20 mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative items-stretch min-h-[800px]">
+          {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="space-y-6 transform-gpu flex flex-col items-center justify-center"
-            style={{ transform: "translate3d(0,0,0)" }}
+            className="flex flex-col items-center justify-center h-full sticky top-24"
           >
-            <div className="flex flex-col gap-4 items-center justify-center">
+            <div className="flex flex-col gap-4 items-center justify-between h-full py-8">
               {inputSources.map((item, index) => (
                 <InputCard
                   key={item.title}
@@ -314,59 +380,49 @@ const WorkflowSection: React.FC = () => {
             </div>
           </motion.div>
 
+          {/* Center Column */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="flex items-center justify-center transform-gpu"
-            style={{ transform: "translate3d(0,0,0)" }}
+            ref={aiHubRef}
+            className="w-full flex items-center justify-center sticky top-24 h-full py-8"
+            whileHover={{ scale: 1.03 }}
           >
-            <motion.div
-              ref={aiHubRef}
-              className="relative w-72 h-auto rounded-xl border border-border backdrop-blur-md backdrop-saturate-150 hover:border-primary/50 transition-all duration-500 transform-gpu will-change-transform bg-card/50"
-              style={{
-                transform: "translate3d(0,0,0)",
-              }}
-              whileHover={{ scale: 1.03 }}
+            <Button
+              as="div"
+              borderRadius="16px"
+              duration={8000}
+              className="bg-background/95 text-foreground border-border/50 h-full shadow-md"
+              containerClassName="w-full max-w-[400px] h-full"
             >
-              <div className="w-full rounded-xl flex flex-col items-center justify-center p-6">
-                <div className="text-center space-y-3 mb-4">
-                  <div className="font-bold text-4xl tracking-wide transition-colors text-foreground flex items-baseline justify-center">
-                    Advisor
-                    <span className="text-primary">X</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col h-full">
+                <div className="flex-1 flex flex-col justify-between gap-4">
                   {capabilities.map((capability) => (
                     <div
                       key={capability.title}
-                      className="group flex items-center gap-3 px-4 py-2 rounded-full hover:bg-muted transition-all duration-300 transform-gpu will-change-transform justify-center"
-                      style={{ transform: "translate3d(0,0,0)" }}
+                      className="group  flex items-center gap-3 px-10 py-10 rounded-xl hover:bg-primary/5 transition-all duration-300 transform-gpu will-change-transform justify-start bg-background/95 backdrop-blur-sm border border-border/50 shadow-sm"
                     >
-                      <div className="w-5 h-5 transform-gpu">
+                      <div className="w-6 h-6 transform-gpu">
                         <capability.icon className="w-full h-full stroke-primary opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5]" />
                       </div>
-                      <span className="text-lg font-medium whitespace-nowrap text-foreground">
+                      <span className="text-lg font-medium whitespace-nowrap text-foreground group-hover:text-primary transition-colors">
                         {capability.title}
                       </span>
                     </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </Button>
           </motion.div>
 
+          {/* Right Column */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="space-y-6 transform-gpu flex flex-col items-center justify-center"
-            style={{ transform: "translate3d(0,0,0)" }}
+            className="flex flex-col items-center justify-center h-full sticky top-24"
           >
-            <div className="flex flex-col gap-4 items-center justify-center">
-              {crmIntegrations.map((item, index) => (
-                <IntegrationCard
+            <div className="flex flex-col gap-4 items-center justify-center h-full py-8">
+              {outputTypes.map((item, index) => (
+                <OutputCard
                   key={item.title}
                   item={item}
                   innerRef={(node) => {
@@ -377,6 +433,9 @@ const WorkflowSection: React.FC = () => {
             </div>
           </motion.div>
         </div>
+        {/* <div className="text-center mt-12">
+          <p className="text-muted-foreground text-lg">And more features</p>
+        </div> */}
       </div>
     </section>
   );

@@ -8,11 +8,12 @@ import Image from "next/image";
 const testimonials = [
   {
     quote:
-      "AdvisorX has transformed how we handle our marketing. The AI-powered content generation saves us countless hours while maintaining compliance.",
-    author: "Sarah Johnson",
-    title: "Managing Partner",
-    firm: "Johnson Wealth Advisors",
-    image: "https://picsum.photos/200/300",
+      "AdvisorX is a big time saver for me and my team. It helps us overcome writer's block and ensures that the content we create is aligned with our firm's messaging. The ability to pull talking points from specific domains and combine them with our brand strategy is something I haven't seen in other tools.",
+    author: "Erik Allison",
+    title: "VP & Wealth Advisor",
+    firm: "Farther",
+    image:
+      "https://advisorx.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FTestimonialAdvisorX1.b9db8e23.jpg&w=828&q=75",
   },
   {
     quote:
@@ -78,7 +79,7 @@ export const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <section className="py-32 relative overflow-hidden min-w-full">
+    <section className="py-16 md:py-32 relative overflow-hidden min-w-full px-4">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
         <motion.div
@@ -108,13 +109,13 @@ export const TestimonialCarousel = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20 flex flex-col items-center justify-center gap-6"
+          className="text-center mb-10 md:mb-20 flex flex-col items-center justify-center gap-4 md:gap-6"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.5 }}
@@ -130,16 +131,16 @@ export const TestimonialCarousel = () => {
           >
             Testimonials
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
-            What Our Clients Say
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent px-4">
+            What advisors are saying
           </h2>
-          <p className="text-muted-foreground text-lg text-center max-w-3xl">
+          <p className="text-muted-foreground text-base md:text-lg text-center max-w-3xl px-4">
             Join thousands of financial advisors who are growing their practice
             with AdvisorX
           </p>
         </motion.div>
 
-        <div className="relative h-[500px] flex items-center justify-center">
+        <div className="relative h-[600px] md:h-[500px] flex items-center justify-center">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={current}
@@ -164,17 +165,17 @@ export const TestimonialCarousel = () => {
                   paginate(-1);
                 }
               }}
-              className="absolute w-full max-w-4xl mx-auto"
+              className="absolute w-full max-w-4xl mx-auto px-4"
             >
               <div className="relative">
-                <div className="bg-card/30 backdrop-blur-xl border border-border/50 rounded-2xl p-12 md:p-14 hover:border-primary/20 transition-colors duration-300 group">
+                <div className="bg-card/30 backdrop-blur-xl border border-border/50 rounded-2xl p-6 md:p-14 hover:border-primary/20 transition-colors duration-300 group">
                   <div className="flex flex-col items-center text-center">
-                    <Quote className="w-12 h-12 text-primary mb-8 rotate-180 opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
+                    <Quote className="w-8 h-8 md:w-12 md:h-12 text-primary mb-6 md:mb-8 rotate-180 opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="text-2xl md:text-3xl font-medium text-foreground mb-10 leading-relaxed"
+                      className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground mb-8 md:mb-10 leading-relaxed"
                     >
                       {testimonials[current].quote}
                     </motion.p>
@@ -182,7 +183,7 @@ export const TestimonialCarousel = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      className="flex items-center gap-6"
+                      className="flex flex-col md:flex-row items-center md:gap-6 gap-4"
                     >
                       <Image
                         src={testimonials[current].image}
@@ -191,11 +192,11 @@ export const TestimonialCarousel = () => {
                         height={48}
                         className="w-12 h-12 rounded-full object-cover"
                       />
-                      <div className="text-left">
-                        <div className="font-semibold text-lg text-foreground">
+                      <div className="text-center md:text-left">
+                        <div className="font-semibold text-base md:text-lg text-foreground">
                           {testimonials[current].author}
                         </div>
-                        <div className="text-muted-foreground">
+                        <div className="text-sm md:text-base text-muted-foreground">
                           {testimonials[current].title},{" "}
                           <span className="text-primary">
                             {testimonials[current].firm}
@@ -210,20 +211,20 @@ export const TestimonialCarousel = () => {
           </AnimatePresence>
 
           <button
-            className="absolute -left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-accent hover:border-primary/20 transition-colors z-10"
+            className="absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-accent hover:border-primary/20 transition-colors z-10"
             onClick={() => paginate(-1)}
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
           <button
-            className="absolute -right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-accent hover:border-primary/20 transition-colors z-10"
+            className="absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:bg-accent hover:border-primary/20 transition-colors z-10"
             onClick={() => paginate(1)}
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
-          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex gap-3">
+          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -231,7 +232,7 @@ export const TestimonialCarousel = () => {
                   setDirection(index > current ? 1 : -1);
                   setCurrent(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === current
                     ? "bg-primary scale-100"
                     : "bg-primary/20 scale-75 hover:scale-90 hover:bg-primary/40"

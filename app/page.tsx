@@ -1,26 +1,45 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle, ArrowRight, Play, Mail } from "lucide-react";
+import { CheckCircle, ArrowRight, Play, Headphones } from "lucide-react";
 import { AnimatedText } from "./components/animated-text";
 import { GridBackground } from "./components/grid-background";
 import { TrustedBy } from "./components/trusted-by";
 import { CompanyMarquee } from "./components/company-marquee";
 import { ThemeToggle } from "./components/theme-toggle";
-import AppleStyleDashboard from "./components/feature";
 import DashboardPage from "./dashboard/dashboard";
 import WorkflowSection from "./components/workflow-section";
 import EnterpriseFeatures from "./components/enterprise-features";
 import { motion } from "framer-motion";
-import Pricing from "./components/pricing";
 import { TestimonialCarousel } from "./components/testimonial-carousel";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
+import Link from "next/link";
 
 const AdvisorXLanding = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      toast.info("Welcome to AdvisorX!", {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center">
+      <ToastContainer />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-background/60 border-b border-border/40 flex items-center justify-between p-6 w-full z-50">
+      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-background/60 border-b border-border/40 flex items-center justify-between p-6 w-full z-[1000]">
         <div className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
           AdvisorX
         </div>
@@ -37,12 +56,12 @@ const AdvisorXLanding = () => {
           >
             Security
           </a>
-          <a
-            href="#pricing"
+          <Link
+            href="/pricing"
             className="text-muted-foreground hover:text-primary transition-colors duration-200"
           >
             Pricing
-          </a>
+          </Link>
           <a
             href="#resources"
             className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -52,7 +71,7 @@ const AdvisorXLanding = () => {
         </div>
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
+          <Button className="bg-primary hover:bg-primary opacity-90 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
             Get Started
           </Button>
         </div>
@@ -65,7 +84,7 @@ const AdvisorXLanding = () => {
           <GridBackground />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
           <motion.div
-            className="absolute top-20 -right-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
+            className="absolute top-20 -right-32 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
             animate={{
               x: [0, 20, 0],
               y: [0, -20, 0],
@@ -77,7 +96,7 @@ const AdvisorXLanding = () => {
             }}
           />
           <motion.div
-            className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"
+            className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
             animate={{
               x: [0, -20, 0],
               y: [0, 20, 0],
@@ -93,7 +112,7 @@ const AdvisorXLanding = () => {
 
         <div className="z-10 flex flex-col md:flex-row items-center justify-between gap-12 w-[90%]">
           {/* Left Content */}
-          <div className="w-full md:w-[45%] flex flex-col items-start">
+          <div className="w-full  flex flex-col items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,12 +120,12 @@ const AdvisorXLanding = () => {
             >
               <TrustedBy />
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 text-left w-full bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
+            <h1 className="text-4xl w-full md:text-7xl font-bold mb-8 text-center md:w-[70%] bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
               <span>
-                <AnimatedText text="AI Marketing " delay={0.2} />
+                <AnimatedText text="AI Content " delay={0.2} />
               </span>
               <span>
-                <AnimatedText text="Suite for " delay={0.8} />
+                <AnimatedText text="Engine for " delay={1.0} />
               </span>
               <span>
                 <AnimatedText text="Wealth " delay={1.2} />
@@ -120,20 +139,20 @@ const AdvisorXLanding = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-lg md:text-xl mb-8 text-muted-foreground font-medium w-full md:w-[90%] text-left leading-relaxed"
+              className="text-sm w-full md:text-xl mb-8 text-muted-foreground font-medium md:w-[60%] text-center leading-relaxed"
             >
-              Scale your firm with AI-powered marketing tools designed
-              specifically for RIAs and wealth management firms. Stay compliant,
-              engage prospects, and grow your AUM.
+              Attract your ideal clients with on-brand content and visuals. Stay
+              FINRA + SEC compliant, schedule posts, track engagement and grow
+              your reach.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-col sm:flex-row justify-start gap-4 w-full"
+              className="flex flex-col sm:flex-row justify-center gap-4 w-full"
             >
-              <Button className="bg-primary hover:bg-primary/90 text-base md:text-lg px-8 py-6 w-full sm:w-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
-                Start Free Trial
+              <Button className="bg-primary hover:bg-primary opacity-90 text-base md:text-lg px-8 py-6 w-full sm:w-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
+                Try for free
               </Button>
               <Button
                 variant="outline"
@@ -149,180 +168,150 @@ const AdvisorXLanding = () => {
               className="mt-4 text-muted-foreground/80 text-sm md:text-base text-left flex items-center gap-2"
             >
               <CheckCircle className="w-4 h-4 text-primary" />
-              No credit card required • 7-day free trial • Cancel anytime
+              No credit card required
+              <CheckCircle className="w-4 h-4 text-primary" />
+              7-day free trial
+              <CheckCircle className="w-4 h-4 text-primary" />
+              Cancel anytime
             </motion.p>
           </div>
 
           {/* Right Content - Video Placeholder */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full md:w-[45%] aspect-video rounded-xl overflow-hidden hidden md:block"
-          >
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
-            <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
-              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
-              <div className="relative h-full flex items-center justify-center">
-                <div className="w-20 h-20 rounded-full bg-primary/80 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
-                  <Play className="w-8 h-8 text-white ml-1" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
-
       <DashboardPage />
-      <section className="w-[60%] flex flex-col items-center mt-28">
-        <h3 className="text-4xl font-bold text-foreground">
-          Trusted by Leading Firms
-        </h3>
+      <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-7 p-10 mt-32 md:mt-10">
+        <h2 className="text-4xl font-bold text-foreground">See it in action</h2>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative w-full md:w-[50%] aspect-video rounded-xl overflow-hidden"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
+          <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
+            <div className="relative h-full flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-primary/80 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
+                <Play className="w-8 h-8 text-white ml-1" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="w-[95%] text-center text-2xl md:text-4xl md:w-[60%] flex flex-col items-center mt-28">
+        <h3 className=" font-bold text-foreground">Trusted by Leading Firms</h3>
         <CompanyMarquee />
       </section>
 
       <div className="flex flex-col items-center justify-center w-full mt-28">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <h3 className="text-4xl text-center font-bold text-foreground">
-            Save 10+ hours each week on
-            <br />
-            compliant marketing workflows
-          </h3>
-          <p className="text-lg text-muted-foreground">
-            Seamlessly connect your existing tools and data sources to power
-            your AI-driven marketing
-          </p>
-        </div>
-        <WorkflowSection />
-        <div className="absolute w-full h-full">
-          <motion.div
-            className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
-            animate={{
-              x: [0, 20, 0],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
-            animate={{
-              x: [0, -20, 0],
-              y: [0, 20, 0],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
-        </div>
-        <AppleStyleDashboard />
-        <EnterpriseFeatures />
+        {typeof window !== "undefined" && window.innerWidth > 1000 && (
+          <>
+            <div className="flex flex-col items-center justify-center gap-4">
+              <h3 className="text-4xl text-center font-bold text-foreground">
+                On-brand marketing that
+                <br />
+                integrates with your CRM notes.
+              </h3>
+              <p className="text-lg text-muted-foreground">
+                Save 10+ hours each week on personalized advisor marketing.
+              </p>
+            </div>
+            <WorkflowSection />
+            <div className="absolute w-full h-full">
+              <motion.div
+                className="absolute top-0 right-0 w-[500px] max-w-screen h-[500px] bg-primary/20 rounded-full blur-[120px]"
+                animate={{
+                  x: [0, 20, 0],
+                  y: [0, -20, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute bottom-0 left-0 w-[300px] max-w-screen h-[500px] bg-primary/20 rounded-full blur-[120px]"
+                animate={{
+                  x: [0, -20, 0],
+                  y: [0, 20, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+              />
+            </div>
+          </>
+        )}
         <TestimonialCarousel />
+        <EnterpriseFeatures />
       </div>
 
-      <Pricing />
-
-      {/* Newsletter Section */}
-      <section className="relative  w-full overflow-hidden">
+      {/* Podcast Section */}
+      <section className="relative w-full overflow-hidden py-24">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="relative max-w-6xl mx-auto px-6 py-24"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1 text-left">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent mb-6">
-                  Stay Ahead with AI Insights
-                </h2>
-                <p className="text-lg text-muted-foreground mb-4 max-w-md">
-                  Get weekly tips and strategies for leveraging AI in your
-                  practice. Join 10,000+ financial advisors already growing
-                  their business with our insights.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md">
-                  <div className="flex-1 relative group">
-                    <Input
-                      placeholder="Enter your email"
-                      className="w-full bg-background/60 backdrop-blur-sm border-border/50 focus:border-primary/50 transition-all duration-300 pr-24"
-                    />
-                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">
-                      <span className="text-xs text-muted-foreground/60">
-                        @company.com
-                      </span>
-                    </div>
-                  </div>
-                  <Button className="bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/30">
-                    Subscribe
-                  </Button>
-                </div>
-                <p className="mt-4 text-sm text-muted-foreground/80 flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  Join 10,000+ financial advisors
-                </p>
-              </motion.div>
+        <div className="relative max-w-3xl mx-auto px-6">
+          <div className="flex flex-col items-center gap-8 text-center">
+            {/* Header with Podcast Icon */}
+            <div className="flex items-center gap-3">
+              <Headphones className="w-12 h-12 text-primary" />
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+                Advisor Intelligence Podcast
+              </h2>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex-1"
-            >
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl" />
-                <div className="relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-6 shadow-xl">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">
-                        Latest Issue
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Dec 2024 • 5 min read
-                      </p>
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-medium mb-2">
-                    10 Ways AI is Transforming Financial Advisory
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Discover how leading advisors are using AI to streamline
-                    their practice and deliver better client outcomes...
-                  </p>
-                  <div className="flex items-center gap-2 text-sm">
-                    <div className="flex -space-x-2">
-                      {[1, 2, 3].map((i) => (
-                        <div
-                          key={i}
-                          className="w-6 h-6 rounded-full bg-primary/20 border-2 border-background"
-                        />
-                      ))}
-                    </div>
-                    <span className="text-muted-foreground">+2.5k readers</span>
-                  </div>
-                </div>
+            {/* Subheader */}
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Get all the latest insights on AI for wealth management from
+              industry experts.
+            </p>
+
+            {/* Email Subscription */}
+            <div className="w-full max-w-md space-y-4">
+              <div className="flex gap-3">
+                <Input
+                  placeholder="Enter your email"
+                  className="flex-1 bg-background/60 backdrop-blur-sm border-border/50"
+                />
+                <Button className="bg-primary hover:bg-primary/90">
+                  Subscribe
+                </Button>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Platform Icons */}
+            <div className="flex gap-6">
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Image
+                  src="/logos/apple-podcast.svg"
+                  alt="Apple Podcast"
+                  width={200}
+                  height={40}
+                />
+              </a>
+              <a
+                href="#"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Image
+                  src="/logos/spotify.svg"
+                  alt="Apple Podcast"
+                  className="bg-black p-1 rounded-md"
+                  width={200}
+                  height={40}
+                />
+              </a>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* CTA Section */}
@@ -353,7 +342,6 @@ const AdvisorXLanding = () => {
               delay: 2,
             }}
           />
-          <div className="absolute inset-0" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center">
@@ -364,31 +352,11 @@ const AdvisorXLanding = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-8"
           >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
-                delay: 0.2,
-              }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
-            >
-              Get Started Today
-            </motion.span>
-
             <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
-              Hire Your AI Marketing
+              Join firms who are growing
               <br />
-              Labor Force Today
+              their reach with AdvisorX
             </h2>
-
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of advisors who are scaling their practice with
-              AI-powered marketing automation.
-            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -452,7 +420,7 @@ const AdvisorXLanding = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
             {/* Company Info */}
             <div className="space-y-4">
               <div className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
@@ -513,52 +481,15 @@ const AdvisorXLanding = () => {
               </div>
             </div>
 
-            {/* Product */}
+            {/* Quick Links */}
             <div>
-              <h3 className="font-semibold mb-4 text-foreground">Product</h3>
+              <h3 className="font-semibold mb-4 text-foreground">
+                Quick Links
+              </h3>
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Security
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Resources
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div>
-              <h3 className="font-semibold mb-4 text-foreground">Company</h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a
-                    href="#"
+                    href="/about"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     About
@@ -566,26 +497,26 @@ const AdvisorXLanding = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/security"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Blog
+                    Security
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#features"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Careers
+                    Features
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#pricing"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Press
+                    Pricing
                   </a>
                 </li>
               </ul>
@@ -597,34 +528,18 @@ const AdvisorXLanding = () => {
               <ul className="space-y-3 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="/privacy-policy"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Privacy
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/terms"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Cookie Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Licenses
+                    Terms and Conditions
                   </a>
                 </li>
               </ul>

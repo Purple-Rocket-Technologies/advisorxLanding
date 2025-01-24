@@ -10,7 +10,6 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 272 60% 50%;
     --primary-foreground: 210 20% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -33,7 +32,6 @@
     --card-foreground: 210 20% 98%;
     --popover: 222 30% 8%;
     --popover-foreground: 210 20% 98%;
-    --primary: 272 60% 50%;
     --primary-foreground: 210 20% 98%;
     --secondary: 222 30% 12%;
     --secondary-foreground: 210 20% 98%;
@@ -195,4 +193,53 @@
   .animate-spin-reverse-slower {
     animation: spin-reverse-slower 35s linear infinite;
   }
+
+  @keyframes border-pulse {
+    0%,
+    100% {
+      border-color: hsl(var(--primary) / 0.2);
+    }
+    50% {
+      border-color: hsl(var(--primary));
+    }
+  }
+
+  @keyframes rotate-border {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-border-pulse {
+    animation: border-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-rotate-border {
+    animation: rotate-border 8s linear infinite;
+  }
+}
+
+@keyframes moving-border {
+  0% {
+    border-color: transparent transparent transparent primary;
+  }
+  25% {
+    border-color: primary transparent transparent transparent;
+  }
+  50% {
+    border-color: transparent primary transparent transparent;
+  }
+  75% {
+    border-color: transparent transparent primary transparent;
+  }
+  100% {
+    border-color: transparent transparent transparent primary;
+  }
+}
+
+.animate-moving-border {
+  animation: moving-border 4s linear infinite;
 }

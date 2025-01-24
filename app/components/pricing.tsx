@@ -1,223 +1,136 @@
 "use client";
 
-import React from "react";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
-import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface PricingTier {
-  name: string;
-  price: string;
-  period?: string;
-  description: string;
-  features: string[];
-  cta: string;
-  highlighted: boolean;
-}
-
-const tiers: PricingTier[] = [
+const tiers = [
   {
     name: "Starter",
     price: "Free",
-    description: "Perfect for trying out AdvisorX",
+    description: "Perfect for exploring AI-powered marketing.",
     features: [
-      "1 AI Agent of choice",
-      "100 generations per month",
-      "Basic compliance checks",
-      "Email support",
-      "Community access",
+      "1 AI Persona",
+      "5 generations per month",
+      "Compliance checks",
+      "5 visuals",
     ],
-    cta: "Start Free Trial",
-    highlighted: false,
+    cta: "Start Free",
+    popular: false,
   },
   {
     name: "Professional",
-    price: "$99",
+    price: "$99.99",
     period: "/month",
-    description: "Everything you need to grow your practice",
+    description: "Scale your marketing with powerful AI tools.",
     features: [
-      "3 AI Agents",
-      "1,000 generations per month",
+      "3 AI Personas",
+      "1,000 credits per month",
+      "20 visuals",
       "Compliance suite",
       "Priority support",
       "Custom prompt library",
       "Post scheduling",
-      "Basic analytics",
+      "Marketing analytics",
+      "1 user",
     ],
-    cta: "Start 7-Day Trial",
-    highlighted: true,
+    cta: "Get Started",
+    popular: true,
   },
   {
     name: "Premium",
-    price: "$299",
+    price: "$299.99",
     period: "/month",
-    description: "Advanced features for larger practices",
+    description: "Advanced features for maximum growth.",
     features: [
-      "Unlimited AI Agents",
+      "All AI Agents",
       "Unlimited generations",
+      "Unlimited visuals",
       "Compliance suite",
       "24/7 priority support",
       "Custom agent development",
-      "Advanced analytics",
-      "Dedicated success manager",
+      "Marketing analytics",
+      "Up to 4 users",
     ],
     cta: "Contact Sales",
-    highlighted: false,
+    popular: false,
   },
 ];
 
-const FeatureIcon = ({ highlighted }: { highlighted: boolean }) => (
-  <motion.div
-    whileHover={{ scale: 1.2, rotate: 5 }}
-    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-    className={`rounded-full p-1 ${
-      highlighted ? "bg-primary" : "bg-primary/10"
-    }`}
-  >
-    <Check
-      className={`w-4 h-4 ${
-        highlighted ? "text-primary-foreground" : "text-primary"
-      }`}
-    />
-  </motion.div>
-);
-
 export default function Pricing() {
   return (
-    <section className="py-24 relative overflow-hidden min-w-full" id="pricing">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-primary/5 rounded-full blur-3xl" />
+    <section className="py-20 px-4 w-full max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold mb-4"
+        >
+          Rome wasn&apos;t built in a day,
+          <br />
+          but your marketing assets will be.
+        </motion.h1>
+        <p className="text-muted-foreground text-xl">
+          Choose the perfect plan for your needs
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-20">
+      <div className="grid md:grid-cols-3 gap-8">
+        {tiers.map((tier, i) => (
           <motion.div
+            key={tier.name}
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-2 mb-4"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            className={`relative p-8 rounded-2xl border backdrop-blur-sm shadow-sm ${
+              tier.popular
+                ? "border-primary/50 bg-primary/[0.02] shadow-primary/5"
+                : "border-border/50 bg-background/80"
+            }`}
           >
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="text-primary font-medium">Flexible Plans</span>
-          </motion.div>
+            {tier.popular && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-sm font-medium bg-primary text-primary-foreground">
+                Most Popular
+              </div>
+            )}
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-transparent mb-6"
-          >
-            Simple, transparent pricing
-          </motion.h2>
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">{tier.price}</span>
+                {tier.period && (
+                  <span className="text-muted-foreground">{tier.period}</span>
+                )}
+              </div>
+              <p className="text-muted-foreground">{tier.description}</p>
+            </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
-          >
-            Rome wasn&apos;t built in a day, but your marketing assets will be.
-          </motion.p>
-        </div>
+            <ul className="space-y-4 mb-8">
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 max-w-7xl mx-auto">
-          {tiers.map((tier, index) => (
-            <motion.div
-              key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
-              className={`relative flex flex-col p-8 rounded-2xl border ${
-                tier.highlighted
-                  ? "border-primary/50 bg-primary/5"
-                  : "border-border bg-card"
+            <Button
+              className={`w-full ${
+                tier.popular
+                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+                  : "bg-primary/10 hover:bg-primary/20 text-foreground hover:text-primary border border-primary/20"
               }`}
             >
-              {tier.highlighted && (
-                <div className="absolute -top-5 left-0 right-0 flex justify-center">
-                  <div className="bg-primary text-primary-foreground text-sm font-medium px-4 py-1 rounded-full">
-                    Most Popular
-                  </div>
-                </div>
-              )}
+              {tier.cta}
+            </Button>
+          </motion.div>
+        ))}
+      </div>
 
-              <div className="mb-8">
-                <motion.h3
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                  className="text-xl font-bold mb-2"
-                >
-                  {tier.name}
-                </motion.h3>
-                <div className="flex items-baseline gap-1">
-                  <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                    className="text-4xl font-bold"
-                  >
-                    {tier.price}
-                  </motion.span>
-                  {tier.period && (
-                    <motion.span
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                      className="text-muted-foreground"
-                    >
-                      {tier.period}
-                    </motion.span>
-                  )}
-                </div>
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  className="text-muted-foreground mt-2"
-                >
-                  {tier.description}
-                </motion.p>
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-grow">
-                {tier.features.map((feature, featureIndex) => (
-                  <motion.li
-                    key={feature}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.2,
-                      delay: 0.6 + index * 0.1 + featureIndex * 0.05,
-                    }}
-                    className="flex items-center gap-3"
-                  >
-                    <FeatureIcon highlighted={tier.highlighted} />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-
-              <Button
-                variant={tier.highlighted ? "default" : "outline"}
-                className="w-full"
-              >
-                {tier.cta}
-              </Button>
-            </motion.div>
-          ))}
-        </div>
+      <div className="mt-12 text-center">
+        <p className="text-muted-foreground">
+          Need more users? Add team members for $49.99 per user/month
+        </p>
       </div>
     </section>
   );

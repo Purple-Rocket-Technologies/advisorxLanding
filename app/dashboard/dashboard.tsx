@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from "framer-motion";
 const components = {
   home: LinkedInDashboard,
   chat: Chat,
-  "agent-builder": AgentBuilder,
+  "persona-builder": AgentBuilder,
   projects: Projects,
   compliance: Compliance,
   "post-scheduling": PostScheduling,
@@ -27,11 +27,11 @@ export const DashboardPage = () => {
   const ActiveComponent = components[activeComponent];
 
   return (
-    <div className="flex min-h-screen w-[88%] rounded-2xl bg-background relative overflow-hidden shadow-xl border border-border">
+    <div className="hidden sm:flex min-h-[85vh] w-[88%] rounded-2xl bg-background relative overflow-hidden shadow-xl border border-border">
       {/* Background Effects */}
       <div className="absolute w-full h-full">
         <motion.div
-          className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
+          className="absolute top-0 right-0 w-[500px] h-[500px]  bg-primary opacity-20 rounded-full blur-[120px]"
           animate={{
             x: [0, 20, 0],
             y: [0, -20, 0],
@@ -43,7 +43,7 @@ export const DashboardPage = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
           animate={{
             x: [0, -20, 0],
             y: [0, 20, 0],

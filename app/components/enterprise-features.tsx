@@ -7,37 +7,38 @@ const features = [
   {
     title: "Intelligent Knowledge Base",
     description:
-      "Our AI creates deep connections between your firm's data automatically. This ensures more accurate content generation by understanding the complex relationships within your practice.",
+      "Connect your documents or pull real-time data from the web. AdvisorX retrieves all sources into accurate content tailored to your firm.",
     ui: {
       type: "search",
       placeholder: "Search knowledge base...",
-      items: ["Investment Strategy", "Market Analysis", "Client Portfolio"],
+      items: ["Market Research", "Client Documents", "Web Data"],
       bgColor: "bg-card/50",
       borderColor: "border-blue-200/20",
       accentColor: "bg-blue-500",
     },
   },
   {
-    title: "Agent Builder",
+    title: "Persona Builder",
     description:
-      "Create custom AI agents tailored to your specific needs. Get specialized support for ongoing customization and fine-tuning to match your unique requirements.",
+      "Create custom AI personas for your specific content needs. Get support for ongoing fine-tuning to match your firm's brand guidelines.",
     ui: {
-      type: "toggle",
-      label: "Agent Settings",
-      options: ["Basic", "Advanced", "Expert"],
+      type: "select",
+      label: "Select Persona",
+      options: ["Professional", "Educational", "Conversational"],
       bgColor: "bg-card/50",
       borderColor: "border-emerald-200/20",
       accentColor: "bg-emerald-500",
     },
   },
   {
-    title: "Dynamic Prompt Library",
+    title: "Marketing Compliance",
     description:
-      "Access a comprehensive library of pre-built prompts designed for wealth management. Customize and save your own prompts for consistent content creation.",
+      "Expedite your compliance workflows with FINRA/SEC compliance reviews that flag phrases and statements with recomendations.",
     ui: {
-      type: "select",
-      label: "Select Template",
-      options: ["Market Update", "Portfolio Review", "Investment Thesis"],
+      type: "upload",
+      label: "Compliance Check",
+      status: "Reviewing...",
+      progress: 85,
       bgColor: "bg-card/50",
       borderColor: "border-purple-200/20",
       accentColor: "bg-purple-500",
@@ -57,29 +58,28 @@ const features = [
     },
   },
   {
-    title: "Bot Builder",
+    title: "Data-driven Visuals",
     description:
-      "Create secure, compliant chatbots to handle common client queries. Deploy across your digital channels for 24/7 prospect engagement.",
+      "Create charts, images and infographics in your firm's brand colors and engage clients across your social media channels.",
     ui: {
-      type: "chat",
-      messages: [
-        { text: "Hello! How can I help?", type: "bot" },
-        { text: "I'd like to learn more", type: "user" },
-      ],
+      type: "toggle",
+      label: "Visual Style",
+      options: ["Charts", "Images", "Infographics"],
       bgColor: "bg-card/50",
       borderColor: "border-rose-200/20",
       accentColor: "bg-rose-500",
     },
   },
   {
-    title: "Document Parsing",
+    title: "Content Studio",
     description:
-      "Automatically analyze and extract insights from financial documents. Generate summaries and reports with key findings highlighted.",
+      "Add your unique perspective, tone and target audience. Reformat content, opening hooks, and client sophistication levels to drive engagement.",
     ui: {
-      type: "upload",
-      label: "Upload Document",
-      status: "Processing...",
-      progress: 65,
+      type: "chat",
+      messages: [
+        { text: "Adjust content tone", type: "bot" },
+        { text: "Make it more professional", type: "user" },
+      ],
       bgColor: "bg-card/50",
       borderColor: "border-indigo-200/20",
       accentColor: "bg-indigo-500",
@@ -164,7 +164,7 @@ const FeatureCard = React.memo(
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`p-2 text-center text-sm rounded-lg cursor-pointer ${
-                      option === "Advanced"
+                      false
                         ? feature.ui.accentColor + " text-white"
                         : "bg-background/60 text-foreground hover:bg-background/80"
                     }`}
@@ -367,9 +367,9 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-transparent bg-primary/10 h-fit p-3"
+            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-transparent  bg-primary opacity-20 h-fit p-3"
           >
-            Enterprise-Grade Features
+            Features
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -378,8 +378,8 @@ const EnterpriseFeatures = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            Built for firms of all sizes using state-of-the-art AI fine-tuned
-            for wealth management.
+            Marketing for firms of all sizes using state-of-the-art AI for
+            wealth management.
           </motion.p>
         </div>
 

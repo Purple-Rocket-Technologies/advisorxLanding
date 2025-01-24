@@ -6,52 +6,48 @@ import Image from "next/image";
 
 const companies = [
   {
-    name: "Morgan Stanley",
-    logo: "/logos/morgan-stanley.svg",
+    name: "Farther",
+    logo: "/logos/Farhter.svg",
   },
   {
-    name: "Goldman Sachs",
-    logo: "/logos/goldman-sachs.svg",
+    name: "Elevation",
+    logo: "/logos/elevation.svg",
   },
   {
-    name: "JP Morgan",
-    logo: "/logos/jp-morgan.svg",
+    name: "Firstrate",
+    logo: "/logos/firstrate.svg",
   },
   {
-    name: "UBS",
-    logo: "/logos/ubs.svg",
-  },
-  {
-    name: "Merrill Lynch",
-    logo: "/logos/merrill-lynch.svg",
+    name: "January",
+    logo: "/logos/January.svg",
   },
 ] as const;
 
 export const CompanyMarquee = () => {
   return (
-    <div className="w-full overflow-hidden py-12">
+    <div className="w-full overflow-x-auto py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8 text-muted-foreground"
+        className="flex flex-nowrap items-center justify-center space-x-12 text-black"
       >
         {companies.map((company) => (
           <motion.div
             key={company.name}
-            whileHover={{ scale: 1.05 }}
-            className="flex flex-col items-center gap-3"
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.7 }}
+            className="flex flex-col items-center gap-3 will-change-transform"
           >
-            <div className="w-12 h-12 relative grayscale hover:grayscale-0 transition-all duration-300">
+            <div className="w-32 h-32 relative grayscale hover:grayscale-0 transition-all duration-300 overflow-hidden flex justify-center items-center">
               <Image
                 src={company.logo}
                 alt={`${company.name} logo`}
-                width={150}
-                height={50}
-                className="h-8 w-auto object-contain grayscale opacity-50 hover:opacity-100 transition-opacity"
+                width={15000}
+                height={15000}
+                className="h-[500px] w-[500px] scale-150 invert dark:invert-0 opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
-            <span className="text-sm font-medium">{company.name}</span>
           </motion.div>
         ))}
       </motion.div>
