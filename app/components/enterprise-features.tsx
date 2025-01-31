@@ -359,7 +359,7 @@ FeatureCard.displayName = "FeatureCard";
 
 const EnterpriseFeatures = () => {
   return (
-    <section className="w-full py-32 relative">
+    <section className="w-full py-12 relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <motion.h2
@@ -367,7 +367,7 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-transparent  bg-primary opacity-20 h-fit p-3"
+            className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent mb-12"
           >
             Features
           </motion.h2>

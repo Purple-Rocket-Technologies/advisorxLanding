@@ -12,23 +12,30 @@ const testimonials = [
     author: "Erik Allison",
     title: "VP & Wealth Advisor",
     firm: "Farther",
-    image:
-      "https://advisorx.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FTestimonialAdvisorX1.b9db8e23.jpg&w=828&q=75",
-  },
+    image: "https://picsum.photos/200/300",
+    },
   {
     quote:
-      "The compliance features alone are worth the investment. We've seen a 40% increase in our social media engagement since using AdvisorX.",
-    author: "Michael Chen",
-    title: "Chief Marketing Officer",
-    firm: "Pacific Wealth Management",
+      "AdvisorX saves me time by making content creation and client communication easier. It even helps me answer complex questions, like those involving international taxes, with incredible accuracy.",
+    author: "Buff Dormeier",
+    title: "Chief Technical Analyst",
+    firm: "Kingsview Partners",
     image: "https://picsum.photos/200/300",
   },
   {
     quote:
-      "As a solo advisor, AdvisorX has been like having an entire marketing team at my fingertips. It's incredibly intuitive and effective.",
-    author: "Emily Rodriguez",
+      "AdvisorX saves me time and mental energy by simplifying content creation and client communication. This allows me to focus on what truly matters: providing the best possible financial planning and advice to my clients.",
+    author: "Michael Reynolds",
     title: "Founder",
-    firm: "Clear Path Financial",
+    firm: "Elevation Financial",
+    image: "https://picsum.photos/200/300",
+  },
+  {
+    quote:
+      "AdvisorX has been instrumental in establishing my firm's unique voice and online presence. It allows me to efficiently create original content tailored to my specific audience, including detailed explanations of complex topics like stock options and retirement plans.",
+    author: "Jacob Rieger",
+    title: "CIO",
+    firm: "Vaultis Private Wealth",
     image: "https://picsum.photos/200/300",
   },
 ] as const;

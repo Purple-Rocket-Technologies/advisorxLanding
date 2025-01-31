@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle, ArrowRight, Play, Headphones } from "lucide-react";
-import { AnimatedText } from "./components/animated-text";
-import { GridBackground } from "./components/grid-background";
-import { TrustedBy } from "./components/trusted-by";
 import { CompanyMarquee } from "./components/company-marquee";
 import { ThemeToggle } from "./components/theme-toggle";
 import DashboardPage from "./dashboard/dashboard";
@@ -17,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import Link from "next/link";
+import Hero from "./components/hero";
 
 const AdvisorXLanding = () => {
   useEffect(() => {
@@ -36,149 +34,50 @@ const AdvisorXLanding = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center">
+    <div className="min-h-screen bg-base-white dark:bg-base-black text-neutral-dark dark:text-base-white flex flex-col items-center">
       <ToastContainer />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-background/60 border-b border-border/40 flex items-center justify-between p-6 w-full z-[1000]">
-        <div className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-          AdvisorX
-        </div>
-        <div className="hidden md:flex space-x-8">
-          <a
-            href="#features"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Features
-          </a>
-          <a
-            href="#security"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Security
-          </a>
-          <Link
-            href="/pricing"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Pricing
-          </Link>
-          <a
-            href="#resources"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Resources
-          </a>
-        </div>
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <Button className="bg-primary hover:bg-primary opacity-90 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
-            Get Started
-          </Button>
+      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-base-white/60 dark:bg-base-black/60 border-b border-neutral-light/10 flex items-center justify-between p-6 w-full z-[1000]">
+        <div className="flex justify-between items-center w-full max-w-[80%] mx-auto px-4 md:px-6">
+          <div className="text-2xl font-bold text-foreground">AdvisorX</div>
+          <div className="hidden md:flex space-x-8">
+            <a
+              href="#features"
+              className="text-neutral-medium hover:text-primary transition-colors duration-200"
+            >
+              Features
+            </a>
+            <a
+              href="#security"
+              className="text-neutral-medium hover:text-primary transition-colors duration-200"
+            >
+              Security
+            </a>
+            <Link
+              href="/pricing"
+              className="text-neutral-medium hover:text-primary transition-colors duration-200"
+            >
+              Pricing
+            </Link>
+            <a
+              href="#resources"
+              className="text-neutral-medium hover:text-primary transition-colors duration-200"
+            >
+              Resources
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Button className="bg-primary hover:bg-primary/90 text-base-white shadow-lg shadow-primary/25 hover:shadow-primary/40">
+              Get Started
+            </Button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className=" px-4 md:px-6 py-32 md:py-40 min-h-[80vh] flex flex-col items-center justify-center min-w-[90%]">
-        {/* Background */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <GridBackground />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
-          <motion.div
-            className="absolute top-20 -right-32 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
-            animate={{
-              x: [0, 20, 0],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
-            animate={{
-              x: [0, -20, 0],
-              y: [0, 20, 0],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
-        </div>
 
-        <div className="z-10 flex flex-col md:flex-row items-center justify-between gap-12 w-[90%]">
-          {/* Left Content */}
-          <div className="w-full  flex flex-col items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <TrustedBy />
-            </motion.div>
-            <h1 className="text-4xl w-full md:text-7xl font-bold mb-8 text-center md:w-[70%] bg-gradient-to-r from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
-              <span>
-                <AnimatedText text="AI Content " delay={0.2} />
-              </span>
-              <span>
-                <AnimatedText text="Engine for " delay={1.0} />
-              </span>
-              <span>
-                <AnimatedText text="Wealth " delay={1.2} />
-              </span>
-              <span>
-                <AnimatedText text="Advisors " delay={1.6} />
-              </span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-sm w-full md:text-xl mb-8 text-muted-foreground font-medium md:w-[60%] text-center leading-relaxed"
-            >
-              Attract your ideal clients with on-brand content and visuals. Stay
-              FINRA + SEC compliant, schedule posts, track engagement and grow
-              your reach.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-col sm:flex-row justify-center gap-4 w-full"
-            >
-              <Button className="bg-primary hover:bg-primary opacity-90 text-base md:text-lg px-8 py-6 w-full sm:w-auto shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
-                Try for free
-              </Button>
-              <Button
-                variant="outline"
-                className="text-base md:text-lg px-8 py-6 w-full sm:w-auto border-primary/20 hover:bg-primary/5 transition-all duration-300"
-              >
-                Schedule Demo
-              </Button>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="mt-4 text-muted-foreground/80 text-sm md:text-base text-left flex items-center gap-2"
-            >
-              <CheckCircle className="w-4 h-4 text-primary" />
-              No credit card required
-              <CheckCircle className="w-4 h-4 text-primary" />
-              7-day free trial
-              <CheckCircle className="w-4 h-4 text-primary" />
-              Cancel anytime
-            </motion.p>
-          </div>
-
-          {/* Right Content - Video Placeholder */}
-        </div>
-      </section>
+      <Hero />
       <DashboardPage />
       <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-7 p-10 mt-32 md:mt-10">
         <h2 className="text-4xl font-bold text-foreground">See it in action</h2>
@@ -192,7 +91,7 @@ const AdvisorXLanding = () => {
           <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
             <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
             <div className="relative h-full flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-primary/80 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
+              <div className="w-20 h-20 rounded-full bg-[#0400F0] flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
                 <Play className="w-8 h-8 text-white ml-1" />
               </div>
             </div>
@@ -200,24 +99,20 @@ const AdvisorXLanding = () => {
         </motion.div>
       </section>
 
-      <section className="w-[95%] text-center text-2xl md:text-4xl md:w-[60%] flex flex-col items-center mt-28">
-        <h3 className=" font-bold text-foreground">Trusted by Leading Firms</h3>
+      <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
+        <h3 className="text-3xl md:text-5xl font-bold mb-12">
+          Trusted by leading <br /> wealth management firms
+        </h3>
+        <p className="text-lg text-muted-foreground max-w-2xl">
+          AdvisorX is designed to 10x productivity for wealth management
+          professionals
+        </p>
         <CompanyMarquee />
       </section>
 
-      <div className="flex flex-col items-center justify-center w-full mt-28">
+      <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
           <>
-            <div className="flex flex-col items-center justify-center gap-4">
-              <h3 className="text-4xl text-center font-bold text-foreground">
-                On-brand marketing that
-                <br />
-                integrates with your CRM notes.
-              </h3>
-              <p className="text-lg text-muted-foreground">
-                Save 10+ hours each week on personalized advisor marketing.
-              </p>
-            </div>
             <WorkflowSection />
             <div className="absolute w-full h-full">
               <motion.div
@@ -253,14 +148,14 @@ const AdvisorXLanding = () => {
       </div>
 
       {/* Podcast Section */}
-      <section className="relative w-full overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
+      <section className="relative w-full overflow-hidden py-32 mt-12">
+        <div className="absolute rounded-full inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/10" />
         <div className="relative max-w-3xl mx-auto px-6">
           <div className="flex flex-col items-center gap-8 text-center">
             {/* Header with Podcast Icon */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-6">
               <Headphones className="w-12 h-12 text-primary" />
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-foreground via-foreground/80 to-foreground/60 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
                 Advisor Intelligence Podcast
               </h2>
             </div>
@@ -315,8 +210,8 @@ const AdvisorXLanding = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:from-background dark:to-background/90 rounded-t-[3rem] border-t border-border/5">
-        <div className="absolute inset-0">
+      <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:bg-black rounded-t-[3rem] border-t border-border/5 py-24">
+        <div className="flex flex-col items-center justify-center">
           <motion.div
             className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px]"
             animate={{
@@ -345,6 +240,20 @@ const AdvisorXLanding = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center">
+          <motion.span
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 20,
+              delay: 0.2,
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+          >
+            Get Started
+          </motion.span>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -402,7 +311,7 @@ const AdvisorXLanding = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative w-full bg-background dark:bg-background/50 border-t border-border/5 pt-20 pb-12 overflow-hidden">
+      <footer className="relative w-full bg-background dark:bg-background/50 pt-20 pb-12 overflow-hidden border-t-2 border-gray-700/5 rounded-md">
         <div className="absolute inset-0">
           <div className="absolute inset-0  bg-[length:20px_20px]" />
           <motion.div
