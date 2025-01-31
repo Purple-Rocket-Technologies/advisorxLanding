@@ -6,7 +6,6 @@ import {
   Globe,
   Shield,
   PenTool,
-  Settings,
   Users,
   Target,
   BrainCircuit,
@@ -84,18 +83,21 @@ const FlowPath: React.FC<FlowPathProps> = React.memo(({ start, end }) => {
     />
   );
 });
+FlowPath.displayName = "FlowPath";
+
+type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 
 interface CardProps {
   item: {
     title: string;
-    icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
+    icon: IconComponent | string;
     isImage?: boolean;
   };
   innerRef?: React.Ref<HTMLDivElement>;
 }
 
 const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
-  const Icon = item.icon as any;
+  const Icon = item.icon as IconComponent;
   return (
     <motion.div
       ref={innerRef}
@@ -132,9 +134,10 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     </motion.div>
   );
 });
+InputCard.displayName = "InputCard";
 
 const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
-  const Icon = item.icon as any;
+  const Icon = item.icon as IconComponent;
   return (
     <motion.div
       ref={innerRef}
@@ -161,6 +164,7 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     </motion.div>
   );
 });
+OutputCard.displayName = "OutputCard";
 
 const WorkflowSection = () => {
   const [connections, setConnections] = useState<Connection[]>([]);

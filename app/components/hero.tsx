@@ -26,9 +26,6 @@ const AnimatedText = ({
 );
 
 const FeatureCard = ({
-  icon: Icon,
-  title,
-  description,
   accentColor,
   borderColor,
   children,
