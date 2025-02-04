@@ -46,7 +46,7 @@ export function Button({
         <MovingBorder duration={duration} rx={borderRadius} ry={borderRadius}>
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(circle_at_center,#9640FF_0%,transparent_60%)]",
+              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(circle_at_center,#10dec5_0%,transparent_60%)]",
               borderClassName
             )}
           />
@@ -118,7 +118,7 @@ export const MovingBorder = ({
           rx={rx}
           ry={ry}
           ref={pathRef}
-          stroke="#9640FF"
+          stroke="#10dec5"
           strokeOpacity="0.2"
           strokeWidth="2"
         />
@@ -132,7 +132,7 @@ export const MovingBorder = ({
           transform,
         }}
       >
-        <div className="h-20 w-20 opacity-[0.8] bg-[radial-gradient(circle_at_center,#9640FF_0%,transparent_60%)]" />
+        <div className="h-20 w-20 opacity-[0.8] bg-[radial-gradient(circle_at_center,#10dec5_0%,transparent_60%)]" />
       </motion.div>
     </>
   );

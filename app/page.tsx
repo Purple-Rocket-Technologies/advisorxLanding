@@ -13,8 +13,9 @@ import { TestimonialCarousel } from "./components/testimonial-carousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
-import Link from "next/link";
 import Hero from "./components/hero";
+import NavBar from "./components/nav";
+import BenefitsSection from "./components/matter";
 
 const AdvisorXLanding = () => {
   useEffect(() => {
@@ -34,47 +35,10 @@ const AdvisorXLanding = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-base-white dark:bg-base-black text-neutral-dark dark:text-base-white flex flex-col items-center">
+    <div className="min-h-screen bg-background dark:bg-black text-neutral-dark dark:text-base-white flex flex-col items-center">
       <ToastContainer />
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-base-white/60 dark:bg-base-black/60 border-b border-neutral-light/10 flex items-center justify-between p-6 w-full z-[1000]">
-        <div className="flex justify-between items-center w-full max-w-[80%] mx-auto px-4 md:px-6">
-          <div className="text-2xl font-bold text-foreground">AdvisorX</div>
-          <div className="hidden md:flex space-x-8">
-            <a
-              href="#features"
-              className="text-neutral-medium hover:text-primary transition-colors duration-200"
-            >
-              Features
-            </a>
-            <a
-              href="#security"
-              className="text-neutral-medium hover:text-primary transition-colors duration-200"
-            >
-              Security
-            </a>
-            <Link
-              href="/pricing"
-              className="text-neutral-medium hover:text-primary transition-colors duration-200"
-            >
-              Pricing
-            </Link>
-            <a
-              href="#resources"
-              className="text-neutral-medium hover:text-primary transition-colors duration-200"
-            >
-              Resources
-            </a>
-          </div>
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Button className="bg-primary hover:bg-primary/90 text-base-white shadow-lg shadow-primary/25 hover:shadow-primary/40">
-              Get Started
-            </Button>
-          </div>
-        </div>
-      </nav>
-
+      <NavBar />
       {/* Hero Section */}
 
       <Hero />
@@ -91,7 +55,7 @@ const AdvisorXLanding = () => {
           <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
             <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
             <div className="relative h-full flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-[#0400F0] flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
                 <Play className="w-8 h-8 text-white ml-1" />
               </div>
             </div>
@@ -103,13 +67,9 @@ const AdvisorXLanding = () => {
         <h3 className="text-3xl md:text-5xl font-bold mb-12">
           Trusted by leading <br /> wealth management firms
         </h3>
-        <p className="text-lg text-muted-foreground max-w-2xl">
-          AdvisorX is designed to 10x productivity for wealth management
-          professionals
-        </p>
         <CompanyMarquee />
       </section>
-
+      <BenefitsSection />
       <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
           <>

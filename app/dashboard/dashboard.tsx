@@ -31,7 +31,7 @@ export const DashboardPage = () => {
       {/* Background Effects */}
       <div className="absolute w-full h-full">
         <motion.div
-          className="absolute top-0 right-0 w-[500px] h-[500px]  bg-[#8987FF] opacity-20 rounded-full blur-[120px]"
+          className="absolute top-0 right-0 w-[500px] h-[500px]  bg-primary opacity-20 rounded-full blur-[120px]"
           animate={{
             x: [0, 20, 0],
             y: [0, -20, 0],

@@ -13,8 +13,8 @@ const features = [
       placeholder: "Search knowledge base...",
       items: ["Market Research", "Client Documents", "Web Data"],
       bgColor: "bg-card/50",
-      borderColor: "border-blue-200/20",
-      accentColor: "bg-blue-500",
+      borderColor: "border-primary/20",
+      accentColor: "bg-primary",
     },
   },
   {
@@ -26,8 +26,8 @@ const features = [
       label: "Select Persona",
       options: ["Professional", "Educational", "Conversational"],
       bgColor: "bg-card/50",
-      borderColor: "border-emerald-200/20",
-      accentColor: "bg-emerald-500",
+      borderColor: "border-primary/20",
+      accentColor: "bg-primary",
     },
   },
   {
@@ -40,8 +40,8 @@ const features = [
       status: "Reviewing...",
       progress: 85,
       bgColor: "bg-card/50",
-      borderColor: "border-purple-200/20",
-      accentColor: "bg-purple-500",
+      borderColor: "border-secondary/20",
+      accentColor: "bg-secondary",
     },
   },
   {
@@ -53,8 +53,8 @@ const features = [
       label: "Schedule Post",
       platforms: ["LinkedIn", "Twitter", "Instagram"],
       bgColor: "bg-card/50",
-      borderColor: "border-amber-200/20",
-      accentColor: "bg-amber-500",
+      borderColor: "border-primary/20",
+      accentColor: "bg-primary text-white",
     },
   },
   {
@@ -66,8 +66,8 @@ const features = [
       label: "Visual Style",
       options: ["Charts", "Images", "Infographics"],
       bgColor: "bg-card/50",
-      borderColor: "border-rose-200/20",
-      accentColor: "bg-rose-500",
+      borderColor: "border-secondary/20",
+      accentColor: "bg-secondary",
     },
   },
   {
@@ -81,8 +81,8 @@ const features = [
         { text: "Make it more professional", type: "user" },
       ],
       bgColor: "bg-card/50",
-      borderColor: "border-indigo-200/20",
-      accentColor: "bg-indigo-500",
+      borderColor: "border-primary/20",
+      accentColor: "bg-primary",
     },
   },
 ] as const;
@@ -246,7 +246,9 @@ const FeatureCard = React.memo(
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className={`aspect-square rounded-lg ${
-                      i === 3 ? feature.ui.accentColor : "bg-background/60"
+                      i === 3
+                        ? feature.ui.accentColor
+                        : "bg-background/60 text-black"
                     } flex items-center justify-center text-xs cursor-pointer`}
                   >
                     {i + 15}

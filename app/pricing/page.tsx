@@ -1,52 +1,15 @@
 "use client";
 import Pricing from "../components/pricing";
 import { ThemeToggle } from "../components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import NavBar from "../components/nav";
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 backdrop-blur-lg bg-background/60 border-b border-border/40 flex items-center justify-between p-6 w-full z-[1000]">
-        <div className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-          AdvisorX
-        </div>
-        <div className="hidden md:flex space-x-8">
-          <a
-            href="#features"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Features
-          </a>
-          <a
-            href="#security"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Security
-          </a>
-          <Link
-            href="/pricing"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Pricing
-          </Link>
-          <a
-            href="#resources"
-            className="text-muted-foreground hover:text-primary transition-colors duration-200"
-          >
-            Resources
-          </a>
-        </div>
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <Button className="bg-primary hover:bg-primary opacity-90 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300">
-            Get Started
-          </Button>
-        </div>
-      </nav>
-
+      <NavBar />
       {/* Pricing Section */}
       <div className="flex-grow flex flex-col items-center justify-center w-full mt-10">
         <Pricing />

@@ -125,7 +125,7 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
         </div>
       ) : (
         <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
-          <Icon className="w-full h-full stroke-[#8987FF] stroke-[1.5]" />
+          <Icon className="w-full h-full stroke-primary stroke-[1.5]" />
         </div>
       )}
       <span className="w-1/2 text-base font-light italic text-foreground">
@@ -155,7 +155,7 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
             className="w-full h-full object-contain"
           />
         ) : (
-          <Icon className="w-full h-full stroke-[#0400FD] dark:stroke-[#8FFFCF] stroke-[1.5]" />
+          <Icon className="w-full h-full stroke-primary dark:stroke-[#8FFFCF] stroke-[1.5]" />
         )}
       </div>
       <span className="w-1/2 text-base font-light italic text-foreground">
@@ -252,14 +252,14 @@ const WorkflowSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-fit bg-background relative w-full overflow-hidden flex flex-col items-center justify-start mb-24"
+      className="min-h-fit bg-background relative w-full  flex flex-col items-center justify-start mb-24"
     >
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
         <defs>
           <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#9640FF" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#9640FF" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#9640FF" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#10dec5" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#10dec5" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#10dec5" stopOpacity="0.15" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
@@ -288,12 +288,12 @@ const WorkflowSection = () => {
           Workflow
         </motion.span>
         <h3 className="text-3xl md:text-5xl font-bold text-black dark:text-white text-center mb-6">
-          On-brand marketing that
+          Personalized advisor marketing
           <br />
-          integrates with your CRM notes.
+          that integrates with your CRM.
         </h3>
         <p className="text-lg text-muted-foreground mb-24">
-          Save 10+ hours each week on personalized advisor marketing.
+          AI that understands your firm&apos;s brand and marketing goals.
         </p>
       </div>
 
@@ -360,6 +360,9 @@ const WorkflowSection = () => {
                 }}
               />
             ))}
+            <div className="absolute -bottom-20 w-full h-[80px] max-w-[240px] px-4 flex items-center justify-center text-lg font-light italic text-muted-foreground opacity-75">
+              & more...
+            </div>
           </motion.div>
         </div>
       </div>
