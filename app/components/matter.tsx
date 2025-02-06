@@ -78,10 +78,14 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-primary-950 mb-6 leading-tight">
-            More Time for What Matters
+          <h2 className="text-3xl md:text-6xl font-bold text-primary-950 mb-6 leading-tight">
+            <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+              {" "}
+              More Time{" "}
+            </span>{" "}
+            for What Matters
           </h2>
-          <p className="text-lg text-primary-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
             Empowering every key role in your practice with AI
           </p>
         </motion.div>

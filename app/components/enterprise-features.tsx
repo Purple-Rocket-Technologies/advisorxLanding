@@ -12,7 +12,7 @@ const features = [
       type: "search",
       placeholder: "Search knowledge base...",
       items: ["Market Research", "Client Documents", "Web Data"],
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary",
     },
@@ -25,7 +25,7 @@ const features = [
       type: "select",
       label: "Select Persona",
       options: ["Professional", "Educational", "Conversational"],
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary",
     },
@@ -39,7 +39,7 @@ const features = [
       label: "Compliance Check",
       status: "Reviewing...",
       progress: 85,
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-secondary/20",
       accentColor: "bg-secondary",
     },
@@ -52,7 +52,7 @@ const features = [
       type: "calendar",
       label: "Schedule Post",
       platforms: ["LinkedIn", "Twitter", "Instagram"],
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary text-white",
     },
@@ -65,7 +65,7 @@ const features = [
       type: "toggle",
       label: "Visual Style",
       options: ["Charts", "Images", "Infographics"],
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-secondary/20",
       accentColor: "bg-secondary",
     },
@@ -80,7 +80,7 @@ const features = [
         { text: "Adjust content tone", type: "bot" },
         { text: "Make it more professional", type: "user" },
       ],
-      bgColor: "bg-card/50",
+      bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary",
     },
@@ -369,7 +369,7 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent mb-12"
+            className="text-3xl md:text-6xl font-bold text-black mb-12 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
           >
             Features
           </motion.h2>
@@ -378,7 +378,7 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-xl text-gray-700 font-medium max-w-3xl mx-auto"
           >
             Marketing for firms of all sizes using state-of-the-art AI for
             wealth management.

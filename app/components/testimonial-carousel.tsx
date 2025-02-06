@@ -13,7 +13,7 @@ const testimonials = [
     title: "VP & Wealth Advisor",
     firm: "Farther",
     image: "https://picsum.photos/200/300",
-    },
+  },
   {
     quote:
       "AdvisorX saves me time by making content creation and client communication easier. It even helps me answer complex questions, like those involving international taxes, with incredible accuracy.",
@@ -116,7 +116,7 @@ export const TestimonialCarousel = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,10 +138,14 @@ export const TestimonialCarousel = () => {
           >
             Testimonials
           </motion.span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent px-4">
-            What advisors are saying
+          <h2 className="text-3xl md:text-6xl font-bold text-black px-4">
+            What{" "}
+            <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+              advisors{" "}
+            </span>{" "}
+            are saying
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg text-center max-w-3xl px-4">
+          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
             Join thousands of financial advisors who are growing their practice
             with AdvisorX
           </p>
@@ -175,7 +179,7 @@ export const TestimonialCarousel = () => {
               className="absolute w-full max-w-4xl mx-auto px-4"
             >
               <div className="relative">
-                <div className="bg-card/30 backdrop-blur-xl border border-border/50 rounded-2xl p-6 md:p-14 hover:border-primary/20 transition-colors duration-300 group">
+                <div className="bg-cardBg backdrop-blur-xl border border-border/50 rounded-2xl p-6 md:p-14 hover:border-primary/20 transition-colors duration-300 group">
                   <div className="flex flex-col items-center text-center">
                     <Quote className="w-8 h-8 md:w-12 md:h-12 text-primary mb-6 md:mb-8 rotate-180 opacity-50 group-hover:opacity-80 transition-opacity duration-300" />
                     <motion.p

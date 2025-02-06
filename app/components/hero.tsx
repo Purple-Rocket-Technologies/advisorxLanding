@@ -59,13 +59,12 @@ const FeatureCard = ({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.7, delay: delay }}
       whileHover={{ scale: 1.02 }}
-      className={`relative rounded-xl border backdrop-blur-md bg-white/80 dark:bg-black/20 border-gray-200/20 dark:border-white/10 p-5 flex flex-col justify-between overflow-hidden ${className}`}
-      style={{ borderColor: `${accentColor}20` }}
+      className={`relative rounded-xl border backdrop-blur-md  dark:bg-black/20  p-5 flex flex-col justify-between overflow-hidden ${className} border-white/20`}
     >
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <Icon className="w-6 h-6" style={{ color: accentColor }} />
+            <Icon className="w-6 h-6 stroke-white" />
             <h3 className="text-lg font-semibold">{title}</h3>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -86,29 +85,38 @@ const FeatureCard = ({
   );
 };
 
-const getCardClassName = (index: number): string => {
-  switch (index) {
-    case 0:
-      return "col-span-2 row-span-1";
-    case 1:
-      return "col-span-2";
-    case 2:
-      return "row-span-1 col-span-2";
-    case 3:
-      return "row-span-1 col-span-2";
-    case 4:
-      return "col-span-2";
-    default:
-      return "";
-  }
+const Button = ({
+  children,
+  variant = "default",
+  className = "",
+  ...props
+}: {
+  children: React.ReactNode;
+  variant?: "default" | "outline";
+  className?: string;
+}) => {
+  const baseStyles = "font-medium rounded-lg transition-all duration-300";
+  const variants = {
+    default: "bg-primary hover:bg-secondary/90",
+    outline: "border border-secondary hover:bg-secondary/5",
+  };
+
+  return (
+    <button
+      className={`${baseStyles} ${variants[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 };
 
-const FeatureShowcase = () => {
+const Hero = () => {
   const features = [
     {
       title: "",
       icon: MessageSquareText,
-      accentColor: "#10dec5", // Changed to secondary color
+      accentColor: "#10dec5",
       content: (
         <div className="flex flex-col gap-3">
           <motion.div
@@ -117,7 +125,7 @@ const FeatureShowcase = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="flex justify-end"
           >
-            <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%] bg-secondary text-black">
+            <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%]  text-white border border-secondary">
               Generate content about retirement planning
             </div>
           </motion.div>
@@ -127,7 +135,7 @@ const FeatureShowcase = () => {
             transition={{ delay: 1, duration: 0.5 }}
             className="flex justify-start"
           >
-            <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%] bg-gray-100 dark:bg-white/10">
+            <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%] text-white border border-white/20 dark:bg-white/10">
               Creating expert content...
             </div>
           </motion.div>
@@ -137,7 +145,7 @@ const FeatureShowcase = () => {
     {
       title: "",
       icon: Calendar,
-      accentColor: "#0a504a", // Changed to primary color
+      accentColor: "#0a504a",
       content: (
         <div className="grid grid-cols-7 gap-1">
           {Array.from({ length: 7 }).map((_, i) => (
@@ -148,8 +156,8 @@ const FeatureShowcase = () => {
               transition={{ delay: 1.5 + i * 0.1, duration: 0.3 }}
               className={`aspect-square rounded-lg ${
                 i === 3
-                  ? "bg-primary text-white"
-                  : "bg-gray-100 dark:bg-white/10"
+                  ? "border-2 border-secondary text-white"
+                  : "border border-white/20 text-white dark:bg-white/10"
               } flex items-center justify-center text-xs`}
             >
               {i + 15}
@@ -161,19 +169,19 @@ const FeatureShowcase = () => {
     {
       title: "",
       icon: ShieldCheck,
-      accentColor: "#0a504a", // Changed to primary color
+      accentColor: "#0a504a",
       content: (
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between text-muted-foreground">
+          <div className="flex items-center justify-between text-white">
             <span className="text-xs">Reviewing...</span>
             <span className="text-xs">85%</span>
           </div>
-          <div className="w-full h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
+          <div className="w-full h-1 dark:bg-white/10 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "85%" }}
               transition={{ duration: 1 }}
-              className="h-full bg-primary"
+              className="h-full bg-white"
             />
           </div>
           <div className="flex gap-2 mt-2">
@@ -192,7 +200,7 @@ const FeatureShowcase = () => {
     {
       title: "",
       icon: BarChart2,
-      accentColor: "#10dec5", // Changed to secondary color
+      accentColor: "#10dec5",
       content: (
         <div className="flex flex-col gap-3">
           <div className="h-16 flex items-end gap-1">
@@ -202,11 +210,11 @@ const FeatureShowcase = () => {
                 initial={{ height: 0 }}
                 animate={{ height: `${height}%` }}
                 transition={{ delay: i * 0.1 }}
-                className="flex-1 bg-secondary rounded-t"
+                className="flex-1 bg-white/20 rounded-t"
               />
             ))}
           </div>
-          <div className="flex justify-between text-xs mt-2 text-muted-foreground">
+          <div className="flex justify-between text-xs mt-2 text-white">
             <span>LinkedIn</span>
             <span>Twitter</span>
           </div>
@@ -215,58 +223,100 @@ const FeatureShowcase = () => {
     },
   ];
 
+  const leftFeature1 = features.slice(0, 1);
+  const leftFeature2 = features.slice(1, 2);
+  const rightFeature1 = features.slice(2, 3);
+  const rightFeature2 = features.slice(3, 4);
+
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[500px]">
-        {features.map((feature, index) => (
-          <FeatureCard
-            key={feature.title}
-            {...feature}
-            description="" // Pass empty description
-            delay={index * 0.3}
-            index={index}
-            className={getCardClassName(index)}
+    <section className="relative min-h-fit w-full px-4 py-16 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600">
+      {/* Left floating features */}
+      <div className="absolute left-0 bottom-1/2 translate-y-full translate-x-1/3 opacity-50  pointer-events-none">
+        {leftFeature1.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 + index * 0.2, duration: 0.8 }}
           >
-            {feature.content}
-          </FeatureCard>
+            <FeatureCard
+              {...feature}
+              description=""
+              delay={0}
+              index={index}
+              className="transform scale-75"
+            >
+              {feature.content}
+            </FeatureCard>
+          </motion.div>
         ))}
       </div>
-    </div>
-  );
-};
 
-const Button = ({
-  children,
-  variant = "default",
-  className = "",
-  ...props
-}: {
-  children: React.ReactNode;
-  variant?: "default" | "outline";
-  className?: string;
-}) => {
-  const baseStyles = "font-medium rounded-lg transition-all duration-300";
-  const variants = {
-    default: "bg-primary text-white hover:bg-secondary/90",
-    outline: "border border-secondary/20 hover:bg-secondary/5",
-  };
+      <div className="absolute left-0 top-1/4 opacity-50 translate-x-full  pointer-events-none">
+        {leftFeature2.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 + index * 0.2, duration: 0.8 }}
+          >
+            <FeatureCard
+              {...feature}
+              description=""
+              delay={0}
+              index={index + 2}
+              className="transform scale-75"
+            >
+              {feature.content}
+            </FeatureCard>
+          </motion.div>
+        ))}
+      </div>
+      {/* Right floating features */}
+      <div className="absolute right-0 top-1/2 translate-y-1/2 -translate-x-1/3 w-[400px] opacity-50  pointer-events-none">
+        {rightFeature1.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 + index * 0.2, duration: 0.8 }}
+          >
+            <FeatureCard
+              {...feature}
+              description=""
+              delay={0}
+              index={index + 2}
+              className="transform scale-75"
+            >
+              {feature.content}
+            </FeatureCard>
+          </motion.div>
+        ))}
+      </div>
+      <div className="absolute right-0 top-1/3 -translate-y-1/2 -translate-x-1/5 opacity-50 w-[400px]  pointer-events-none">
+        {rightFeature2.map((feature, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 + index * 0.2, duration: 0.8 }}
+          >
+            <FeatureCard
+              {...feature}
+              description=""
+              delay={0}
+              index={index + 2}
+              className="transform scale-75"
+            >
+              {feature.content}
+            </FeatureCard>
+          </motion.div>
+        ))}
+      </div>
 
-  return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-const Hero = () => {
-  return (
-    <section className="relative min-h-fit w-full px-4 py-16 md:px-6 md:py-[15vh] flex items-center max-w-[80%] mx-auto gap-12">
-      <div className="w-1/2">
+      <div className="flex flex-col items-center justify-center gap-8 w-full relative z-10">
         {/* Header Content */}
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-3xl flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -275,7 +325,7 @@ const Hero = () => {
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-3xl md:text-7xl font-bold mb-8 dark:text-white text-gray-900">
+          <h1 className="text-3xl md:text-7xl font-bold mb-8 dark:text-white text-white">
             <AnimatedText text="AI Marketing " delay={0.2} />
             <AnimatedText text="Manager for " delay={0.4} />
             <AnimatedText text="Wealth" delay={0.6} />
@@ -286,7 +336,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-2xl text-sm md:text-xl mb-8 text-secondary-purple font-medium leading-relaxed"
+            className="max-w-2xl text-sm md:text-xl mb-8 text-white font-light leading-relaxed"
           >
             Supercharge organic growth with highly personalized content that
             resonates with your ideal client. Create content, run compliance
@@ -295,19 +345,19 @@ const Hero = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="w-full max-w-xl">
+        <div className="w-full max-w-xl flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col gap-4 md:flex-row"
           >
-            <Button className="w-full md:w-auto text-base md:text-lg px-8 py-6">
+            <Button className="w-full md:w-auto text-black md:text-lg px-8 py-3 bg-secondary">
               Schedule Demo
             </Button>
             <Button
               variant="outline"
-              className="w-full md:w-auto text-base md:text-lg px-8 py-6 flex items-center gap-2"
+              className="w-full md:w-auto text-white border-4 md:text-lg px-8 py-3 flex items-center gap-2"
             >
               See it in Action
               <svg
@@ -332,7 +382,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-6 flex flex-wrap gap-4 text-sm md:text-base text-secondary-blue"
+            className="mt-6 flex flex-wrap gap-4 text-sm  text-white"
           >
             <span className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-secondary" />
@@ -348,9 +398,6 @@ const Hero = () => {
             </span>
           </motion.div>
         </div>
-      </div>
-      <div className="w-1/2">
-        <FeatureShowcase />
       </div>
     </section>
   );

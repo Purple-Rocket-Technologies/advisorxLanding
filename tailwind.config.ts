@@ -76,7 +76,8 @@ const config: Config = {
         },
       },
       colors: {
-        background: "#f8f6f6",
+        background: "#ffffff",
+        cardBg: "#f0f9f9",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",

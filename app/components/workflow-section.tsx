@@ -102,7 +102,7 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       whileHover={{ x: 10 }}
-      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-background/80 shadow-sm"
+      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       {item.title === "CRM Notes" ? (
@@ -142,10 +142,10 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       whileHover={{ x: -10 }}
-      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-background/80 shadow-sm"
+      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
       style={{ transform: "translate3d(0,0,0)" }}
     >
-      <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-[#8FFFCF]/5">
+      <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
         {item.isImage ? (
           <Image
             src="/logos/linkedin.svg"
@@ -287,12 +287,18 @@ const WorkflowSection = () => {
         >
           Workflow
         </motion.span>
-        <h3 className="text-3xl md:text-5xl font-bold text-black dark:text-white text-center mb-6">
-          Personalized advisor marketing
+        <h3 className="text-3xl md:text-6xl font-bold text-black dark:text-white text-center mb-3">
+          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            Personalized{" "}
+          </span>
+          advisor marketing
           <br />
-          that integrates with your CRM.
+          that integrates with your{" "}
+          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            CRM.
+          </span>
         </h3>
-        <p className="text-lg text-muted-foreground mb-24">
+        <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-24">
           AI that understands your firm&apos;s brand and marketing goals.
         </p>
       </div>
@@ -324,7 +330,7 @@ const WorkflowSection = () => {
               as="div"
               borderRadius="16px"
               duration={8000}
-              className="bg-background/95 text-foreground border-border/50 shadow-md"
+              className="bg-cardBg text-foreground border-border/50 shadow-md"
               containerClassName="w-full max-w-[360px]"
             >
               <div className="flex flex-col gap-2 p-4">

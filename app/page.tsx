@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle, ArrowRight, Play, Headphones } from "lucide-react";
+import { CheckCircle, ArrowRight, Play } from "lucide-react";
 import { CompanyMarquee } from "./components/company-marquee";
 import { ThemeToggle } from "./components/theme-toggle";
 import DashboardPage from "./dashboard/dashboard";
@@ -44,7 +44,13 @@ const AdvisorXLanding = () => {
       <Hero />
       <DashboardPage />
       <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-7 p-10 mt-32 md:mt-10">
-        <h2 className="text-4xl font-bold text-foreground">See it in action</h2>
+        <h2 className="text-3xl md:text-6xl font-bold text-foreground">
+          See it in
+          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            {" "}
+            action
+          </span>
+        </h2>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -64,8 +70,12 @@ const AdvisorXLanding = () => {
       </section>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
-        <h3 className="text-3xl md:text-5xl font-bold mb-12">
-          Trusted by leading <br /> wealth management firms
+        <h3 className="text-3xl md:text-6xl font-bold mb-12">
+          Trusted by leading <br />{" "}
+          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            wealth management
+          </span>{" "}
+          firms
         </h3>
         <CompanyMarquee />
       </section>
@@ -110,24 +120,26 @@ const AdvisorXLanding = () => {
       {/* Podcast Section */}
       <section className="relative w-full overflow-hidden py-32 mt-12">
         <div className="absolute rounded-full inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/10" />
-        <div className="relative max-w-3xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="flex flex-col items-center gap-5 text-center">
             {/* Header with Podcast Icon */}
-            <div className="flex items-center gap-3 mb-6">
-              <Headphones className="w-12 h-12 text-primary" />
-              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
-                Advisor Intelligence Podcast
+            <div className="flex items-center gap-3 mb-3">
+              <h2 className="text-3xl md:text-6xl font-bold text-black">
+                Advisor Intelligence{" "}
+                <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+                  Podcast{" "}
+                </span>
               </h2>
             </div>
 
             {/* Subheader */}
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-12">
               Get all the latest insights on AI for wealth management from
               industry experts.
             </p>
 
             {/* Email Subscription */}
-            <div className="w-full max-w-md space-y-4">
+            <div className="w-full max-w-md space-y-4 mb-12">
               <div className="flex gap-3">
                 <Input
                   placeholder="Enter your email"
@@ -221,8 +233,11 @@ const AdvisorXLanding = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-8"
           >
-            <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
-              Join firms who are growing
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
+              Join firms who are{" "}
+              <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+                growing
+              </span>
               <br />
               their reach with AdvisorX
             </h2>
