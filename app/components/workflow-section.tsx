@@ -20,15 +20,15 @@ import { Button } from "./moving-border";
 
 // Original data arrays remain the same
 const inputSources = [
-  { title: "Brand Guidelines", icon: PenTool },
+  { title: "Brand Guide", icon: PenTool },
   { title: "CRM Notes", icon: Users },
-  { title: "Web Sources", icon: Globe },
+  { title: "Web Source", icon: Globe },
   { title: "Documents", icon: ScrollText },
   { title: "Brand Colors", icon: PencilRuler },
 ];
 
 const outputTypes = [
-  { title: "LinkedIn Posts", icon: "linkedin", isImage: true },
+  { title: "LinkedIn Post", icon: "linkedin", isImage: true },
   { title: "Newsletters", icon: ScrollText },
   { title: "Whitepapers", icon: Book },
   { title: "Articles", icon: Newspaper },
@@ -102,7 +102,7 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       whileHover={{ x: 10 }}
-      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
+      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       {item.title === "CRM Notes" ? (
@@ -142,7 +142,7 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       whileHover={{ x: -10 }}
-      className="w-full h-[80px] max-w-[240px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
+      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
@@ -287,16 +287,10 @@ const WorkflowSection = () => {
         >
           Workflow
         </motion.span>
-        <h3 className="text-3xl md:text-6xl font-bold text-black dark:text-white text-center mb-3">
-          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-            Personalized{" "}
-          </span>
-          advisor marketing
+        <h3 className="text-3xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+          Personalized advisor marketing
           <br />
-          that integrates with your{" "}
-          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-            CRM.
-          </span>
+          that integrates with your CRM.
         </h3>
         <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-24">
           AI that understands your firm&apos;s brand and marketing goals.

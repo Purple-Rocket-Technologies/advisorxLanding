@@ -1,56 +1,49 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const companies = [
-  {
-    name: "Farther",
-    logo: "/logos/Farhter.svg",
-  },
-  {
-    name: "Elevation",
-    logo: "/logos/elevation.svg",
-  },
-  {
-    name: "Firstrate",
-    logo: "/logos/firstrate.svg",
-  },
-  {
-    name: "January",
-    logo: "/logos/January.svg",
-  },
-] as const;
-
 export const CompanyMarquee = () => {
+  const [logos, setLogos] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchLogos = async () => {
+      const response = await fetch("/api/logos");
+      const data = await response.json();
+      console.log(data);
+      setLogos(data.logos);
+    };
+
+    fetchLogos();
+  }, []);
+
   return (
-    <div className="w-full overflow-x-auto py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-nowrap items-center justify-center space-x-12 text-black"
-      >
-        {companies.map((company) => (
-          <motion.div
-            key={company.name}
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.7 }}
-            className="flex flex-col items-center gap-3 will-change-transform"
-          >
-            <div className="w-32 h-32 relative grayscale hover:grayscale-0 transition-all duration-300 overflow-hidden flex justify-center items-center">
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={15000}
-                height={15000}
-                className="h-[500px] w-[500px] scale-150 invert dark:invert-0 opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </motion.div>
+    <div className="relative w-full overflow-hidden py-12 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-32 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-32 after:bg-gradient-to-l after:from-white after:to-transparent dark:before:from-black dark:after:from-black">
+      <div className="animate-marquee flex gap-12">
+        {[...Array(2)].map((_, i) => (
+          <div key={i} className="flex space-x-12 items-center justify-center">
+            {logos.map((logo, index) => (
+              <motion.div
+                key={`${i}-${index}`}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.7 }}
+                className="flex flex-col items-center gap-3 will-change-transform "
+              >
+                <div className="w-32 h-32 relative  transition-all duration-300 overflow-hidden flex justify-center items-center bg-none">
+                  <Image
+                    src={`/firm/${logo}`}
+                    alt={`Company logo ${index + 1}`}
+                    width={15000}
+                    height={15000}
+                    className="h-[500px] w-[500px] bg-none scale-150 dark:invert-0 opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

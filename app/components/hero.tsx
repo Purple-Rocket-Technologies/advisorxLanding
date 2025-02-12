@@ -9,28 +9,6 @@ import {
 } from "lucide-react";
 import { TrustedBy } from "./trusted-by";
 
-const AnimatedText = ({
-  text,
-  delay = 0,
-}: {
-  text: string;
-  delay?: number;
-}) => (
-  <>
-    {text.split(" ").map((word, i) => (
-      <motion.span
-        key={i}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: delay + i * 0.1 }}
-        className="inline-block mr-[0.08em]"
-      >
-        {word}
-      </motion.span>
-    ))}
-  </>
-);
-
 const FeatureCard = ({
   title,
   description,
@@ -229,7 +207,7 @@ const Hero = () => {
   const rightFeature2 = features.slice(3, 4);
 
   return (
-    <section className="relative min-h-fit w-full px-4 py-16 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600">
+    <section className="relative min-h-fit h-[100vh] w-full px-4 py-16 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600">
       {/* Left floating features */}
       <div className="absolute left-0 bottom-1/2 translate-y-full translate-x-1/3 opacity-50  pointer-events-none">
         {leftFeature1.map((feature, index) => (
@@ -325,11 +303,8 @@ const Hero = () => {
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-3xl md:text-7xl font-bold mb-8 dark:text-white text-white">
-            <AnimatedText text="AI Marketing " delay={0.2} />
-            <AnimatedText text="Manager for " delay={0.4} />
-            <AnimatedText text="Wealth" delay={0.6} />
-            <AnimatedText text="Advisors" delay={0.8} />
+          <h1 className="text-3xl block md:text-7xl font-bold leading-snug mb-8 dark:text-white text-white">
+            AI Marketing Manager for Wealth Advisors
           </h1>
 
           <motion.p

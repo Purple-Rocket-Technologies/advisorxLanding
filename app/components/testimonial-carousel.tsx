@@ -12,7 +12,7 @@ const testimonials = [
     author: "Erik Allison",
     title: "VP & Wealth Advisor",
     firm: "Farther",
-    image: "https://picsum.photos/200/300",
+    image: "/people/Eric.png",
   },
   {
     quote:
@@ -20,7 +20,7 @@ const testimonials = [
     author: "Buff Dormeier",
     title: "Chief Technical Analyst",
     firm: "Kingsview Partners",
-    image: "https://picsum.photos/200/300",
+    image: "/people/Buff Dormeier.jpeg",
   },
   {
     quote:
@@ -28,7 +28,7 @@ const testimonials = [
     author: "Michael Reynolds",
     title: "Founder",
     firm: "Elevation Financial",
-    image: "https://picsum.photos/200/300",
+    image: "/people/MichaelReynolds.jpeg",
   },
   {
     quote:
@@ -36,7 +36,7 @@ const testimonials = [
     author: "Jacob Rieger",
     title: "CIO",
     firm: "Vaultis Private Wealth",
-    image: "https://picsum.photos/200/300",
+    image: "/people/Jacob Rieger.jpeg",
   },
 ] as const;
 
@@ -138,17 +138,9 @@ export const TestimonialCarousel = () => {
           >
             Testimonials
           </motion.span>
-          <h2 className="text-3xl md:text-6xl font-bold text-black px-4">
-            What{" "}
-            <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-              advisors{" "}
-            </span>{" "}
-            are saying
-          </h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
-            Join thousands of financial advisors who are growing their practice
-            with AdvisorX
-          </p>
+          <h3 className="text-3xl md:text-6xl font-bold bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+            What advisors are saying
+          </h3>
         </motion.div>
 
         <div className="relative h-[600px] md:h-[500px] flex items-center justify-center">
@@ -199,8 +191,8 @@ export const TestimonialCarousel = () => {
                       <Image
                         src={testimonials[current].image}
                         alt={`${testimonials[current].author}'s avatar`}
-                        width={48}
-                        height={48}
+                        width={35}
+                        height={35}
                         className="w-12 h-12 rounded-full object-cover"
                       />
                       <div className="text-center md:text-left">

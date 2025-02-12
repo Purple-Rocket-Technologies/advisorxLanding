@@ -24,7 +24,7 @@ const features = [
     ui: {
       type: "select",
       label: "Select Persona",
-      options: ["Professional", "Educational", "Conversational"],
+      options: ["SEO Analyst", "Blog Expert", "LinkedIn Post Generator", "Facebook Ads Specialist"],
       bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary",

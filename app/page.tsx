@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { CheckCircle, ArrowRight, Play } from "lucide-react";
 import { CompanyMarquee } from "./components/company-marquee";
 import { ThemeToggle } from "./components/theme-toggle";
@@ -12,7 +11,6 @@ import { motion } from "framer-motion";
 import { TestimonialCarousel } from "./components/testimonial-carousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Image from "next/image";
 import Hero from "./components/hero";
 import NavBar from "./components/nav";
 import BenefitsSection from "./components/matter";
@@ -70,12 +68,8 @@ const AdvisorXLanding = () => {
       </section>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
-        <h3 className="text-3xl md:text-6xl font-bold mb-12">
-          Trusted by leading <br />{" "}
-          <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-            wealth management
-          </span>{" "}
-          firms
+        <h3 className="text-3xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+          Trusted by leading <br /> wealth management firms
         </h3>
         <CompanyMarquee />
       </section>
@@ -116,70 +110,6 @@ const AdvisorXLanding = () => {
         <TestimonialCarousel />
         <EnterpriseFeatures />
       </div>
-
-      {/* Podcast Section */}
-      <section className="relative w-full overflow-hidden py-32 mt-12">
-        <div className="absolute rounded-full inset-0 bg-gradient-to-br from-primary/10 via-background to-primary/10" />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="flex flex-col items-center gap-5 text-center">
-            {/* Header with Podcast Icon */}
-            <div className="flex items-center gap-3 mb-3">
-              <h2 className="text-3xl md:text-6xl font-bold text-black">
-                Advisor Intelligence{" "}
-                <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-                  Podcast{" "}
-                </span>
-              </h2>
-            </div>
-
-            {/* Subheader */}
-            <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-12">
-              Get all the latest insights on AI for wealth management from
-              industry experts.
-            </p>
-
-            {/* Email Subscription */}
-            <div className="w-full max-w-md space-y-4 mb-12">
-              <div className="flex gap-3">
-                <Input
-                  placeholder="Enter your email"
-                  className="flex-1 bg-background/60 backdrop-blur-sm border-border/50"
-                />
-                <Button className="bg-primary hover:bg-primary/90">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-
-            {/* Platform Icons */}
-            <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Image
-                  src="/logos/apple-podcast.svg"
-                  alt="Apple Podcast"
-                  width={200}
-                  height={40}
-                />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Image
-                  src="/logos/spotify.svg"
-                  alt="Apple Podcast"
-                  className="bg-black p-1 rounded-md"
-                  width={200}
-                  height={40}
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:bg-black rounded-t-[3rem] border-t border-border/5 py-24">
@@ -233,14 +163,11 @@ const AdvisorXLanding = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-8"
           >
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-foreground via-foreground/90 to-foreground/80 bg-clip-text text-transparent">
-              Join firms who are{" "}
-              <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-                growing
-              </span>
+            <h3 className="text-3xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+              Join firms who are growing
               <br />
               their reach with AdvisorX
-            </h2>
+            </h3>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

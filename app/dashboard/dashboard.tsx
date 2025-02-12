@@ -27,7 +27,7 @@ export const DashboardPage = () => {
   const ActiveComponent = components[activeComponent];
 
   return (
-    <div className="hidden sm:flex min-h-[85vh] w-[80%] rounded-2xl bg-background relative -top-12 overflow-hidden shadow-xl border border-border">
+    <div className="hidden sm:flex min-h-[85vh] w-[80%] rounded-2xl bg-background relative -top-32 overflow-hidden shadow-xl border border-border">
       {/* Background Effects */}
       <div className="absolute w-full h-full">
         <motion.div

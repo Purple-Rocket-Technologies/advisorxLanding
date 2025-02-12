@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles, Clock, Users, Shield } from "lucide-react";
+import { Sparkles, Clock, Users, Shield } from "lucide-react";
 
 const BenefitCard = ({
   title,
@@ -27,19 +27,24 @@ const BenefitCard = ({
     <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-primary/10 blur-2xl" />
     <div className="absolute -left-8 -top-8 w-32 h-32 rounded-full bg-secondary/10 blur-2xl" />
 
-    <div className="flex justify-between items-start mb-6">
+    <div className="flex justify-center mb-6">
       <div className="p-3 bg-gradient-to-br from-primary to-primary rounded-xl shadow-sm">
         <Icon className="text-white w-5 h-5" />
       </div>
-      <ArrowUpRight className="text-primary w-5 h-5 transition-all duration-300 group-hover:text-primary-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
     </div>
 
-    <h3 className="text-primary font-semibold text-xl mb-2">{title}</h3>
-    <p className="text-primary text-sm mb-6 leading-relaxed">{subtitle}</p>
+    <h3 className="text-primary font-semibold text-xl mb-2 text-center">
+      {title}
+    </h3>
+    <p className="text-primary text-sm mb-6 leading-relaxed text-center">
+      {subtitle}
+    </p>
 
-    <div className="flex items-center gap-2 bg-gradient-to-r from-primary to-primary border border-secondary p-2.5 rounded-lg w-fit shadow-sm">
-      <Sparkles className="text-white w-4 h-4" />
-      <span className="text-white font-medium text-sm">{metric}</span>
+    <div className="flex items-center justify-center">
+      <div className="flex items-center gap-2 bg-gradient-to-r from-primary to-primary border border-secondary p-2.5 rounded-lg shadow-sm">
+        <Sparkles className="text-white w-4 h-4" />
+        <span className="text-white font-medium text-sm">{metric}</span>
+      </div>
     </div>
   </motion.div>
 );
@@ -78,13 +83,9 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-6xl font-bold text-primary-950 mb-6 leading-tight">
-            <span className="bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-              {" "}
-              More Time{" "}
-            </span>{" "}
-            for What Matters
-          </h2>
+          <h3 className="text-3xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+            More time for what matters
+          </h3>
           <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
             Empowering every key role in your practice with AI
           </p>
