@@ -80,7 +80,7 @@ export const TestimonialCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       paginate(1);
-    }, 15000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, []);

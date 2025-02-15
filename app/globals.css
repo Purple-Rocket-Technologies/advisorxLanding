@@ -134,7 +134,7 @@
   }
 
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 13s linear infinite;
   }
 
   /* Optional: Pause on hover */

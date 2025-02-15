@@ -12,6 +12,7 @@ import {
   Crown,
   ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 
 const menuItems = [
   { id: "home" as const, icon: Home, label: "Home" },
@@ -39,10 +40,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Logo */}
       <div>
         <div className="flex items-center gap-2 px-4 py-2 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-            <span className="text-primary font-semibold">A</span>
-          </div>
-          <span className="font-semibold text-foreground">AdvisorX</span>
+          <Image
+            src="/logos/logo.svg"
+            alt="Logo"
+            width={100}
+            height={40}
+            className="invert"
+          />
         </div>
 
         {/* Menu Items */}

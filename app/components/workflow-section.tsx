@@ -106,7 +106,7 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
       style={{ transform: "translate3d(0,0,0)" }}
     >
       {item.title === "CRM Notes" ? (
-        <div className="flex gap-1 max-w-1/2 bg-primary/5 rounded-lg p-1.5">
+        <div className="relative flex gap-1 max-w-1/2 bg-primary/5 rounded-lg p-1.5">
           {crmLogos.map((logo, i) => (
             <div
               key={logo}
@@ -122,6 +122,9 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
               />
             </div>
           ))}
+          <div className="absolute -top-2 -right-2 px-1.5 py-0.5 text-[10px] font-medium bg-primary/20 text-primary rounded-full">
+            Coming soon
+          </div>
         </div>
       ) : (
         <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">

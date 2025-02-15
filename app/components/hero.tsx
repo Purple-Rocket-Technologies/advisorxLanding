@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   CheckCircle,
@@ -89,7 +89,26 @@ const Button = ({
   );
 };
 
-const Hero = () => {
+const Hero = ({
+  onHeightChange,
+}: {
+  onHeightChange: (height: number) => void;
+}) => {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (heroRef.current) {
+        const height = heroRef.current.offsetHeight;
+        onHeightChange(height);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [onHeightChange]);
+
   const features = [
     {
       title: "",
@@ -207,9 +226,12 @@ const Hero = () => {
   const rightFeature2 = features.slice(3, 4);
 
   return (
-    <section className="relative min-h-fit h-[100vh] w-full px-4 py-16 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600">
-      {/* Left floating features */}
-      <div className="absolute left-0 bottom-1/2 translate-y-full translate-x-1/3 opacity-50  pointer-events-none">
+    <section
+      ref={heroRef}
+      className="relative min-h-[100vh] w-full px-4 py-8 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-6 md:gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600"
+    >
+      {/* Left floating features - Hide on mobile and smaller desktop */}
+      <div className="hidden min-[1620px]:block absolute left-0 bottom-1/2 translate-y-full translate-x-1/3 opacity-50 pointer-events-none">
         {leftFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -230,7 +252,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="absolute left-0 top-1/4 opacity-50 translate-x-full  pointer-events-none">
+      <div className="hidden min-[1620px]:block absolute left-0 top-1/4 opacity-50 translate-x-full pointer-events-none">
         {leftFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -250,8 +272,9 @@ const Hero = () => {
           </motion.div>
         ))}
       </div>
-      {/* Right floating features */}
-      <div className="absolute right-0 top-1/2 translate-y-1/2 -translate-x-1/3 w-[400px] opacity-50  pointer-events-none">
+
+      {/* Right floating features - Hide on mobile and smaller desktop */}
+      <div className="hidden min-[1620px]:block absolute right-0 top-1/2 translate-y-1/2 -translate-x-1/3 w-[400px] opacity-50 pointer-events-none">
         {rightFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -271,7 +294,7 @@ const Hero = () => {
           </motion.div>
         ))}
       </div>
-      <div className="absolute right-0 top-1/3 -translate-y-1/2 -translate-x-1/5 opacity-50 w-[400px]  pointer-events-none">
+      <div className="hidden min-[1620px]:block absolute right-0 top-1/3 -translate-y-1/2 -translate-x-1/5 opacity-50 w-[400px] pointer-events-none">
         {rightFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -292,26 +315,28 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-8 w-full relative z-10">
+      <div className="flex flex-col items-center justify-center gap-4 md:gap-8 w-full relative z-10">
         {/* Header Content */}
-        <div className="w-full max-w-3xl flex flex-col items-center text-center">
+        <div className="w-full max-w-5xl flex flex-col items-center text-center px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="w-fit"
           >
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-3xl block md:text-7xl font-bold leading-snug mb-8 dark:text-white text-white">
-            AI Marketing Manager for Wealth Advisors
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+            AI Marketing Manager <br className="hidden md:block" /> for Wealth
+            Advisors
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-2xl text-sm md:text-xl mb-8 text-white font-light leading-relaxed"
+            className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
             Supercharge organic growth with highly personalized content that
             resonates with your ideal client. Create content, run compliance
@@ -320,32 +345,32 @@ const Hero = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="w-full max-w-xl flex flex-col items-center">
+        <div className="w-full max-w-xl flex flex-col items-center px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-col gap-4 md:flex-row"
+            className="flex flex-col gap-3 md:flex-row md:gap-4 w-full"
           >
-            <Button className="w-full md:w-auto text-black md:text-lg px-8 py-3 bg-secondary">
+            <Button className="w-full md:w-auto text-black text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 bg-secondary">
               Schedule Demo
             </Button>
             <Button
               variant="outline"
-              className="w-full md:w-auto text-white border-4 md:text-lg px-8 py-3 flex items-center gap-2"
+              className="w-full md:w-auto text-white border-2 md:border-4 text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2"
             >
               See it in Action
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="w-5 h-5"
+                className="w-4 h-4 md:w-5 md:h-5"
               >
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" />
@@ -357,18 +382,18 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-6 flex flex-wrap gap-4 text-sm  text-white"
+            className="mt-4 md:mt-6 flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm text-white"
           >
-            <span className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-secondary" />
+            <span className="flex items-center gap-1.5 md:gap-2">
+              <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
               No credit card required
             </span>
-            <span className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-secondary" />
+            <span className="flex items-center gap-1.5 md:gap-2">
+              <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
               7-day free trial
             </span>
-            <span className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-secondary" />
+            <span className="flex items-center gap-1.5 md:gap-2">
+              <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
               No lock-in contracts
             </span>
           </motion.div>

@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AdvisorX - AI Marketing Suite for Wealth Advisors",
+  title: "AdvisorX - AI Marketing Manager for Wealth Advisors",
   description:
     "Scale your firm with AI-powered marketing tools designed specifically for RIAs and wealth management firms.",
 };
