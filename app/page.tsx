@@ -27,7 +27,7 @@ const AdvisorXLanding = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       toast.info("Welcome to AdvisorX!", {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: false,
         hideProgressBar: false,
         closeOnClick: true,
