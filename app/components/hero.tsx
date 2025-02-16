@@ -327,7 +327,7 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+          <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
             AI Marketing Manager <br className="hidden md:block" /> for Wealth
             Advisors
           </h1>

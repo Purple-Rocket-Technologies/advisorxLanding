@@ -55,7 +55,7 @@ const AdvisorXLanding = () => {
         <DashboardPage />
       </div>
       <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-7 p-10 mt-32 md:mt-10">
-        <h2 className="text-3xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
           See it in action
         </h2>
         <motion.div
@@ -77,7 +77,7 @@ const AdvisorXLanding = () => {
       </section>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
-        <h3 className="text-3xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+        <h3 className="text-5xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Trusted by leading <br /> wealth management firms
         </h3>
         <CompanyMarquee />
@@ -172,7 +172,7 @@ const AdvisorXLanding = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-8"
           >
-            <h3 className="text-3xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            <h3 className="text-5xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
               Join firms who are growing
               <br />
               their reach with AdvisorX

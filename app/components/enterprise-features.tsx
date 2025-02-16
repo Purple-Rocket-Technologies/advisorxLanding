@@ -24,7 +24,12 @@ const features = [
     ui: {
       type: "select",
       label: "Select Persona",
-      options: ["SEO Analyst", "Blog Expert", "LinkedIn Post Generator", "Facebook Ads Specialist"],
+      options: [
+        "SEO Analyst",
+        "Blog Expert",
+        "LinkedIn Post Generator",
+        "Facebook Ads Specialist",
+      ],
       bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary",
@@ -369,7 +374,7 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-6xl font-bold text-black mb-12 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-bold text-black mb-12 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
           >
             Features
           </motion.h2>

@@ -290,7 +290,7 @@ const WorkflowSection = () => {
         >
           Workflow
         </motion.span>
-        <h3 className="text-3xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+        <h3 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Personalized advisor marketing
           <br />
           that integrates with your CRM.

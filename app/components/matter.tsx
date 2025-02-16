@@ -83,7 +83,7 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h3 className="text-3xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+          <h3 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
             More time for what matters
           </h3>
           <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
