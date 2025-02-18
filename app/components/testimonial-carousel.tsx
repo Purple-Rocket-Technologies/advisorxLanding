@@ -6,14 +6,14 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Image from "next/image";
 
 const testimonials = [
-  {
-    quote:
-      "AdvisorX is a big time saver for me and my team. It helps us overcome writer's block and ensures that the content we create is aligned with our firm's messaging. The ability to pull talking points from specific domains and combine them with our brand strategy is something I haven't seen in other tools.",
-    author: "Erik Allison",
-    title: "VP & Wealth Advisor",
-    firm: "Farther",
-    image: "/people/Eric.png",
-  },
+  // {
+  //   quote:
+  //     "AdvisorX is a big time saver for me and my team. It helps us overcome writer's block and ensures that the content we create is aligned with our firm's messaging. The ability to pull talking points from specific domains and combine them with our brand strategy is something I haven't seen in other tools.",
+  //   author: "Erik Allison",
+  //   title: "VP & Wealth Advisor",
+  //   firm: "Farther",
+  //   image: "/people/Eric.png",
+  // },
   {
     quote:
       "AdvisorX saves me time by making content creation and client communication easier. It even helps me answer complex questions, like those involving international taxes, with incredible accuracy.",

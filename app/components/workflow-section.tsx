@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
 import {
   Book,
   Calendar,
@@ -13,10 +13,12 @@ import {
   Newspaper,
   ScrollText,
   Megaphone,
+  Linkedin,
   LayoutTemplate,
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./moving-border";
+import { cn } from "@/lib/utils";
 
 // Original data arrays remain the same
 const inputSources = [
@@ -28,7 +30,7 @@ const inputSources = [
 ];
 
 const outputTypes = [
-  { title: "LinkedIn Post", icon: "linkedin", isImage: true },
+  { title: "LinkedIn Post", icon: Linkedin, },
   { title: "Newsletters", icon: ScrollText },
   { title: "Whitepapers", icon: Book },
   { title: "Articles", icon: Newspaper },
@@ -61,9 +63,7 @@ interface FlowPathProps {
 }
 
 const FlowPath: React.FC<FlowPathProps> = React.memo(({ start, end }) => {
-  const path = `M ${start.x} ${start.y} Q ${(start.x + end.x) / 2} ${start.y} ${
-    end.x
-  } ${end.y}`;
+  const path = `M ${start.x} ${start.y} Q ${(start.x + end.x) / 2} ${start.y} ${end.x} ${end.y}`;
   return (
     <motion.path
       d={path}
@@ -97,12 +97,30 @@ interface CardProps {
 }
 
 const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
+  const controls = useAnimationControls();
+  
+  useEffect(() => {
+    controls.start({
+      boxShadow: [
+        "0 0 0 0 rgba(16, 222, 197, 0)",
+        "0 0 20px 2px rgba(16, 222, 197, 0.2)",
+        "0 0 0 0 rgba(16, 222, 197, 0)"
+      ],
+      transition: { duration: 2, repeat: Infinity }
+    });
+  }, [controls]);
+
   const Icon = item.icon as IconComponent;
   return (
     <motion.div
       ref={innerRef}
-      whileHover={{ x: 10 }}
-      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
+      animate={controls}
+      whileHover={{ 
+        x: 10, 
+        boxShadow: "0 0 25px 5px rgba(16, 222, 197, 0.3)",
+        scale: 1.02
+      }}
+      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       {item.title === "CRM Notes" ? (
@@ -140,12 +158,30 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
 InputCard.displayName = "InputCard";
 
 const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
+  const controls = useAnimationControls();
+  
+  useEffect(() => {
+    controls.start({
+      boxShadow: [
+        "0 0 0 0 rgba(16, 222, 197, 0)",
+        "0 0 20px 2px rgba(16, 222, 197, 0.2)",
+        "0 0 0 0 rgba(16, 222, 197, 0)"
+      ],
+      transition: { duration: 2, repeat: Infinity }
+    });
+  }, [controls]);
+
   const Icon = item.icon as IconComponent;
   return (
     <motion.div
       ref={innerRef}
-      whileHover={{ x: -10 }}
-      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-cardBg shadow-sm"
+      animate={controls}
+      whileHover={{ 
+        x: -10, 
+        boxShadow: "0 0 25px 5px rgba(16, 222, 197, 0.3)",
+        scale: 1.02
+      }}
+      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
@@ -327,24 +363,45 @@ const WorkflowSection = () => {
               as="div"
               borderRadius="16px"
               duration={8000}
-              className="bg-cardBg text-foreground border-border/50 shadow-md"
+              className={cn(
+                "bg-gradient-to-br from-cardBg via-cardBg/90 to-cardBg/80",
+                "text-foreground border-border/50 shadow-xl",
+                "hover:shadow-primary/20 hover:shadow-2xl transition-shadow duration-500"
+              )}
               containerClassName="w-full max-w-[360px]"
             >
-              <div className="flex flex-col gap-2 p-4">
-                {capabilities.map((capability) => (
-                  <div
+              <motion.div
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="flex flex-col gap-2 p-4"
+              >
+                {capabilities.map((capability, index) => (
+                  <motion.div
                     key={capability.title}
-                    className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300 transform-gpu will-change-transform bg-background/95 backdrop-blur-sm border border-border/50 shadow-sm"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300 transform-gpu will-change-transform bg-background/95 backdrop-blur-sm border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <div className="w-6 h-6 transform-gpu">
-                      <capability.icon className="w-full h-full opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5]" />
-                    </div>
+                    <motion.div 
+                      className="w-6 h-6 transform-gpu"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <capability.icon className="w-full h-full opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5] group-hover:stroke-primary" />
+                    </motion.div>
                     <span className="text-base font-medium whitespace-nowrap text-foreground group-hover:text-primary transition-colors">
                       {capability.title}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </Button>
           </div>
 

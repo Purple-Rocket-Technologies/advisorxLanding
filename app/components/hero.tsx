@@ -7,6 +7,7 @@ import {
   BarChart2,
   ShieldCheck,
 } from "lucide-react";
+import Image from "next/image";
 import { TrustedBy } from "./trusted-by";
 
 const FeatureCard = ({
@@ -230,8 +231,8 @@ const Hero = ({
       ref={heroRef}
       className="relative min-h-[100vh] w-full px-4 py-8 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-6 md:gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600"
     >
-      {/* Left floating features - Hide on mobile and smaller desktop */}
-      <div className="hidden min-[1620px]:block absolute left-0 bottom-1/2 translate-y-full translate-x-1/3 opacity-50 pointer-events-none">
+      {/* Left floating features - Show from 1200px and adjust position till 1620px */}
+      <div className="hidden min-[1200px]:block absolute left-0 bottom-1/2 translate-y-full translate-x-[10%] xl:translate-x-[20%] min-[1620px]:translate-x-1/3 opacity-50 pointer-events-none">
         {leftFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -252,7 +253,7 @@ const Hero = ({
         ))}
       </div>
 
-      <div className="hidden min-[1620px]:block absolute left-0 top-1/4 opacity-50 translate-x-full pointer-events-none">
+      <div className="  left-0 hidden min-[1200px]:block absolute min-[1200px]:-left-[200px] top-1/4 translate-x-[50%] xl:translate-x-[75%] min-[1620px]:translate-x-full opacity-50 pointer-events-none">
         {leftFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -273,8 +274,8 @@ const Hero = ({
         ))}
       </div>
 
-      {/* Right floating features - Hide on mobile and smaller desktop */}
-      <div className="hidden min-[1620px]:block absolute right-0 top-1/2 translate-y-1/2 -translate-x-1/3 w-[400px] opacity-50 pointer-events-none">
+      {/* Right floating features - Show from 1200px and adjust position till 1620px */}
+      <div className="hidden min-[1200px]:block absolute right-0 top-1/2 translate-y-1/2 -translate-x-[10%] xl:-translate-x-[20%] min-[1620px]:-translate-x-1/3 w-[400px] opacity-50 pointer-events-none">
         {rightFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -294,7 +295,7 @@ const Hero = ({
           </motion.div>
         ))}
       </div>
-      <div className="hidden min-[1620px]:block absolute right-0 top-1/3 -translate-y-1/2 -translate-x-1/5 opacity-50 w-[400px] pointer-events-none">
+      <div className="hidden min-[1200px]:block absolute min-[1200px]:-right-[400px] min-[1500px]:-right-[200px] top-1/3 -translate-y-1/2 translate-x-[200%] xl:-translate-x-[50%] min-[2020px]:right-0 opacity-50 w-[400px] pointer-events-none">
         {rightFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -345,19 +346,19 @@ const Hero = ({
         </div>
 
         {/* CTA Section */}
-        <div className="w-full max-w-xl flex flex-col items-center px-4 md:px-0">
+        <div className="w-fit max-w-xl flex flex-col items-center justify-center px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-col gap-3 md:flex-row md:gap-4 w-full"
+            className="flex flex-col gap-3 md:flex-row items-center justify-center md:gap-4 w-full"
           >
             <Button className="w-full md:w-auto text-black text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 bg-secondary">
               Schedule Demo
             </Button>
             <Button
               variant="outline"
-              className="w-full md:w-auto text-white border-2 md:border-4 text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2"
+              className="w-full md:w-auto text-white backdrop-blur-lg border-2 md:border-4 text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2"
             >
               See it in Action
               <svg
@@ -377,7 +378,22 @@ const Hero = ({
               </svg>
             </Button>
           </motion.div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex gap-4 mt-3"
+          >
+            <span className=" text-lg font-light italic text-gray-300 flex items-center gap-1 rounded-xl px-4 py-1 ">
+              As seen on{" "}
+              <Image
+                src="/logos/kitces.png"
+                alt="Kitces' logo"
+                width={100}
+                height={40}
+              />
+            </span>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

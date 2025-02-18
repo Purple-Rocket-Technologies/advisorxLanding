@@ -142,6 +142,24 @@
     animation-play-state: paused;
   }
 
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-25%);
+    }
+  }
+
+  .animate-marquee-scroll {
+    animation: marquee-scroll 8s linear infinite;
+  }
+
+  /* Optional: Pause on hover */
+  .animate-marquee-scroll:hover {
+    animation-play-state: paused;
+  }
+
   @keyframes spin-slow {
     from {
       transform: rotate(0deg);
@@ -235,6 +253,53 @@
   .animate-scale-in {
     animation: scaleIn 0.2s ease-out;
     transform-origin: top;
+  }
+
+  .marquee {
+    background: white;
+    --gap: 1rem;
+    display: flex;
+    overflow: hidden;
+    align-items: baseline;
+    width: 99vw;
+    user-select: none;
+    gap: var(--gap);
+    mask-image: linear-gradient(
+      var(--mask-direction, to right),
+      hsl(0 0% 0% / 0),
+      hsl(0 0% 0% / 1) 20%,
+      hsl(0 0% 0% / 1) 80%,
+      hsl(0 0% 0% / 0)
+    );
+  }
+
+  .track {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    gap: var(--gap);
+    display: flex;
+    align-items: center;
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  /* Add dark mode support */
+  .dark .marquee {
+    background: black;
+  }
+
+  /* Optional: Pause on hover */
+  .marquee:hover .track {
+    animation-play-state: paused;
   }
 }
 

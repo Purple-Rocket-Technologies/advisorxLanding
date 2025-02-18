@@ -27,7 +27,7 @@ export const DashboardPage = () => {
   const ActiveComponent = components[activeComponent];
 
   return (
-    <div className="hidden md:block min-h-[85vh] w-[80vw] rounded-2xl bg-background relative overflow-hidden shadow-xl border border-border z-50">
+    <div className="hidden md:flex min-h-[85vh] w-[80vw] rounded-2xl bg-background relative overflow-hidden shadow-xl border border-border z-50">
       {/* Background Effects */}
       <div className="absolute w-full h-full">
         <motion.div
@@ -64,7 +64,7 @@ export const DashboardPage = () => {
       />
 
       {/* Main Content */}
-      <main className="flex-1 p-8 pb-0 relative z-50">
+      <main className="flex-1 p-8 pb-0 relative z-50 w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeComponent}
