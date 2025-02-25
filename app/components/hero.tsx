@@ -232,7 +232,7 @@ const Hero = ({
       className="relative min-h-[100vh] w-full px-4 py-8 md:px-6 md:py-[15vh] flex flex-col items-center justify-center max-w-full mx-auto gap-6 md:gap-12 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600"
     >
       {/* Left floating features - Show from 1200px and adjust position till 1620px */}
-      <div className="hidden min-[1200px]:block absolute left-0 bottom-1/2 translate-y-full translate-x-[10%] xl:translate-x-[20%] min-[1620px]:translate-x-1/3 opacity-50 pointer-events-none">
+      <div className="hidden min-[1200px]:block absolute left-0 bottom-1/2 translate-y-full translate-x-[10%] xl:translate-x-[20%] min-[1620px]:translate-x-1/3 opacity-30 pointer-events-none">
         {leftFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -253,7 +253,7 @@ const Hero = ({
         ))}
       </div>
 
-      <div className="  left-0 hidden min-[1200px]:block absolute min-[1200px]:-left-[200px] top-1/4 translate-x-[50%] xl:translate-x-[75%] min-[1620px]:translate-x-full opacity-50 pointer-events-none">
+      <div className="  left-0 hidden min-[1200px]:block absolute min-[1200px]:-left-[200px] top-1/4 translate-x-[50%] xl:translate-x-[75%] min-[1620px]:translate-x-full opacity-30 pointer-events-none">
         {leftFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -275,7 +275,7 @@ const Hero = ({
       </div>
 
       {/* Right floating features - Show from 1200px and adjust position till 1620px */}
-      <div className="hidden min-[1200px]:block absolute right-0 top-1/2 translate-y-1/2 -translate-x-[10%] xl:-translate-x-[20%] min-[1620px]:-translate-x-1/3 w-[400px] opacity-50 pointer-events-none">
+      <div className="hidden min-[1200px]:block absolute right-0 top-1/2 translate-y-1/2 -translate-x-[10%] xl:-translate-x-[20%] min-[1620px]:-translate-x-1/3 w-[400px] opacity-30 pointer-events-none">
         {rightFeature1.map((feature, index) => (
           <motion.div
             key={index}
@@ -295,7 +295,7 @@ const Hero = ({
           </motion.div>
         ))}
       </div>
-      <div className="hidden min-[1200px]:block absolute min-[1200px]:-right-[400px] min-[1500px]:-right-[200px] top-1/3 -translate-y-1/2 translate-x-[200%] xl:-translate-x-[50%] min-[2020px]:right-0 opacity-50 w-[400px] pointer-events-none">
+      <div className="hidden min-[1200px]:block absolute min-[1200px]:-right-[400px] min-[1500px]:-right-[200px] top-1/3 -translate-y-1/2 translate-x-[200%] xl:-translate-x-[50%] min-[2020px]:right-0 opacity-30 w-[400px] pointer-events-none">
         {rightFeature2.map((feature, index) => (
           <motion.div
             key={index}
@@ -382,7 +382,7 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex gap-4 mt-3"
+            className="flex gap-4 mt-8"
           >
             <span className=" text-lg font-light italic text-gray-300 flex items-center gap-1 rounded-xl px-4 py-1 ">
               As seen on{" "}
@@ -398,12 +398,8 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-4 md:mt-6 flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm text-white"
+            className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm text-white"
           >
-            <span className="flex items-center gap-1.5 md:gap-2">
-              <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
-              No credit card required
-            </span>
             <span className="flex items-center gap-1.5 md:gap-2">
               <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
               7-day free trial

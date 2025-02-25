@@ -22,15 +22,15 @@ import { cn } from "@/lib/utils";
 
 // Original data arrays remain the same
 const inputSources = [
-  { title: "Brand Guide", icon: PenTool },
+  { title: "Brand Analysis", icon: PenTool },
   { title: "CRM Notes", icon: Users },
-  { title: "Web Source", icon: Globe },
+  { title: "Web Sources", icon: Globe },
   { title: "Documents", icon: ScrollText },
   { title: "Brand Colors", icon: PencilRuler },
 ];
 
 const outputTypes = [
-  { title: "LinkedIn Post", icon: Linkedin, },
+  { title: "LinkedIn Post", icon: Linkedin },
   { title: "Newsletters", icon: ScrollText },
   { title: "Whitepapers", icon: Book },
   { title: "Articles", icon: Newspaper },
@@ -98,15 +98,15 @@ interface CardProps {
 
 const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
   const controls = useAnimationControls();
-  
+
   useEffect(() => {
     controls.start({
       boxShadow: [
         "0 0 0 0 rgba(16, 222, 197, 0)",
         "0 0 20px 2px rgba(16, 222, 197, 0.2)",
-        "0 0 0 0 rgba(16, 222, 197, 0)"
+        "0 0 0 0 rgba(16, 222, 197, 0)",
       ],
-      transition: { duration: 2, repeat: Infinity }
+      transition: { duration: 2, repeat: Infinity },
     });
   }, [controls]);
 
@@ -115,10 +115,10 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       animate={controls}
-      whileHover={{ 
-        x: 10, 
+      whileHover={{
+        x: 10,
         boxShadow: "0 0 25px 5px rgba(16, 222, 197, 0.3)",
-        scale: 1.02
+        scale: 1.02,
       }}
       className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
@@ -159,15 +159,15 @@ InputCard.displayName = "InputCard";
 
 const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
   const controls = useAnimationControls();
-  
+
   useEffect(() => {
     controls.start({
       boxShadow: [
         "0 0 0 0 rgba(16, 222, 197, 0)",
         "0 0 20px 2px rgba(16, 222, 197, 0.2)",
-        "0 0 0 0 rgba(16, 222, 197, 0)"
+        "0 0 0 0 rgba(16, 222, 197, 0)",
       ],
-      transition: { duration: 2, repeat: Infinity }
+      transition: { duration: 2, repeat: Infinity },
     });
   }, [controls]);
 
@@ -176,10 +176,10 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
     <motion.div
       ref={innerRef}
       animate={controls}
-      whileHover={{ 
-        x: -10, 
+      whileHover={{
+        x: -10,
         boxShadow: "0 0 25px 5px rgba(16, 222, 197, 0.3)",
-        scale: 1.02
+        scale: 1.02,
       }}
       className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
@@ -344,6 +344,9 @@ const WorkflowSection = () => {
             transition={{ duration: 0.4 }}
             className="flex flex-col items-center gap-3"
           >
+            <h4 className="text-xl font-semibold text-foreground mb-4">
+              Data Sources
+            </h4>
             {inputSources.map((item, index) => (
               <InputCard
                 key={item.title}
@@ -357,8 +360,11 @@ const WorkflowSection = () => {
 
           <div
             ref={aiHubRef}
-            className="w-full flex items-center justify-center"
+            className="w-full flex flex-col items-center justify-center"
           >
+            <h4 className="text-xl font-semibold text-foreground mb-4">
+              AI Engine
+            </h4>
             <Button
               as="div"
               borderRadius="16px"
@@ -377,7 +383,7 @@ const WorkflowSection = () => {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
                 className="flex flex-col gap-2 p-4"
               >
@@ -389,7 +395,7 @@ const WorkflowSection = () => {
                     transition={{ delay: index * 0.1 }}
                     className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300 transform-gpu will-change-transform bg-background/95 backdrop-blur-sm border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <motion.div 
+                    <motion.div
                       className="w-6 h-6 transform-gpu"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -411,6 +417,9 @@ const WorkflowSection = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="flex flex-col items-center gap-3"
           >
+            <h4 className="text-xl font-semibold text-foreground mb-4">
+              Personas
+            </h4>
             {outputTypes.map((item, index) => (
               <OutputCard
                 key={item.title}

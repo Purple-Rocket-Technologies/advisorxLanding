@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
-  { label: "Features", href: "#features", isHash: true },
-  { label: "Founders", href: "#founders", isHash: true },
-  { label: "Security", href: "#security", isHash: true },
+  { label: "Features", href: "/#features", isHash: true },
+  { label: "Founders", href: "/company", isHash: true },
+  { label: "Security", href: "/#security", isHash: true },
   { label: "Pricing", href: "/pricing", isHash: false },
   { label: "Blog", href: "/blog", isHash: false },
 ];
@@ -20,6 +20,10 @@ export default function NavBar() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const threshold = window.innerHeight * 0.9; // 75vh
+      if (window.location.pathname.includes("company")) {
+        setScrolled(true);
+        return;
+      }
       if (!window.location.pathname.includes("pricing")) {
         setScrolled(scrollPosition > threshold);
         console.log(scrollPosition, threshold);
@@ -32,6 +36,10 @@ export default function NavBar() {
     if (window.location.pathname.includes("pricing")) {
       setScrolled(true);
     }
+    if (window.location.pathname.includes("company")) {
+      setScrolled(true);
+      return;
+    }
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -42,15 +50,17 @@ export default function NavBar() {
       }`}
     >
       <div className="flex justify-between items-center w-full max-w-[80%] mx-auto px-4 md:px-6">
-        <div className="text-2xl font-bold h-fit">
-          <Image
-            src={"/logos/logo.svg"}
-            alt="AdvisorX Logo"
-            className={scrolled ? "invert" : ""}
-            width={120}
-            height={10}
-          />
-        </div>
+        <Link href="/">
+          <div className="text-2xl font-bold h-fit">
+            <Image
+              src={"/logos/logo.svg"}
+              alt="AdvisorX Logo"
+              className={scrolled ? "invert" : ""}
+              width={120}
+              height={10}
+            />
+          </div>
+        </Link>
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
           {navigationItems.map((item) =>
@@ -86,7 +96,9 @@ export default function NavBar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden"
           >
-            <div className={`hamburger ${mobileMenuOpen ? "open" : ""} flex flex-col gap-1.5`}>
+            <div
+              className={`hamburger ${mobileMenuOpen ? "open" : ""} flex flex-col gap-1.5`}
+            >
               <span
                 className={`h-0.5 w-6 bg-current block ${
                   scrolled ? "bg-gray-800" : "bg-white"

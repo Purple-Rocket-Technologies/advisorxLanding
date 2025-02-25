@@ -52,21 +52,21 @@ const BenefitCard = ({
 const BenefitsSection = () => {
   const benefits = [
     {
-      title: "Marketing Executives",
-      subtitle: "Content automation & scheduling",
-      metric: "4+ hrs saved/week",
+      title: "For Client Relationships",
+      subtitle: "Content that sounds like you",
+      metric: "2x faster content creation",
       icon: Clock,
     },
     {
-      title: "Wealth Advisors",
-      subtitle: "One-click social sharing",
-      metric: "2x client engagement",
+      title: "For Practice Management",
+      subtitle: "Marketing department in a box",
+      metric: "50% time saved on marketing tasks",
       icon: Users,
     },
     {
-      title: "Compliance Teams",
-      subtitle: "AI-powered pre-checks",
-      metric: "70% faster reviews",
+      title: "For Compliance",
+      subtitle: "SEC/FINRA marketing reviews",
+      metric: "75% faster compliance reviews",
       icon: Shield,
     },
   ];
@@ -84,10 +84,11 @@ const BenefitsSection = () => {
           className="text-center mb-20"
         >
           <h3 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
-            More time for what matters
+            Run your firm&apos;s marketing in half the time
           </h3>
           <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
-            Empowering every key role in your practice with AI
+            AI that handles marketing, client engagement and compliance, so you
+            can focus on what you do best
           </p>
         </motion.div>
 

@@ -82,7 +82,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className={`relative p-8 rounded-2xl border backdrop-blur-sm shadow-sm ${
+            className={`relative p-8 rounded-2xl border backdrop-blur-sm shadow-sm flex flex-col justify-between ${
               tier.popular
                 ? "border-primary/50 bg-primary/[0.02] shadow-primary/5"
                 : "border-border/50 bg-background/80"
@@ -94,25 +94,27 @@ export default function Pricing() {
               </div>
             )}
 
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">{tier.price}</span>
-                {tier.period && (
-                  <span className="text-muted-foreground">{tier.period}</span>
-                )}
+            <div>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold">{tier.price}</span>
+                  {tier.period && (
+                    <span className="text-muted-foreground">{tier.period}</span>
+                  )}
+                </div>
+                <p className="text-muted-foreground">{tier.description}</p>
               </div>
-              <p className="text-muted-foreground">{tier.description}</p>
-            </div>
 
-            <ul className="space-y-4 mb-8">
-              {tier.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-primary" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
+              <ul className="space-y-4 mb-8">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-primary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <Button
               className={`w-full ${

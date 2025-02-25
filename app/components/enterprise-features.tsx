@@ -366,7 +366,7 @@ FeatureCard.displayName = "FeatureCard";
 
 const EnterpriseFeatures = () => {
   return (
-    <section className="w-full py-12 relative">
+    <section className="w-full py-12 relative" id="features">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <motion.h2
