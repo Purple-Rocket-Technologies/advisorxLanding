@@ -64,13 +64,12 @@ export default function Pricing() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-4"
+          className="text-4xl max-w-[90%] mx-auto md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2"
         >
           Rome wasn&apos;t built in a day,
-          <br />
-          but your marketing assets will be.
+          <br className="hidden md:block" /> but your marketing assets will be.
         </motion.h1>
-        <p className="text-muted-foreground text-xl">
+        <p className="text-muted-foreground text-sm md:text-xl">
           Choose the perfect plan for your needs
         </p>
       </div>
@@ -96,7 +95,9 @@ export default function Pricing() {
 
             <div>
               <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+                  {tier.name}
+                </h3>
                 <div className="mb-4">
                   <span className="text-4xl font-bold">{tier.price}</span>
                   {tier.period && (

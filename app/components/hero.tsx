@@ -328,7 +328,7 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
             AI Marketing Manager <br className="hidden md:block" /> for Wealth
             Advisors
           </h1>
@@ -353,12 +353,12 @@ const Hero = ({
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col gap-3 md:flex-row items-center justify-center md:gap-4 w-full"
           >
-            <Button className="w-full md:w-auto text-black text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 bg-secondary">
+            <Button className="w-full md:w-auto text-black text-sm md:text-lg px-6 md:px-8 py-2.5 md:py-3 bg-secondary">
               Schedule Demo
             </Button>
             <Button
               variant="outline"
-              className="w-full md:w-auto text-white backdrop-blur-lg border-2 md:border-4 text-base md:text-lg px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2"
+              className="w-full md:w-auto text-white backdrop-blur-lg border-2 md:border-4 text-sm md:text-lg px-6 md:px-8 py-2.5 md:py-3 flex items-center justify-center gap-2"
             >
               See it in Action
               <svg

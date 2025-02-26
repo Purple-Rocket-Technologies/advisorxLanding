@@ -81,12 +81,12 @@ const BenefitsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10"
         >
-          <h3 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+          <h3 className="text-4xl max-w-[80%] mx-auto md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
             Run your firm&apos;s marketing in half the time
           </h3>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto">
+          <p className="text-base max-w-[80%] md:text-xl text-gray-700 font-medium md:max-w-3xl mx-auto">
             AI that handles marketing, client engagement and compliance, so you
             can focus on what you do best
           </p>

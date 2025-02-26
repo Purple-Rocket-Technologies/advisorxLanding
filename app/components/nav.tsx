@@ -49,7 +49,7 @@ export default function NavBar() {
         scrolled ? "bg-white/80" : ""
       }`}
     >
-      <div className="flex justify-between items-center w-full max-w-[80%] mx-auto px-4 md:px-6">
+      <div className="flex justify-between items-center w-full max-w-screen md:max-w-[80%] mx-auto px-4 md:px-6">
         <Link href="/">
           <div className="text-2xl font-bold h-fit">
             <Image

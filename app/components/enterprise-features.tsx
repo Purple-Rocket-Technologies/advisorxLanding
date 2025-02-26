@@ -354,7 +354,7 @@ const FeatureCard = React.memo(
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: 0.3 }}
-        className="text-muted-foreground text-base leading-relaxed"
+        className="text-black text-base leading-relaxed"
       >
         {feature.description}
       </motion.p>
@@ -368,13 +368,13 @@ const EnterpriseFeatures = () => {
   return (
     <section className="w-full py-12 relative" id="features">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold text-black mb-12 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold text-black md:mb-12 mb-6 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
           >
             Features
           </motion.h2>
@@ -383,7 +383,7 @@ const EnterpriseFeatures = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xl text-gray-700 font-medium max-w-3xl mx-auto"
+            className="text-base md:text-xl text-gray-700 font-medium max-w-[80%] md:max-w-3xl mx-auto"
           >
             Marketing for firms of all sizes using state-of-the-art AI for
             wealth management.

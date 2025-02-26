@@ -11,7 +11,7 @@ export const TrustedBy = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="flex flex-col items-start w-fit h-full gap-3 text-white rounded-xl px-4 py-2 border border-border"
       >
-        <span className="text-sm text-white font-light italic tracking-wide uppercase">
+        <span className="text-xs md:text-sm text-white font-light italic tracking-wide uppercase">
           Trusted by Solo & Large RIAs
         </span>
       </motion.div>

@@ -138,7 +138,7 @@ export const TestimonialCarousel = () => {
           >
             Testimonials
           </motion.span>
-          <h3 className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+          <h3 className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
             What advisors are saying
           </h3>
         </motion.div>
@@ -178,7 +178,7 @@ export const TestimonialCarousel = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground mb-8 md:mb-10 leading-relaxed"
+                      className="text-lg md:text-2xl lg:text-3xl font-medium text-foreground mb-8 md:mb-10 leading-relaxed"
                     >
                       {testimonials[current].quote}
                     </motion.p>

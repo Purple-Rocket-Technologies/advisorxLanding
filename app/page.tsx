@@ -55,7 +55,7 @@ const AdvisorXLanding = () => {
         <DashboardPage />
       </div>
       <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-12 p-10 mt-32 md:mt-10">
-        <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent text-center">
           See it in action
         </h2>
         <motion.div
@@ -77,7 +77,7 @@ const AdvisorXLanding = () => {
       </section>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
-        <h3 className="text-5xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+        <h3 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Trusted by leading <br /> wealth management firms
         </h3>
         <CompanyMarquee />
@@ -119,6 +119,28 @@ const AdvisorXLanding = () => {
         <TestimonialCarousel />
         <EnterpriseFeatures />
       </div>
+
+      {/* Pricing Section */}
+      <section className="w-full py-20 flex flex-col items-center justify-center md:hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h3 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent">
+            Ready to transform your practice?
+          </h3>
+          <Button
+            className="bg-primary/10 hover:bg-primary/20 text-primary text-lg px-8 py-6 rounded-full transition-all duration-300"
+            onClick={() => (window.location.href = "/pricing")}
+          >
+            See Pricing
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+        </motion.div>
+      </section>
 
       {/* CTA Section */}
       <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:bg-black rounded-t-[3rem] border-t border-border/5 py-24">
@@ -172,10 +194,9 @@ const AdvisorXLanding = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center gap-8"
           >
-            <h3 className="text-5xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
+            <h3 className="text-4xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
               Join firms who are growing
-              <br />
-              their reach with AdvisorX
+              <br className="hidden md:block" /> their reach with AdvisorX
             </h3>
 
             <motion.div
@@ -183,14 +204,14 @@ const AdvisorXLanding = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
+              className="flex flex-col sm:flex-row justify-center gap-4 md:mt-8"
             >
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm md:text-lg px-8 py-6 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300">
                 Start Free Trial
               </Button>
               <Button
                 variant="outline"
-                className="text-lg px-8 py-6 border-border hover:bg-accent transition-all duration-300 group"
+                className="text-sm md:text-lg px-8 py-6 border-border hover:bg-accent transition-all duration-300 group"
               >
                 Schedule Demo
                 <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -206,11 +227,11 @@ const AdvisorXLanding = () => {
             >
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-primary" />
-                <span>7-day free trial</span>
+                <span className="text-sm md:text-lg">7-day free trial</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-primary" />
-                <span>Cancel anytime</span>
+                <span className="text-sm md:text-lg">Cancel anytime</span>
               </div>
             </motion.div>
           </motion.div>
