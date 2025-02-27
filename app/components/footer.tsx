@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="relative w-screen bg-gradient-to-br  from-teal-900 via-primary to-teal-600 dark:bg-background/50 pt-20 pb-12 overflow-hidden border-t-2 border-gray-700/5 rounded-md">
+    <footer className="relative min-w-screen w-full bg-gradient-to-br  from-teal-900 via-primary to-teal-600 dark:bg-background/50 pt-20 pb-12 overflow-hidden border-t-2 border-gray-700/5 rounded-md">
       <div className="absolute inset-0">
         <div className="absolute inset-0  bg-[length:20px_20px]" />
         <motion.div

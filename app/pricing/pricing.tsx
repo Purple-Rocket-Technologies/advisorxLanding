@@ -7,52 +7,72 @@ import { Button } from "@/components/ui/button";
 const tiers = [
   {
     name: "Starter",
-    price: "Free",
+    price: "$99.99",
+    period: "/month",
     description: "Perfect for exploring AI-powered marketing.",
     features: [
-      "1 AI Persona",
-      "5 generations per month",
-      "Compliance checks",
-      "5 visuals",
+      "10 AI Personas",
+      "20 Visuals",
+      "100 Compliance Reviews",
+      "Single user access",
     ],
-    cta: "Start Free",
+    cta: "Get Started",
     popular: false,
   },
   {
     name: "Professional",
-    price: "$99.99",
+    price: "$299.99",
     period: "/month",
     description: "Scale your marketing with powerful AI tools.",
     features: [
-      "3 AI Personas",
-      "1,000 credits per month",
-      "20 visuals",
-      "Compliance suite",
-      "Priority support",
+      "Unlimited Personas",
+      "100 visuals",
+      "Unlimited compliance reviews",
       "Custom prompt library",
       "Post scheduling",
       "Marketing analytics",
-      "1 user",
+      "Up to 5 users",
     ],
     cta: "Get Started",
     popular: true,
   },
   {
     name: "Premium",
-    price: "$299.99",
+    price: "$899.99",
     period: "/month",
     description: "Advanced features for maximum growth.",
     features: [
-      "All AI Agents",
-      "Unlimited generations",
+      "SEO + GEO content",
+      "Unlimited Personas",
       "Unlimited visuals",
-      "Compliance suite",
-      "24/7 priority support",
-      "Custom agent development",
+      "Unlimited compliance reviews",
+      "Custom prompt library",
+      "Post scheduling",
       "Marketing analytics",
-      "Up to 4 users",
+      "Up to 15 users",
     ],
-    cta: "Contact Sales",
+    cta: "Get Started",
+    popular: false,
+  },
+  {
+    name: "Elite",
+    price: "$2,999",
+    period: "/month",
+    description: "Done-For-You Marketing Service.",
+    features: [
+      "Quarterly CMO-level strategy aligned with firm goals",
+      "LinkedIn profile tracking of website visitors for lead generation",
+      "4 SEO + GEO optimized blogs monthly",
+      "20 social media posts across LinkedIn/Facebook/X/Instagram",
+      "4 client newsletters monthly",
+      "1 premium e-book each month",
+      "4 market updates with custom analysis",
+      "Full AdvisorX platform access for up to 10 users",
+      "Detailed compliance reviews",
+      "Complete content creation, scheduling, and analytics",
+      "Dedicated AI team",
+    ],
+    cta: "Get Started",
     popular: false,
   },
 ];
@@ -74,7 +94,7 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-4 gap-8">
         {tiers.map((tier, i) => (
           <motion.div
             key={tier.name}
@@ -111,7 +131,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-primary" />
-                    <span>{feature}</span>
+                    <span className="text-xs">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -132,7 +152,8 @@ export default function Pricing() {
 
       <div className="mt-12 text-center">
         <p className="text-muted-foreground">
-          Need more users? Add team members for $49.99 per user/month
+          All the benefits of Premium software plus full-service marketing
+          execution at a fraction of the cost of hiring a team.
         </p>
       </div>
     </section>
