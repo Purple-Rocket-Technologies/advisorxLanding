@@ -1,0 +1,5 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,50 C100,30 200,70 300,50 C400,30 500,70 600,50 L600,0 L0,0 Z" fill="#ffffff" opacity="0.05"/>
+  <path d="M0,100 C100,80 200,120 300,100 C400,80 500,120 600,100 L600,50 L0,50 Z" fill="#ffffff" opacity="0.03"/>
+  <path d="M0,150 C100,130 200,170 300,150 C400,130 500,170 600,150 L600,100 L0,100 Z" fill="#ffffff" opacity="0.02"/>
+</svg>
