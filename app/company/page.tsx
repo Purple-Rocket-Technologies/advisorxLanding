@@ -3,7 +3,7 @@ import NavBar from "../components/nav";
 import Footer from "../components/footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin, ChevronDown } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
