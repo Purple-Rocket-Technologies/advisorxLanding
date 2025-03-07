@@ -55,7 +55,7 @@ export default function CompanyPage() {
       <div className="absolute inset-0 z-0 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#006e59_100%)]"></div>
 
       {/* Hero Section */}
-      <div className="relative min-h-[80vh] flex items-center justify-center z-10 px-4 md:px-6">
+      <div className="relative min-h-[80vh] flex items-center justify-center z-10 px-4 md:px-6 mt-32 md:mt-0">
         <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
