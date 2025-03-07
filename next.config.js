@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "advisorx.ai",
       },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
     ],
   },
 };
