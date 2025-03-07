@@ -111,13 +111,13 @@ export default function CompanyPage() {
                     transition: { duration: 0.3, ease: "easeOut" },
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-28 h-28 rounded-full mb-6 flex items-center justify-center overflow-hidden z-10 ring-4 ring-white shadow-lg relative mt-6 bg-white"
+                  className="w-48 h-48 rounded-full mb-6 flex items-center justify-center overflow-hidden z-10 ring-4 ring-white shadow-lg relative mt-6 bg-white"
                 >
                   <Image
                     src={member.image}
                     alt={member.name}
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     className="w-full h-full aspect-square object-cover rounded-full relative top-2 bg-white"
                   />
                 </motion.div>
