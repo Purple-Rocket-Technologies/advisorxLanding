@@ -17,27 +17,26 @@ import Footer from "./components/footer";
 
 const AdvisorXLanding = () => {
   const [heroHeight, setHeroHeight] = useState(0);
+  const [showWorkflow, setShowWorkflow] = useState(false);
   const minHeightForOverlay = 850; // minimum height needed for overlay effect
 
   const dashboardStyle =
     heroHeight >= minHeightForOverlay
       ? { marginTop: `-${heroHeight * 0.1}px` }
       : { marginTop: "32px" }; // regular spacing if not enough height
-
+  
+  // Check window width on client side only
   useEffect(() => {
-    const timer = setTimeout(() => {
-      toast.info("Welcome to AdvisorX!", {
-        position: "bottom-right",
-        autoClose: false,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }, 3000);
-
-    return () => clearTimeout(timer);
+    if (typeof window !== "undefined") {
+      setShowWorkflow(window.innerWidth > 1000);
+      
+      const handleResize = () => {
+        setShowWorkflow(window.innerWidth > 1000);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   return (
@@ -54,7 +53,7 @@ const AdvisorXLanding = () => {
       >
         <DashboardPage />
       </div>
-      <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-12 p-10 mt-32 md:mt-10">
+      <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-12 p-10 mt-24 md:mt-16">
         <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent text-center">
           See it in action
         </h2>
@@ -62,7 +61,7 @@ const AdvisorXLanding = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative w-full md:w-[50%] aspect-video rounded-xl overflow-hidden"
+          className="relative w-full md:w-[62.5%] aspect-video rounded-xl overflow-hidden"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
           <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
@@ -76,7 +75,7 @@ const AdvisorXLanding = () => {
         </motion.div>
       </section>
 
-      <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
+      <section className="w-[95%] text-center mt-24 md:mt-32 flex flex-col items-center">
         <h3 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Trusted by leading <br /> wealth management firms
         </h3>
@@ -84,7 +83,7 @@ const AdvisorXLanding = () => {
       </section>
       <BenefitsSection />
       <div className="flex flex-col items-center justify-center w-full">
-        {typeof window !== "undefined" && window.innerWidth > 1000 && (
+        {showWorkflow && (
           <>
             <WorkflowSection />
             <div className="absolute w-full h-full">
@@ -117,11 +116,13 @@ const AdvisorXLanding = () => {
           </>
         )}
         <TestimonialCarousel />
-        <EnterpriseFeatures />
+        <div className="py-8">
+          <EnterpriseFeatures />
+        </div>
       </div>
 
       {/* Pricing Section */}
-      <section className="w-full py-20 flex flex-col items-center justify-center md:hidden">
+      <section className="w-full py-16 flex flex-col items-center justify-center md:hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +144,7 @@ const AdvisorXLanding = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:bg-black rounded-t-[3rem] border-t border-border/5 py-24">
+      <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-background dark:bg-gradient-to-b dark:bg-black rounded-t-[3rem] border-t border-border/5 py-20">
         <div className="flex flex-col items-center justify-center">
           <motion.div
             className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px]"

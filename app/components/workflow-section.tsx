@@ -20,6 +20,43 @@ import Image from "next/image";
 import { Button } from "./moving-border";
 import { cn } from "@/lib/utils";
 
+// Helper functions for subtle icon backgrounds with green theme
+const getIconBgColor = (title: string): string => {
+  // Using varying opacities of the primary green for subtle differences
+  switch (title) {
+    case "Brand Analysis":
+      return "bg-gradient-to-br from-primary/90 to-primary/80";
+    case "CRM Notes":
+      return "bg-gradient-to-br from-primary/85 to-primary/75";
+    case "Web Sources":
+      return "bg-gradient-to-br from-primary/80 to-primary/70";
+    case "Documents":
+      return "bg-gradient-to-br from-primary/75 to-primary/65";
+    case "Brand Colors":
+      return "bg-gradient-to-br from-primary/70 to-primary/60";
+    default:
+      return "bg-gradient-to-br from-primary/80 to-primary/70";
+  }
+};
+
+const getOutputIconBgColor = (title: string): string => {
+  // Using slightly different shades of teal that complement the primary green
+  switch (title) {
+    case "LinkedIn Post":
+      return "bg-gradient-to-br from-teal-600/90 to-teal-700/80";
+    case "Newsletters":
+      return "bg-gradient-to-br from-teal-600/85 to-teal-700/75";
+    case "Whitepapers":
+      return "bg-gradient-to-br from-teal-600/80 to-teal-700/70";
+    case "Articles":
+      return "bg-gradient-to-br from-teal-600/75 to-teal-700/65";
+    case "Ad Copy":
+      return "bg-gradient-to-br from-teal-600/70 to-teal-700/60";
+    default:
+      return "bg-gradient-to-br from-teal-600/80 to-teal-700/70";
+  }
+};
+
 // Original data arrays remain the same
 const inputSources = [
   { title: "Brand Analysis", icon: PenTool },
@@ -145,11 +182,11 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
           </div>
         </div>
       ) : (
-        <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
-          <Icon className="w-full h-full stroke-primary stroke-[1.5]" />
+        <div className={`w-1/2 h-8 transform-gpu p-1.5 rounded-lg ${getIconBgColor(item.title)}`}>
+          <Icon className="w-full h-full stroke-white stroke-[1.5]" />
         </div>
       )}
-      <span className="w-1/2 text-base font-light italic text-foreground">
+      <span className="w-1/2 text-base font-light text-foreground whitespace-nowrap">
         {item.title}
       </span>
     </motion.div>
@@ -184,7 +221,7 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
       className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
     >
-      <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
+      <div className={`w-1/2 h-8 transform-gpu p-1.5 rounded-lg ${getOutputIconBgColor(item.title)}`}>
         {item.isImage ? (
           <Image
             src="/logos/linkedin.svg"
@@ -194,10 +231,10 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
             className="w-full h-full object-contain"
           />
         ) : (
-          <Icon className="w-full h-full stroke-primary dark:stroke-[#8FFFCF] stroke-[1.5]" />
+          <Icon className="w-full h-full stroke-white stroke-[1.5]" />
         )}
       </div>
-      <span className="w-1/2 text-base font-light italic text-foreground">
+      <span className="w-1/2 text-base font-light text-foreground whitespace-nowrap">
         {item.title}
       </span>
     </motion.div>
@@ -291,7 +328,7 @@ const WorkflowSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-fit bg-background relative w-full  flex flex-col items-center justify-start mb-24"
+      className="min-h-fit bg-background relative w-full flex flex-col items-center justify-start mb-12 py-12"
     >
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
         <defs>
@@ -362,17 +399,17 @@ const WorkflowSection = () => {
             ref={aiHubRef}
             className="w-full flex flex-col items-center justify-center"
           >
-            <h4 className="text-xl font-semibold text-foreground mb-4">
+            <h4 className="text-2xl font-bold text-primary mb-4 animate-pulse">
               AI Engine
             </h4>
             <Button
               as="div"
               borderRadius="16px"
-              duration={8000}
+              duration={5000}
               className={cn(
-                "bg-gradient-to-br from-cardBg via-cardBg/90 to-cardBg/80",
-                "text-foreground border-border/50 shadow-xl",
-                "hover:shadow-primary/20 hover:shadow-2xl transition-shadow duration-500"
+                "bg-gradient-to-br from-teal-900 via-primary to-teal-600",
+                "text-white border-white/20 shadow-xl shadow-primary/30",
+                "hover:shadow-primary/50 hover:shadow-2xl transition-all duration-500 scale-110"
               )}
               containerClassName="w-full max-w-[360px]"
             >
@@ -393,16 +430,16 @@ const WorkflowSection = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/5 transition-all duration-300 transform-gpu will-change-transform bg-background/95 backdrop-blur-sm border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
+                    className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 transform-gpu will-change-transform bg-black/30 backdrop-blur-sm border border-white/20 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <motion.div
                       className="w-6 h-6 transform-gpu"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <capability.icon className="w-full h-full opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5] group-hover:stroke-primary" />
+                      <capability.icon className="w-full h-full opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5] stroke-white group-hover:stroke-secondary" />
                     </motion.div>
-                    <span className="text-base font-medium whitespace-nowrap text-foreground group-hover:text-primary transition-colors">
+                    <span className="text-base font-medium whitespace-nowrap text-white group-hover:text-secondary transition-colors">
                       {capability.title}
                     </span>
                   </motion.div>
@@ -429,7 +466,7 @@ const WorkflowSection = () => {
                 }}
               />
             ))}
-            <div className="absolute -bottom-20 w-full h-[80px] max-w-[240px] px-4 flex items-center justify-center text-lg font-light italic text-muted-foreground opacity-75">
+            <div className="absolute -bottom-20 w-full h-[80px] max-w-[240px] px-4 flex items-center justify-center text-lg font-light text-muted-foreground opacity-75">
               & more...
             </div>
           </motion.div>

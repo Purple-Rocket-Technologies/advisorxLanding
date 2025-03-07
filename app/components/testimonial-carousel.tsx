@@ -86,7 +86,7 @@ export const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-32 relative overflow-hidden min-w-full px-4">
+    <section className="py-16 md:py-24 relative overflow-hidden min-w-full px-4">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
         <motion.div

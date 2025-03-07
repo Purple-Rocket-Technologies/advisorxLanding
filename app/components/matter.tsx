@@ -72,7 +72,7 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
       <div className="absolute inset-0 bg-gradient-to-br from-primary-100/20 to-secondary-100/20" />
 
