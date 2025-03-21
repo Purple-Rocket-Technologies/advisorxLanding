@@ -341,7 +341,7 @@ const Hero = ({
   Supercharge your marketing engine with personalized content that&apos;s
   grounded in your CRM data. Identify website visitors &amp; track your firm&apos;s growth.
 </motion.p>
-
+</div>
         {/* CTA Section */}
         <div className="w-fit max-w-xl flex flex-col items-center justify-center px-4 md:px-0">
           <motion.div
