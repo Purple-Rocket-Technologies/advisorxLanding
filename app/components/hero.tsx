@@ -338,10 +338,9 @@ const Hero = ({
   transition={{ duration: 0.5, delay: 0.4 }}
   className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
 >
-  Supercharge your marketing engine with personalized content that's
-  grounded in your CRM data. Identify website visitors & track your firm's growth.
+  Supercharge your marketing engine with personalized content that&apos;s
+  grounded in your CRM data. Identify website visitors &amp; track your firm&apos;s growth.
 </motion.p>
-</div> 
 
         {/* CTA Section */}
         <div className="w-fit max-w-xl flex flex-col items-center justify-center px-4 md:px-0">
