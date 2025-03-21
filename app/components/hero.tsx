@@ -327,11 +327,11 @@ const Hero = ({
           >
             <TrustedBy />
           </motion.div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-            AI Marketing Manager <br className="hidden md:block" /> for Wealth
-            Advisors
-          </h1>
+          
+<h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+  AI Growth Marketer <br className="hidden md:block" /> for Wealth
+  Advisors
+</h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -339,9 +339,8 @@ const Hero = ({
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
-            Supercharge organic growth with highly personalized content that
-            resonates with your ideal client. Create content, run compliance
-            reviews, schedule posts & track your growth.
+            Supercharge your marketing engine with personalized content that's
+            grounded in your CRM data. Identify website visitors & track your firm's growth.
           </motion.p>
         </div>
 
