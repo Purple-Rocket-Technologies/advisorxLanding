@@ -24,7 +24,7 @@ const AdvisorXLanding = () => {
       ? { marginTop: `-${heroHeight * 0.1}px` }
       : { marginTop: "32px" }; // regular spacing if not enough height
 
-  useEffect(() => {
+  /*useEffect(() => {
     const timer = setTimeout(() => {
       toast.info("Welcome to AdvisorX!", {
         position: "bottom-right",
@@ -38,10 +38,10 @@ const AdvisorXLanding = () => {
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, []);*/
 
   return (
-    <div className="min-h-screen bg-background dark:bg-black text-neutral-dark dark:text-base-white flex flex-col items-center">
+    <div className="min-h-screen bg-background dark:bg-black text-neutral-dark dark:text-base-white flex flex-col items-center overflow-x-hidden">
       <ToastContainer />
       {/* Navigation */}
       <NavBar />
@@ -195,8 +195,8 @@ const AdvisorXLanding = () => {
             className="flex flex-col items-center gap-8"
           >
             <h3 className="text-4xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
-              Join firms who are growing
-              <br className="hidden md:block" /> their reach with AdvisorX
+              Close the loop from
+              <br className="hidden md:block" /> content to warm leads
             </h3>
 
             <motion.div

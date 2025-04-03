@@ -26,7 +26,7 @@ export default function NavBar() {
       }
       if (!window.location.pathname.includes("pricing")) {
         setScrolled(scrollPosition > threshold);
-        console.log(scrollPosition, threshold);
+        //console.log(scrollPosition, threshold);
       } else {
         setScrolled(true);
       }

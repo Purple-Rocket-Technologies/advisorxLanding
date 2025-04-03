@@ -27,22 +27,25 @@ const inputSources = [
   { title: "Web Sources", icon: Globe },
   { title: "Documents", icon: ScrollText },
   { title: "Brand Colors", icon: PencilRuler },
+  { title: "Image & Video Gallery", icon: Megaphone },
 ];
 
 const outputTypes = [
-  { title: "LinkedIn Post", icon: Linkedin },
-  { title: "Newsletters", icon: ScrollText },
-  { title: "Whitepapers", icon: Book },
-  { title: "Articles", icon: Newspaper },
-  { title: "Ad Copy", icon: Megaphone },
+  { title: "LinkedIn Strategist", icon: Linkedin },
+  { title: "Newsletter Writer", icon: ScrollText },
+  { title: "Market Commentator", icon: Book },
+  { title: "Content Curator", icon: Newspaper },
+  { title: "SEO Specialist", icon: Megaphone },
+  { title: "Social Media Manager", icon: Megaphone },
 ];
 
 const capabilities = [
+  { title: "Agentic Scheduling", icon: Target },
   { title: "Growth Analytics", icon: Target },
   { title: "On-Brand Content", icon: LayoutTemplate },
-  { title: "Compliance Reviews", icon: Shield },
-  { title: "Schedule Posts", icon: Calendar },
-  { title: "Engaging Visuals", icon: BrainCircuit },
+  { title: "Compliance Pre-checks", icon: Shield },
+  { title: "Content Optimization", icon: Calendar },
+  { title: "Cryptographic Verification", icon: BrainCircuit },
 ];
 
 const crmLogos = [
@@ -304,7 +307,7 @@ const WorkflowSection = () => {
             <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
           </filter>
         </defs>
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {connections.map((connection) => (
             <FlowPath key={connection.id} {...connection} />
           ))}
@@ -326,13 +329,13 @@ const WorkflowSection = () => {
         >
           Workflow
         </motion.span>
-        <h3 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+        <h3 className="text-center text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Personalized advisor marketing
           <br />
-          that integrates with your CRM.
+          that gleans from your CRM Notes.
         </h3>
         <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-24">
-          AI that understands your firm&apos;s brand and marketing goals.
+          Our AI agent extracts your brand guidelines, anonymizes PII from your CRM and creates content to attract the ideal client to your website.
         </p>
       </div>
 
@@ -402,7 +405,7 @@ const WorkflowSection = () => {
                     >
                       <capability.icon className="w-full h-full opacity-70 group-hover:opacity-100 transition-opacity stroke-[1.5] group-hover:stroke-primary" />
                     </motion.div>
-                    <span className="text-base font-medium whitespace-nowrap text-foreground group-hover:text-primary transition-colors">
+                    <span className="text-sm font-medium whitespace-nowrap text-foreground group-hover:text-primary transition-colors">
                       {capability.title}
                     </span>
                   </motion.div>
@@ -418,7 +421,7 @@ const WorkflowSection = () => {
             className="flex flex-col items-center gap-3"
           >
             <h4 className="text-xl font-semibold text-foreground mb-4">
-              Personas
+              Specialized Agents
             </h4>
             {outputTypes.map((item, index) => (
               <OutputCard

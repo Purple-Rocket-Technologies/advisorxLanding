@@ -329,7 +329,7 @@ const Hero = ({
           </motion.div>
           
 <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-  AI Growth Marketer <br className="hidden md:block" /> for Wealth
+  AI Marketing Agents <br className="hidden md:block" /> for Wealth
   Advisors
 </h1>
 <motion.p
@@ -338,8 +338,7 @@ const Hero = ({
   transition={{ duration: 0.5, delay: 0.4 }}
   className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
 >
-  Supercharge your marketing engine with personalized content that&apos;s
-  grounded in your CRM data. Identify website visitors &amp; track your firm&apos;s&nbsp;growth.
+Intelligent marketing that creates content, schedules posts, identifies website visitors by name, and delivers their LinkedIn profiles to you. 
 </motion.p>
 </div>
         {/* CTA Section */}
