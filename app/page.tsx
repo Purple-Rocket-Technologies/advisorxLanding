@@ -54,27 +54,6 @@ const AdvisorXLanding = () => {
       >
         <DashboardPage />
       </div>
-      <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-12 p-10 mt-32 md:mt-10">
-        <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent text-center">
-          See it in action
-        </h2>
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative w-full md:w-[50%] aspect-video rounded-xl overflow-hidden"
-        >
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
-          <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
-            <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
-            <div className="relative h-full flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
-                <Play className="w-8 h-8 text-white ml-1" />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
         <h3 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
@@ -82,7 +61,7 @@ const AdvisorXLanding = () => {
         </h3>
         <CompanyMarquee />
       </section>
-      <BenefitsSection />
+      {/*<BenefitsSection />*/}
       <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
           <>
@@ -116,6 +95,29 @@ const AdvisorXLanding = () => {
             </div>
           </>
         )}
+
+        <section className="w-full bg-background dark:bg-background/90 border-t border-border/5 flex flex-col items-center justify-center gap-12 p-10 mt-32 md:mt-10">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent text-center">
+            See it in action
+          </h2>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative w-full md:w-[50%] aspect-video rounded-xl overflow-hidden"
+          >
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
+            <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
+              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
+              <div className="relative h-full flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
+                  <Play className="w-8 h-8 text-white ml-1" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         <TestimonialCarousel />
         <EnterpriseFeatures />
       </div>

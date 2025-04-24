@@ -91,6 +91,25 @@ export default function NavBar() {
           <Button className="hidden md:block bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40">
             Schedule Demo
           </Button>
+
+          {/* Login and signup buttons */}
+          <div className="flex items-center gap-4">
+            <Button 
+                variant="outline"
+                className="border-primary text-primary hover:bg-gray-100"
+                onClick={() => window.location.href="https://dashboard.advisorx.ai"}
+            >
+                Login
+            </Button>
+            <Button 
+                className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
+            >
+                Sign Up
+            </Button>
+          </div>
+
+
+
           {/* Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

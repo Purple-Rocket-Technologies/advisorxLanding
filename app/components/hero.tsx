@@ -152,11 +152,10 @@ const Hero = ({
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.5 + i * 0.1, duration: 0.3 }}
-              className={`aspect-square rounded-lg ${
-                i === 3
-                  ? "border-2 border-secondary text-white"
-                  : "border border-white/20 text-white dark:bg-white/10"
-              } flex items-center justify-center text-xs`}
+              className={`aspect-square rounded-lg ${i === 3
+                ? "border-2 border-secondary text-white"
+                : "border border-white/20 text-white dark:bg-white/10"
+                } flex items-center justify-center text-xs`}
             >
               {i + 15}
             </motion.div>
@@ -327,20 +326,19 @@ const Hero = ({
           >
             <TrustedBy />
           </motion.div>
-          
-<h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-  AI Marketing Agents <br className="hidden md:block" /> for Wealth
-  Advisors
-</h1>
-<motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.4 }}
-  className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
->
-Intelligent marketing that creates content, schedules posts, identifies website visitors by name, and delivers their LinkedIn profiles to you. 
-</motion.p>
-</div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+            Generic AI content won't grow your RIA. Your own data will.
+          </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
+          >
+            AdvisorX securely transforms your firm's Form ADV, meeting notes, past content and CRM data into compliant, authentic content that reflects your original voice.
+          </motion.p>
+        </div>
         {/* CTA Section */}
         <div className="w-fit max-w-xl flex flex-col items-center justify-center px-4 md:px-0">
           <motion.div

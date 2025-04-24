@@ -15,6 +15,17 @@ import {
   Megaphone,
   Linkedin,
   LayoutTemplate,
+  CheckCircle,
+  Mail,
+  LineChart,
+  FileText,
+  History,
+  Users2,
+  Share2,
+  UserX,
+  Sparkles,
+  ShieldCheck,
+  Palette,
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./moving-border";
@@ -22,30 +33,30 @@ import { cn } from "@/lib/utils";
 
 // Original data arrays remain the same
 const inputSources = [
-  { title: "Brand Analysis", icon: PenTool },
-  { title: "CRM Notes", icon: Users },
-  { title: "Web Sources", icon: Globe },
-  { title: "Documents", icon: ScrollText },
-  { title: "Brand Colors", icon: PencilRuler },
-  { title: "Image & Video Gallery", icon: Megaphone },
+  { title: "Upload Form ADV", icon: FileText },
+  { title: "Past Content", icon: History },
+  { title: "CRM/Meeting Notes", icon: Users2 },
+  { title: "Social Media Accounts", icon: Share2 },
+  //{ title: "Brand Colors", icon: PencilRuler },
+  //{ title: "Image & Video Gallery", icon: Megaphone },
 ];
 
 const outputTypes = [
-  { title: "LinkedIn Strategist", icon: Linkedin },
-  { title: "Newsletter Writer", icon: ScrollText },
-  { title: "Market Commentator", icon: Book },
-  { title: "Content Curator", icon: Newspaper },
-  { title: "SEO Specialist", icon: Megaphone },
-  { title: "Social Media Manager", icon: Megaphone },
+  { title: "Anonymizes all client PII", icon: UserX },
+  { title: "Real-time content suggestions", icon: Sparkles },
+  { title: "Pre-checks for FINRA/SEC compliance", icon: ShieldCheck },
+  { title: "Aligns content with brand guidelines", icon: Palette },
+  //{ title: "SEO Specialist", icon: Megaphone },
+  //{ title: "Social Media Manager", icon: Megaphone },
 ];
 
 const capabilities = [
-  { title: "Agentic Scheduling", icon: Target },
-  { title: "Growth Analytics", icon: Target },
-  { title: "On-Brand Content", icon: LayoutTemplate },
-  { title: "Compliance Pre-checks", icon: Shield },
-  { title: "Content Optimization", icon: Calendar },
-  { title: "Cryptographic Verification", icon: BrainCircuit },
+  { title: "Pre-approved content", icon: CheckCircle },
+  { title: "Email nurturing campaigns", icon: Mail },
+  //{ title: "On-Brand Content", icon: LayoutTemplate },
+  { title: "Compliance audit trails", icon: Shield },
+  { title: "Organic growth analytics", icon: LineChart },
+  //{ title: "Cryptographic Verification", icon: BrainCircuit },
 ];
 
 const crmLogos = [
@@ -126,7 +137,7 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
       className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center justify-between gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
     >
-      {item.title === "CRM Notes" ? (
+      {item.title === "CRM/Meeting Notes" ? (
         <div className="relative flex gap-1 max-w-1/2 bg-primary/5 rounded-lg p-1.5">
           {crmLogos.map((logo, i) => (
             <div
@@ -143,9 +154,6 @@ const InputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
               />
             </div>
           ))}
-          <div className="absolute -top-2 -right-2 px-1.5 py-0.5 text-[10px] font-medium bg-primary/20 text-primary rounded-full">
-            Coming soon
-          </div>
         </div>
       ) : (
         <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
@@ -184,7 +192,7 @@ const OutputCard: React.FC<CardProps> = React.memo(({ item, innerRef }) => {
         boxShadow: "0 0 25px 5px rgba(16, 222, 197, 0.3)",
         scale: 1.02,
       }}
-      className="w-full h-[80px] max-w-[260px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
+      className="w-full h-[80px] max-w-[320px] px-4 flex flex-row items-center gap-3 text-muted-foreground rounded-xl border border-border/50 backdrop-blur-md backdrop-saturate-150 transition-all duration-300 transform-gpu will-change-transform bg-gradient-to-r from-cardBg to-cardBg/80"
       style={{ transform: "translate3d(0,0,0)" }}
     >
       <div className="w-1/2 h-8 transform-gpu p-1.5 rounded-lg bg-primary/5">
@@ -348,7 +356,7 @@ const WorkflowSection = () => {
             className="flex flex-col items-center gap-3"
           >
             <h4 className="text-xl font-semibold text-foreground mb-4">
-              Data Sources
+              Bring Your Data
             </h4>
             {inputSources.map((item, index) => (
               <InputCard
@@ -366,7 +374,7 @@ const WorkflowSection = () => {
             className="w-full flex flex-col items-center justify-center"
           >
             <h4 className="text-xl font-semibold text-foreground mb-4">
-              AI Engine
+              AdvisorX AI Engine
             </h4>
             <Button
               as="div"
@@ -421,7 +429,7 @@ const WorkflowSection = () => {
             className="flex flex-col items-center gap-3"
           >
             <h4 className="text-xl font-semibold text-foreground mb-4">
-              Specialized Agents
+              Distribution
             </h4>
             {outputTypes.map((item, index) => (
               <OutputCard
