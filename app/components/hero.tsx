@@ -328,7 +328,7 @@ const Hero = ({
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-            Generic AI content won't grow your RIA. Your own data will.
+            {"Generic AI content won't grow your RIA. Your own data will."}
           </h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -336,7 +336,7 @@ const Hero = ({
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
-            AdvisorX securely transforms your firm's Form ADV, meeting notes, past content and CRM data into compliant, authentic content that reflects your original voice.
+            {"AdvisorX securely transforms your firm's Form ADV, meeting notes, past content and CRM data into compliant, authentic content that reflects your original voice."}
           </motion.p>
         </div>
         {/* CTA Section */}
