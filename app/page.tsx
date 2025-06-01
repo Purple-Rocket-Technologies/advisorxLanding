@@ -164,25 +164,8 @@ const AdvisorXLanding = () => {
       ? { marginTop: `-${heroHeight * 0.1}px` }
       : { marginTop: "32px" }; // regular spacing if not enough height
 
-  /*useEffect(() => {
-    const timer = setTimeout(() => {
-      toast.info("Welcome to AdvisorX!", {
-        position: "bottom-right",
-        autoClose: false,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);*/
-
   return (
     <div className="min-h-screen bg-background dark:bg-black text-neutral-dark dark:text-base-white flex flex-col items-center overflow-x-hidden">
-      <ToastContainer />
       {/* Navigation */}
       <NavBar />
       {/* Hero Section */}
