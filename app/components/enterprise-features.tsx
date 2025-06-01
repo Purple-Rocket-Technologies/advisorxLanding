@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Search, Mail, BarChart3, Target, Users, Globe } from "lucide-react";
 
 interface BaseUI {
   bgColor: string;
@@ -10,122 +10,101 @@ interface BaseUI {
   accentColor: string;
 }
 
-interface VisitorUI extends BaseUI {
-  type: "visitor";
-  label: "Recent Visitors";
-  visitors: Array<{
+interface LeadScrapingUI extends BaseUI {
+  type: "lead-scraping";
+  label: "Lead Search";
+  businesses: Array<{
     name: string;
-    title: string;
-    company: string;
-    viewed: string;
-    time: string;
+    industry: string;
+    location: string;
+    employees: string;
   }>;
 }
 
-interface SelectUI extends BaseUI {
-  type: "select";
-  label: string;
-  options: string[];
+interface EmailFinderUI extends BaseUI {
+  type: "email-finder";
+  label: "Email Discovery";
+  emails: Array<{
+    name: string;
+    title: string;
+    email: string;
+    confidence: string;
+  }>;
 }
 
-// Add this with the other interfaces at the top
-type FeatureUI = MetricsUI | VisitorUI | SelectUI | {
-  type: "toggle" | "calendar" | "chat" | "upload";
-  label: string;
-  [key: string]: any;
-};
-
-interface MetricsUI {
-  type: "metrics";
-  label: "Platform Metrics";
-  metrics: ["Engagement", "Reach", "Followers"];
-  platforms: ["LinkedIn", "Instagram", "X"];
-  bgColor: "bg-cardBg";
-  borderColor: "border-secondary/20";
-  accentColor: "bg-secondary";
+interface CampaignUI extends BaseUI {
+  type: "campaign";
+  label: "Campaign Management";
+  campaigns: Array<{
+    name: string;
+    status: string;
+    sent: number;
+    opened: number;
+    replied: number;
+  }>;
 }
 
-function isMetricsUI(ui: any): ui is MetricsUI {
-  return ui.type === "metrics";
-}
+type FeatureUI = LeadScrapingUI | EmailFinderUI | CampaignUI;
 
 const features = [
   {
-    title: "Agentic Scheduling",
+    title: "Lead Scraping Engine",
     description:
-      "Let your marketing agent autonomously create and publish content at optimal times, or review in your approval queue before posting. Every post undergoes compliance pre-checks and is automatically archived for audit purposes.",
+      "Automatically scrapes leads specific to your service area and target criteria. Our AI identifies decision-makers at local businesses, filtering by industry, company size, and geographic location to ensure high-quality prospects.",
     ui: {
-      type: "calendar",
-      label: "Schedule Post",
-      platforms: ["LinkedIn", "Twitter", "Instagram"],
+      type: "lead-scraping",
+      label: "Lead Search",
+      businesses: [
+        {
+          name: "Austin Tech Solutions",
+          industry: "Technology",
+          location: "Austin, TX",
+          employees: "25-50"
+        },
+        {
+          name: "Hill Country Accounting",
+          industry: "Financial Services",
+          location: "Austin, TX", 
+          employees: "10-25"
+        },
+        {
+          name: "Texas Manufacturing Co",
+          industry: "Manufacturing",
+          location: "Austin, TX",
+          employees: "50-100"
+        }
+      ],
       bgColor: "bg-cardBg",
       borderColor: "border-primary/20",
       accentColor: "bg-primary text-white",
     },
   },
   {
-    title: "Media Gallery",
+    title: "Decision-Maker Email Discovery",
     description:
-      "Receive monthly reminders to refresh your image and video library that enhances your social media presence. Your content remains visually engaging with minimal ongoing effort.",
+      "Our AI agent finds verified decision-maker emails with industry-leading accuracy. We get much more coverage of business owner emails compared to other solutions, which is our secret sauce for better results.",
     ui: {
-      type: "toggle",
-      label: "Content Type",
-      options: ["Photos", "Videos", "Graphics"],
-      bgColor: "bg-cardBg",
-      borderColor: "border-secondary/20",
-      accentColor: "bg-secondary",
-    },
-  },
-  {
-    title: "Marketing Compliance",
-    description:
-      "Every piece of content undergoes SEC/FINRA review before publishing with automatic archiving for audit purposes. Maintain regulatory compliance while streamlining your review process.",
-    ui: {
-      type: "upload",
-      label: "Compliance Check",
-      status: "Reviewing...",
-      progress: 85,
-      bgColor: "bg-cardBg",
-      borderColor: "border-secondary/20",
-      accentColor: "bg-secondary",
-    },
-  },
-  {
-    title: "Marketing Analytics",
-    description:
-      "View performance metrics across LinkedIn, YouTube, Instagram, and X in one intuitive dashboard. Make data-driven decisions with clear insights on what content resonates with your audience.",
-    ui: {
-      type: "metrics",
-      label: "Platform Metrics",
-      metrics: ["Engagement", "Reach", "Followers"],
-      platforms: ["LinkedIn", "Instagram", "X"],
-      bgColor: "bg-cardBg",
-      borderColor: "border-secondary/20",
-      accentColor: "bg-secondary",
-    },
-  },
-  {
-    title: "Visitor Identity",
-    description:
-      "Identify who's visiting your website with person-level visitor tracking that reveals LinkedIn profiles of prospects engaging with your content. Convert anonymous traffic into qualified leads with actionable intelligence.",
-    ui: {
-      type: "visitor",
-      label: "Recent Visitors",
-      visitors: [
+      type: "email-finder",
+      label: "Email Discovery",
+      emails: [
         {
-          name: "Jane Doe",
-          title: "Financial Advisor",
-          company: "Morgan Stanley",
-          viewed: "Investment Strategies",
-          time: "2m ago"
+          name: "Sarah Johnson",
+          title: "CEO",
+          email: "sarah@austintech.com",
+          confidence: "98%"
         },
         {
-          name: "John Smith",
-          title: "Portfolio Manager",
-          company: "BlackRock",
-          viewed: "Market Analysis",
-          time: "5m ago"
+          name: "Mike Rodriguez", 
+          title: "CFO",
+          email: "mike@hillcountry.com",
+          confidence: "94%"
         },
+        {
+          name: "Jennifer Liu",
+          title: "President",
+          email: "jen@texasmfg.com", 
+          confidence: "96%"
+        }
       ],
       bgColor: "bg-cardBg",
       borderColor: "border-secondary/20",
@@ -133,151 +112,151 @@ const features = [
     },
   },
   {
-    title: "Content Studio",
+    title: "Automated Email Campaigns",
     description:
-      "Add your unique perspective, tone and target audience. Reformat content, opening hooks, and client sophistication levels to drive engagement.",
+      "Automatically creates and manages email campaigns with best-practice sequences. Our expert team helps you set up campaigns while maintaining full email deliverability and CRM integration for seamless lead nurturing.",
     ui: {
-      type: "chat",
-      messages: [
-        { text: "Adjust content tone", type: "bot" },
-        { text: "Make it more professional", type: "user" },
+      type: "campaign",
+      label: "Campaign Management",
+      campaigns: [
+        {
+          name: "Austin Financial Services",
+          status: "Active",
+          sent: 1247,
+          opened: 398,
+          replied: 47
+        },
+        {
+          name: "Tech Startup Outreach",
+          status: "Active", 
+          sent: 892,
+          opened: 285,
+          replied: 31
+        }
       ],
       bgColor: "bg-cardBg",
-      borderColor: "border-primary/20",
-      accentColor: "bg-primary",
+      borderColor: "border-secondary/20",
+      accentColor: "bg-secondary",
     },
-  },
-
-  {
-    title: "Advisor Hub",
-    description:
-      "A content workstation for advisors with visually grounded document intelligence. Access all the best AI models in one interface with specialized data feeds, firm-specific prompt library and agent assistance.",
-    ui: {
-      type: "chat",
-      messages: [
-        { text: "Write a LinkedIn post about Financial Planning", type: "user" },
-        { text: "Sure, I can write a post about the importance of financial planning.\n Financial planning is important because it helps you achieve your goals and make the most of your money.", type: "bot" },
-      ],
-      bgColor: "bg-cardBg",
-      borderColor: "border-primary/20",
-      accentColor: "bg-primary",
-    },
-  },
+  }
 ] as const;
 
-const MetricsDisplay = ({ metrics, platforms }: { 
-  metrics: readonly string[],
-  platforms: readonly string[] 
-}) => (
-  <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-6">
-    <div className="text-base font-medium">Platform Metrics</div>
-    <div className="grid grid-cols-4 gap-8">
-      <div className="text-base"></div> {/* Empty cell for alignment */}
-      {platforms.map(platform => (
-        <div key={platform} className="text-base flex justify-center items-center text-xl">
-          {platform === "LinkedIn" && (
-            <FaLinkedin className="text-[#0077b5]" aria-label="LinkedIn" />
-          )}
-          {platform === "Instagram" && (
-            <FaInstagram className="text-[#E4405F]" aria-label="Instagram" />
-          )}
-          {platform === "X" && (
-            <FaTwitter className="text-[#0077b5]" aria-label="X" />
-          )}
-        </div>
-      ))}
-      {metrics.map(metric => (
-        <React.Fragment key={metric}>
-          <div className="text-base font-medium">{metric}</div>
-          {platforms.map(platform => (
-            <div key={`${platform}-${metric}`} className="text-base text-muted-foreground text-center">
-              --
-            </div>
-          ))}
-        </React.Fragment>
-      ))}
-    </div>
-  </motion.div>
-);
-
-const ChatDisplay = ({ messages }: { 
-  messages: ReadonlyArray<{ readonly text: string, readonly type: 'bot' | 'user' }> 
-}) => (
-  <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-3">
-    {messages.map((msg, i) => (
-      <motion.div
-        key={i}
-        className={`flex ${msg.type === "bot" ? "justify-start" : "justify-end"}`}
-      >
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className={`rounded-3xl px-6 py-3 text-xs ${
-            msg.type === "bot" 
-              ? "bg-white text-black text-xs" 
-              : "bg-primary text-white text-xs"
-          }`}
-        >
-          {msg.text}
-        </motion.div>
-      </motion.div>
-    ))}
-  </motion.div>
-);
-
-const SelectDisplay = ({ options }: { options: readonly string[] }) => (
-  <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-4">
-    <div className="text-xl font-medium mb-2">Visual Style</div>
-    <div className="flex flex-col gap-3">
-      {options.map((option, index) => (
-        <motion.div
-          key={option}
-          className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer ${
-            index === 0 ? "bg-white" : "hover:bg-white/50"
-          }`}
-        >
-          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-            index === 0 ? "border-secondary" : "border-gray-300"
-          }`}>
-            {index === 0 && (
-              <div className="w-3 h-3 rounded-full bg-secondary" />
-            )}
-          </div>
-          <span className="text-lg">{option}</span>
-        </motion.div>
-      ))}
-    </div>
-  </motion.div>
-);
-
-const VisitorDisplay = ({ visitors }: { 
-  visitors: ReadonlyArray<{
+const LeadScrapingDisplay = ({ businesses }: { 
+  businesses: ReadonlyArray<{
     name: string;
-    title: string;
-    company: string;
-    viewed: string;
-    time: string;
+    industry: string;
+    location: string;
+    employees: string;
   }> 
 }) => (
   <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-4">
-    <div className="text-xl font-medium mb-2">Recent Visitors</div>
+    <div className="text-xl font-medium mb-2 flex items-center gap-2">
+      <Search className="w-5 h-5 text-primary" />
+      Leads Found: {businesses.length * 142}
+    </div>
     <div className="flex flex-col gap-3">
-      {visitors.map((visitor, index) => (
+      {businesses.map((business, index) => (
         <motion.div
-          key={visitor.name}
+          key={business.name}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: index * 0.1 }}
           className="bg-white rounded-xl p-4 hover:shadow-sm transition-shadow"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-medium">
-              {visitor.name.charAt(0)}
-            </div>
+          <div className="flex items-start justify-between">
             <div className="flex-1">
-              <div className="font-medium text-sm">{visitor.name}</div>
-              <div className="text-xs text-gray-500">{visitor.title} • {visitor.company}</div>
+              <div className="font-medium text-sm text-foreground">{business.name}</div>
+              <div className="text-xs text-gray-500">{business.industry}</div>
+              <div className="text-xs text-gray-400 mt-1">{business.location} • {business.employees} employees</div>
             </div>
-            <div className="text-xs text-gray-400">{visitor.time}</div>
+            <div className="w-2 h-2 rounded-full bg-green-500 mt-2" />
           </div>
-          <div className="mt-2 text-xs text-gray-500">
-            Viewed: {visitor.viewed}
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+);
+
+const EmailFinderDisplay = ({ emails }: { 
+  emails: ReadonlyArray<{
+    name: string;
+    title: string;
+    email: string;
+    confidence: string;
+  }> 
+}) => (
+  <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-4">
+    <div className="text-xl font-medium mb-2 flex items-center gap-2">
+      <Mail className="w-5 h-5 text-secondary" />
+      Email Discovery
+    </div>
+    <div className="flex flex-col gap-3">
+      {emails.map((email, index) => (
+        <motion.div
+          key={email.email}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-white rounded-xl p-4 hover:shadow-sm transition-shadow"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="font-medium text-sm text-foreground">{email.name}</div>
+              <div className="text-xs text-gray-500">{email.title}</div>
+              <div className="text-xs text-blue-600 mt-1">{email.email}</div>
+            </div>
+            <div className="text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded">
+              {email.confidence}
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+);
+
+const CampaignDisplay = ({ campaigns }: { 
+  campaigns: ReadonlyArray<{
+    name: string;
+    status: string;
+    sent: number;
+    opened: number;
+    replied: number;
+  }> 
+}) => (
+  <motion.div initial={{ opacity: 1 }} className="flex flex-col gap-4">
+    <div className="text-xl font-medium mb-2 flex items-center gap-2">
+      <BarChart3 className="w-5 h-5 text-secondary" />
+      Active Campaigns
+    </div>
+    <div className="flex flex-col gap-3">
+      {campaigns.map((campaign, index) => (
+        <motion.div
+          key={campaign.name}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-white rounded-xl p-4 hover:shadow-sm transition-shadow"
+        >
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex-1">
+              <div className="font-medium text-sm text-foreground">{campaign.name}</div>
+              <div className="text-xs text-green-600 font-medium">{campaign.status}</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-xs">
+            <div className="text-center">
+              <div className="font-bold text-gray-700">{campaign.sent}</div>
+              <div className="text-gray-500">Sent</div>
+            </div>
+            <div className="text-center">
+              <div className="font-bold text-blue-600">{campaign.opened}</div>
+              <div className="text-gray-500">Opened</div>
+            </div>
+            <div className="text-center">
+              <div className="font-bold text-green-600">{campaign.replied}</div>
+              <div className="text-gray-500">Replied</div>
+            </div>
           </div>
         </motion.div>
       ))}
@@ -306,140 +285,16 @@ const FeatureCard = React.memo(
           whileTap={{ scale: 0.95 }}
           className={`w-full aspect-[4/3] rounded-xl border ${feature.ui.borderColor} ${feature.ui.bgColor} p-6 flex flex-col gap-4 transition-all duration-300 overflow-hidden relative backdrop-blur-md backdrop-saturate-150 hover:shadow-2xl hover:border-opacity-50 hover:backdrop-saturate-200 group cursor-pointer`}
         >
-
-          {feature.ui.type === "toggle" && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              className="flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-foreground">
-                  {feature.ui.label}
-                </span>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className={`w-10 h-6 rounded-full ${feature.ui.accentColor} cursor-pointer flex items-center justify-start px-1`}
-                >
-                  <div className="w-4 h-4 rounded-full bg-white transform" />
-                </motion.div>
-              </div>
-              <div className="grid grid-cols-3 gap-2">
-                {feature.ui.options.map((option: string) => (
-                  <motion.div
-                    key={option}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`p-2 text-center text-sm rounded-lg cursor-pointer ${false
-                      ? feature.ui.accentColor + " text-white"
-                      : "bg-background/60 text-foreground hover:bg-background/80"
-                      }`}
-                  >
-                    {option}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+          {feature.ui.type === "lead-scraping" && (
+            <LeadScrapingDisplay businesses={feature.ui.businesses} />
           )}
 
-          {feature.ui.type === "select" && (
-            <SelectDisplay options={feature.ui.options} />
+          {feature.ui.type === "email-finder" && (
+            <EmailFinderDisplay emails={feature.ui.emails} />
           )}
 
-          {feature.ui.type === "metrics" && (
-            <MetricsDisplay 
-              metrics={feature.ui.metrics} 
-              platforms={feature.ui.platforms} 
-            />
-          )}
-
-          {feature.ui.type === "calendar" && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              className="flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-foreground">
-                  {feature.ui.label}
-                </span>
-                <div className="flex gap-2">
-                  {feature.ui.platforms.map((platform: string) => (
-                    <motion.div
-                      key={platform}
-                      whileHover={{ scale: 1.2, rotate: 360 }}
-                      className="w-6 h-6 rounded-full bg-background/60 flex items-center justify-center text-xs cursor-pointer"
-                    >
-                      {/* render the icons */}
-                      {platform === "LinkedIn" && (
-                        <FaLinkedin className="text-[#0077b5]" aria-label="LinkedIn" />
-                      )}
-                      {platform === "Instagram" && (
-                        <FaInstagram className="text-[#E4405F]" aria-label="Instagram" />
-                      )}
-                      {platform === "Twitter" && (
-                        <FaTwitter className="text-[#0077b5]" aria-label="X" />
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-7 gap-1">
-                {Array.from({ length: 7 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`aspect-square rounded-lg ${i === 3
-                      ? feature.ui.accentColor
-                      : "bg-background/60 text-black"
-                      } flex items-center justify-center text-xs cursor-pointer`}
-                  >
-                    {i + 15}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {feature.ui.type === "chat" && (
-            <ChatDisplay messages={feature.ui.messages} />
-          )}
-
-          {feature.ui.type === "upload" && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              className="flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-medium text-foreground">
-                  {feature.ui.label}
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  {feature.ui.status}
-                </span>
-              </div>
-              <div className="w-full h-2 bg-background/60 rounded-full overflow-hidden">
-                <div
-                  className={`h-full ${feature.ui.accentColor}`}
-                  style={{ width: `${feature.ui.progress}%` }}
-                />
-              </div>
-              <motion.div
-                whileHover={{
-                  scale: 1.02,
-                  borderColor: feature.ui.accentColor.split(" ")[1],
-                }}
-                className="flex items-center justify-center p-8 border-2 border-dashed border-border rounded-lg mt-4 cursor-pointer"
-              >
-                <span className="text-sm text-muted-foreground">
-                  Drop files here or click to upload
-                </span>
-              </motion.div>
-            </motion.div>
-          )}
-
-          {feature.ui.type === "visitor" && (
-            <VisitorDisplay visitors={feature.ui.visitors} />
+          {feature.ui.type === "campaign" && (
+            <CampaignDisplay campaigns={feature.ui.campaigns} />
           )}
 
           {/* Common Decorative Elements */}
@@ -495,17 +350,43 @@ const EnterpriseFeatures = () => {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-6xl font-bold text-black md:mb-12 mb-6 bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent"
           >
-            Features
+            Lead generation, done for you
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base md:text-xl text-gray-700 font-medium max-w-[80%] md:max-w-3xl mx-auto"
+            className="text-base md:text-xl text-gray-700 font-medium max-w-[80%] md:max-w-3xl mx-auto mb-8"
           >
-            The complete inbound marketing ecosystem for growth-minded RIAs
+            AdvisorX automates the entire lead generation and marketing process for you to local business owners.
           </motion.p>
+          
+          {/* Process Steps */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
+              {[
+                { number: "1", text: "Scrapes leads specific to your service area" },
+                { number: "2", text: "Finds the decision-maker emails" },
+                { number: "3", text: "Generates best practice emails" },
+                { number: "4", text: "Our expert team helps you setup campaigns" },
+                { number: "5", text: "Automatically creates and manages email campaigns" }
+              ].map((step, index) => (
+                <div key={index} className="flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary text-white font-bold flex items-center justify-center mb-3">
+                    {step.number}
+                  </div>
+                  <p className="text-sm text-gray-600">{step.text}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
