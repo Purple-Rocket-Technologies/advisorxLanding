@@ -78,15 +78,27 @@ const WhyItMatters = () => {
                     </div>
                     
                     <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-medium">
-                      We get <span className="font-bold text-primary bg-primary/10 px-2 py-1 rounded-lg">much more coverage</span> of decision-maker emails than other solutions, 
-                      <span className="font-bold text-secondary bg-secondary/10 px-2 py-1 rounded-lg ml-2">delivering better results</span> for our clients
+                      We get <span className="font-bold text-white bg-primary px-3 py-1 rounded-lg shadow-md">much more coverage</span> of decision-maker emails than other solutions, 
+                      <span className="font-bold text-white bg-secondary px-3 py-1 rounded-lg shadow-md ml-2">delivering better results</span> for our clients
                     </p>
                     
                     {/* Decorative Elements */}
-                    <div className="flex items-center gap-2 mt-4">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    <div className="flex items-center gap-2 mt-6">
+                      <motion.div 
+                        className="w-2 h-2 bg-primary rounded-full"
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                      />
+                      <motion.div 
+                        className="w-2 h-2 bg-secondary rounded-full"
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+                      />
+                      <motion.div 
+                        className="w-2 h-2 bg-primary rounded-full"
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
+                      />
                     </div>
                   </div>
                 </div>

@@ -110,9 +110,9 @@ const AnimatedProfession = () => {
   }, [professions.length]);
 
   return (
-    <div className="relative min-h-[80px] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[80px] w-full flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
-        <motion.span
+        <motion.div
           key={currentIndex}
           initial={{ y: 50, opacity: 0, rotateX: -90 }}
           animate={{ y: 0, opacity: 1, rotateX: 0 }}
@@ -123,14 +123,14 @@ const AnimatedProfession = () => {
             type: "spring",
             stiffness: 100
           }}
-          className="absolute text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
+          className="absolute inset-0 flex items-center justify-center text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
           style={{ 
             transformStyle: 'preserve-3d',
             backfaceVisibility: 'hidden'
           }}
         >
           {professions[currentIndex]}
-        </motion.span>
+        </motion.div>
       </AnimatePresence>
     </div>
   );
@@ -377,7 +377,7 @@ const Hero = ({
             <div className="mb-4">
               <span>Automating local growth for</span>
             </div>
-            <div className="min-h-[80px] flex items-center justify-center">
+            <div className="w-full max-w-4xl">
               <AnimatedProfession />
             </div>
           </div>

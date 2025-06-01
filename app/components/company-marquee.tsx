@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const CompanyMarquee = () => {
@@ -9,55 +8,37 @@ export const CompanyMarquee = () => {
 
   useEffect(() => {
     const fetchLogos = async () => {
-      const response = await fetch("/api/logos");
-      const data = await response.json();
-      console.log(data);
-      setLogos(data.logos);
+      try {
+        const response = await fetch("/api/logos");
+        const data = await response.json();
+        setLogos(data.logos || []);
+      } catch (error) {
+        console.error("Failed to fetch logos:", error);
+      }
     };
 
     fetchLogos();
   }, []);
 
+  // Duplicate the array to create seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos];
+
   return (
-    <div className="marquee">
+    <div className="marquee hover:pause" style={{ "--gap": "2rem" } as React.CSSProperties}>
       <div className="track">
-        {logos.map((logo, index) => (
-          <motion.div
-            key={index}
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.7 }}
-            className="flex flex-col items-center will-change-transform bg-none"
+        {duplicatedLogos.map((logo, index) => (
+          <div
+            key={`${logo}-${index}`}
+            className="flex-shrink-0 flex items-center justify-center h-16 w-32 px-4"
           >
-            <div className="min-w-fit w-80 h-40 relative transition-all duration-300 flex justify-center items-center bg-none overflow-hidden">
-              <Image
-                src={`/firm/${logo}`}
-                alt={`Company logo ${index + 1}`}
-                width={15000}
-                height={15000}
-                className="w-[300px] bg-none dark:invert-0 opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <div className="track" aria-hidden="true">
-        {logos.map((logo, index) => (
-          <motion.div
-            key={`clone-${index}`}
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.7 }}
-            className="flex flex-col items-center will-change-transform bg-none"
-          >
-            <div className="min-w-fit w-80 h-40 relative transition-all duration-300 flex justify-center items-center bg-none overflow-hidden">
-              <Image
-                src={`/firm/${logo}`}
-                alt={`Company logo ${index + 1}`}
-                width={15000}
-                height={15000}
-                className="w-[300px] bg-none dark:invert-0 opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </motion.div>
+            <Image
+              src={`/firm/${logo}`}
+              alt={`Company ${index + 1}`}
+              width={120}
+              height={60}
+              className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+            />
+          </div>
         ))}
       </div>
     </div>
