@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Play } from "lucide-react";
 import { CompanyMarquee } from "./components/company-marquee";
-import DashboardPage from "./dashboard/dashboard";
-import EnterpriseFeatures from "./components/enterprise-features";
 import { motion } from "framer-motion";
 import { TestimonialCarousel } from "./components/testimonial-carousel";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +12,151 @@ import NavBar from "./components/nav";
 import BenefitsSection from "./components/matter";
 import Footer from "./components/footer";
 import WhyItMatters from "./components/why-it-matters";
+import EnterpriseFeatures from "./components/enterprise-features";
+
+// Lead Generation Dashboard Component
+const LeadGenDashboard = () => {
+  return (
+    <div className="hidden md:flex min-h-[85vh] w-[80vw] rounded-2xl bg-background relative overflow-hidden shadow-xl border border-border z-50">
+      {/* Background Effects */}
+      <div className="absolute w-full h-full">
+        <motion.div
+          className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary opacity-20 rounded-full blur-[120px]"
+          animate={{
+            x: [0, 20, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary opacity-20 rounded-full blur-[120px]"
+          animate={{
+            x: [0, -20, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+      </div>
+
+      {/* Main Dashboard Content */}
+      <div className="flex-1 p-8 relative z-50 w-full">
+        <div className="h-full">
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-foreground mb-2">Lead Generation Dashboard</h1>
+            <p className="text-muted-foreground">Austin Financial Services Campaign</p>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <div className="text-2xl font-bold text-primary mb-1">2,847</div>
+              <div className="text-sm text-muted-foreground">Leads Scraped</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <div className="text-2xl font-bold text-secondary mb-1">1,423</div>
+              <div className="text-sm text-muted-foreground">Emails Found</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <div className="text-2xl font-bold text-green-600 mb-1">8.4%</div>
+              <div className="text-sm text-muted-foreground">Reply Rate</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <div className="text-2xl font-bold text-orange-600 mb-1">47</div>
+              <div className="text-sm text-muted-foreground">Qualified Leads</div>
+            </motion.div>
+          </div>
+
+          {/* Campaign List */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Active Campaigns</h3>
+              <div className="space-y-4">
+                {[
+                  { name: "Austin Tech Startups", status: "Active", sent: 892, opened: 285, replied: 31 },
+                  { name: "Local Manufacturing", status: "Active", sent: 654, opened: 198, replied: 16 },
+                  { name: "Professional Services", status: "Active", sent: 743, opened: 224, replied: 19 }
+                ].map((campaign, index) => (
+                  <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div>
+                      <div className="font-medium text-sm text-foreground">{campaign.name}</div>
+                      <div className="text-xs text-green-600">{campaign.status}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm font-bold text-foreground">{campaign.replied} replies</div>
+                      <div className="text-xs text-muted-foreground">{campaign.sent} sent</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              className="bg-white rounded-xl p-6 border border-border/20 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Recent Leads</h3>
+              <div className="space-y-4">
+                {[
+                  { name: "TechFlow Solutions", contact: "Sarah Johnson", email: "sarah@techflow.com", score: "98%" },
+                  { name: "Austin Manufacturing", contact: "Mike Rodriguez", email: "mike@austinmfg.com", score: "94%" },
+                  { name: "Central TX Consulting", contact: "Jennifer Liu", email: "jen@ctxconsult.com", score: "96%" }
+                ].map((lead, index) => (
+                  <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div className="flex-1">
+                      <div className="font-medium text-sm text-foreground">{lead.name}</div>
+                      <div className="text-xs text-muted-foreground">{lead.contact}</div>
+                      <div className="text-xs text-blue-600">{lead.email}</div>
+                    </div>
+                    <div className="text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded">
+                      {lead.score}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AdvisorXLanding = () => {
   const [heroHeight, setHeroHeight] = useState(0);
@@ -52,7 +195,7 @@ const AdvisorXLanding = () => {
         className="flex justify-center transition-all duration-300"
         style={dashboardStyle}
       >
-        <DashboardPage />
+        <LeadGenDashboard />
       </div>
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
