@@ -96,7 +96,8 @@ const AnimatedProfession = () => {
     "Commercial Insurance Agents", 
     "CPAs & Fractional CFOs",
     "Estate Planning Attorneys",
-    "SBA Lenders"
+    "SBA Lenders",
+    "Service Professionals"
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -104,7 +105,7 @@ const AnimatedProfession = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % professions.length);
-    }, 3000); // Change every 3 seconds
+    }, 2000); // Changed from 3000 to 2000 (faster animation)
 
     return () => clearInterval(interval);
   }, [professions.length]);
@@ -118,10 +119,10 @@ const AnimatedProfession = () => {
           animate={{ y: 0, opacity: 1, rotateX: 0 }}
           exit={{ y: -50, opacity: 0, rotateX: 90 }}
           transition={{ 
-            duration: 0.6,
+            duration: 0.5, // Slightly faster transition
             ease: "easeInOut",
             type: "spring",
-            stiffness: 100
+            stiffness: 120
           }}
           className="absolute inset-0 flex items-center justify-center text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
           style={{ 

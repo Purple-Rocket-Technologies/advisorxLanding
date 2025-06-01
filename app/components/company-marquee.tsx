@@ -20,23 +20,23 @@ export const CompanyMarquee = () => {
     fetchLogos();
   }, []);
 
-  // Duplicate the array to create seamless infinite scroll
-  const duplicatedLogos = [...logos, ...logos];
+  // Duplicate the array multiple times to create seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <div className="marquee hover:pause" style={{ "--gap": "2rem" } as React.CSSProperties}>
-      <div className="track">
+    <div className="w-full overflow-hidden bg-transparent py-8">
+      <div className="flex animate-marquee-scroll">
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo}-${index}`}
-            className="flex-shrink-0 flex items-center justify-center h-16 w-32 px-4"
+            className="flex-shrink-0 flex items-center justify-center h-20 w-40 mx-6"
           >
             <Image
               src={`/firm/${logo}`}
               alt={`Company ${index + 1}`}
-              width={120}
-              height={60}
-              className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              width={150}
+              height={80}
+              className="h-16 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           </div>
         ))}
