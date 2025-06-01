@@ -139,7 +139,7 @@ export const TestimonialCarousel = () => {
             Testimonials
           </motion.span>
           <h3 className="text-4xl md:text-6xl font-bold bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
-            What advisors are saying
+            What firms are saying
           </h3>
         </motion.div>
 
