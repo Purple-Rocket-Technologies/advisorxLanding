@@ -2,14 +2,33 @@
 > advisorx@0.1.0 dev
 > next dev
 
- ⚠ Port 3000 is in use, trying 3001 instead.
    ▲ Next.js 15.1.3
-   - Local:        http://localhost:3001
-   - Network:      http://10.64.138.250:3001
+   - Local:        http://localhost:3000
+   - Network:      http://10.64.138.250:3000
 
  ✓ Starting...
- ✓ Ready in 2.1s
+ ✓ Ready in 3.4s
  ○ Compiling / ...
- ✓ Compiled / in 9.5s (1458 modules)
- HEAD / 200 in 10244ms
- ✓ Compiled in 1401ms (716 modules)
+ ✓ Compiled / in 11.9s (1458 modules)
+ GET / 200 in 6921ms
+ GET / 200 in 3075ms
+ ✓ Compiled in 1694ms (716 modules)
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 9.8s (1463 modules)
+ GET /api/logos 200 in 10522ms
+ GET / 200 in 443ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1175ms (762 modules)
+ GET /favicon.ico 200 in 1251ms
+ GET /favicon.ico 200 in 43ms
+ GET /favicon.ico 200 in 8ms
+ GET / 200 in 422ms
+ GET /api/logos 200 in 12ms
+ GET /api/logos 200 in 56ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.6s (1469 modules)
+ GET /about 404 in 3227ms
+ GET / 200 in 321ms
+ GET / 200 in 126ms
+ GET /api/logos 200 in 21ms
+ GET /api/logos 200 in 12ms
