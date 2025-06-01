@@ -151,13 +151,13 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-12.5%); /* Move by 1/8th since we have 8 repetitions */
+      transform: translateX(-16.666%); /* Move by 1/6th since we have 6 repetitions */
     }
   }
 
   .animate-marquee-scroll {
-    animation: marquee-scroll 40s linear infinite;
-    width: 800%; /* 8 times the original width for 8 repetitions */
+    animation: marquee-scroll 35s linear infinite;
+    width: 600%; /* 6 times the original width for 6 repetitions */
   }
 
   /* Pause on hover with premium class */
