@@ -305,6 +305,10 @@
   .marquee:hover .track {
     animation-play-state: paused;
   }
+
+  .marquee.hover\\:pause:hover .track {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes moving-border {
