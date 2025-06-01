@@ -385,16 +385,7 @@ const Hero = ({
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
-            Completely automated lead generation and marketing to local business owners. Fully done for you on auto-pilot.
-          </motion.p>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="max-w-2xl text-sm md:text-base mb-6 md:mb-8 text-white/90 font-light leading-relaxed px-4 md:px-0"
-          >
-            Used by B2B firms to save 10+ hours every week and replace their expensive lead gen agencies.
+            Completely automated lead generation and marketing to local business owners. Fully done for you on auto-pilot - save 10+ hours every week and replace your expensive lead gen agencies.
           </motion.p>
         </div>
         
