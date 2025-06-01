@@ -105,7 +105,7 @@ const AnimatedProfession = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % professions.length);
-    }, 2000); // Changed from 3000 to 2000 (faster animation)
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [professions.length]);
@@ -115,20 +115,14 @@ const AnimatedProfession = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ y: 50, opacity: 0, rotateX: -90 }}
-          animate={{ y: 0, opacity: 1, rotateX: 0 }}
-          exit={{ y: -50, opacity: 0, rotateX: 90 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
           transition={{ 
-            duration: 0.5, // Slightly faster transition
-            ease: "easeInOut",
-            type: "spring",
-            stiffness: 120
+            duration: 0.4,
+            ease: [0.25, 0.46, 0.45, 0.94]
           }}
           className="absolute inset-0 flex items-center justify-center text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
-          style={{ 
-            transformStyle: 'preserve-3d',
-            backfaceVisibility: 'hidden'
-          }}
         >
           {professions[currentIndex]}
         </motion.div>
@@ -389,7 +383,7 @@ const Hero = ({
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
-            Completely automated lead generation and marketing to local business owners. Fully done for you on auto-pilot - save 10+ hours every week and replace your expensive lead gen agencies.
+            Our AI sales agent automates lead generation and marketing to local business owners. Save 10+ hours every week and replace your expensive lead gen agencies.
           </motion.p>
         </div>
         
