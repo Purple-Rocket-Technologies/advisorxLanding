@@ -151,15 +151,16 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(-25%);
+      transform: translateX(-33.333%);
     }
   }
 
   .animate-marquee-scroll {
-    animation: marquee-scroll 8s linear infinite;
+    animation: marquee-scroll 20s linear infinite;
+    width: 300%; /* 3 times the original width for 3 duplicates */
   }
 
-  /* Optional: Pause on hover */
+  /* Pause on hover */
   .animate-marquee-scroll:hover {
     animation-play-state: paused;
   }
