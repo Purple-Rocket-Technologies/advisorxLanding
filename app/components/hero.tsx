@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import {
   CheckCircle,
   MessageSquareText,
@@ -90,6 +90,46 @@ const Button = ({
   );
 };
 
+const AnimatedProfession = () => {
+  const professions = [
+    "Financial Advisors",
+    "Commercial Insurance Agents", 
+    "CPAs & Fractional CFOs",
+    "Estate Planning Attorneys",
+    "SBA Lenders"
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % professions.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [professions.length]);
+
+  return (
+    <div className="relative h-20 flex items-center justify-center overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={currentIndex}
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -50, opacity: 0 }}
+          transition={{ 
+            duration: 0.5,
+            ease: "easeInOut"
+          }}
+          className="absolute whitespace-nowrap text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+        >
+          {professions[currentIndex]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const Hero = ({
   onHeightChange,
 }: {
@@ -124,7 +164,7 @@ const Hero = ({
             className="flex justify-end"
           >
             <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%]  text-white border border-secondary">
-              Generate content about retirement planning
+              Find local business owners in Austin
             </div>
           </motion.div>
           <motion.div
@@ -134,7 +174,7 @@ const Hero = ({
             className="flex justify-start"
           >
             <div className="rounded-2xl px-4 py-2 text-sm max-w-[80%] text-white border border-white/20 dark:bg-white/10">
-              Creating expert content...
+              Scraping 2,847 leads...
             </div>
           </motion.div>
         </div>
@@ -170,19 +210,19 @@ const Hero = ({
       content: (
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between text-white">
-            <span className="text-xs">Reviewing...</span>
-            <span className="text-xs">85%</span>
+            <span className="text-xs">Email deliverability...</span>
+            <span className="text-xs">94%</span>
           </div>
           <div className="w-full h-1 dark:bg-white/10 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: "85%" }}
+              animate={{ width: "94%" }}
               transition={{ duration: 1 }}
               className="h-full bg-white"
             />
           </div>
           <div className="flex gap-2 mt-2">
-            {["FINRA", "SEC"].map((label) => (
+            {["CAN-SPAM", "GDPR"].map((label) => (
               <div
                 key={label}
                 className="px-2 py-1 rounded bg-gray-100 dark:bg-white/10 text-xs text-muted-foreground"
@@ -212,8 +252,8 @@ const Hero = ({
             ))}
           </div>
           <div className="flex justify-between text-xs mt-2 text-white">
-            <span>LinkedIn</span>
-            <span>Twitter</span>
+            <span>Open Rate</span>
+            <span>Reply Rate</span>
           </div>
         </div>
       ),
@@ -327,24 +367,36 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-            {"Generic AI content won't grow your RIA. Your own data will."}
-          </h1>
+          <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+            <span>Automating local business growth for </span>
+            <AnimatedProfession />
+          </div>
+          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl text-sm md:text-lg lg:text-xl mb-6 md:mb-8 text-white font-light leading-relaxed px-4 md:px-0"
           >
-            {"AdvisorX securely transforms your firm's Form ADV, meeting notes, past content and CRM data into compliant, authentic content that reflects your original voice."}
+            Completely automated lead generation and marketing to local business owners. Fully done for you on auto-pilot.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="max-w-2xl text-sm md:text-base mb-6 md:mb-8 text-white/90 font-light leading-relaxed px-4 md:px-0"
+          >
+            Used by B2B firms to save 10+ hours every week and replace their expensive lead gen agencies.
           </motion.p>
         </div>
+        
         {/* CTA Section */}
         <div className="w-fit max-w-xl flex flex-col items-center justify-center px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="flex flex-col gap-3 md:flex-row items-center justify-center md:gap-4 w-full"
           >
             <Button className="w-full md:w-auto text-black text-sm md:text-lg px-6 md:px-8 py-2.5 md:py-3 bg-secondary">
@@ -391,7 +443,7 @@ const Hero = ({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 1.0 }}
             className="mt-8 flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm text-white"
           >
             <span className="flex items-center gap-1.5 md:gap-2">

@@ -6,9 +6,9 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AdvisorX - AI Marketing Manager for Wealth Advisors",
+  title: "AdvisorX - Automated Lead Generation for B2B Professionals",
   description:
-    "Scale your firm with AI-powered marketing tools designed specifically for RIAs and wealth management firms.",
+    "Completely automated lead generation and marketing to local business owners for Financial Advisors, Commercial Insurance Agents, CPAs, Estate Planning Attorneys, and SBA Lenders.",
 };
 
 export default function RootLayout({
