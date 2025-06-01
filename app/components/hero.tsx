@@ -110,18 +110,24 @@ const AnimatedProfession = () => {
   }, [professions.length]);
 
   return (
-    <div className="relative h-20 flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[80px] flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -50, opacity: 0 }}
+          initial={{ y: 50, opacity: 0, rotateX: -90 }}
+          animate={{ y: 0, opacity: 1, rotateX: 0 }}
+          exit={{ y: -50, opacity: 0, rotateX: 90 }}
           transition={{ 
-            duration: 0.5,
-            ease: "easeInOut"
+            duration: 0.6,
+            ease: "easeInOut",
+            type: "spring",
+            stiffness: 100
           }}
-          className="absolute whitespace-nowrap text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          className="absolute text-center text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
+          style={{ 
+            transformStyle: 'preserve-3d',
+            backfaceVisibility: 'hidden'
+          }}
         >
           {professions[currentIndex]}
         </motion.span>
@@ -357,7 +363,7 @@ const Hero = ({
 
       <div className="flex flex-col items-center justify-center gap-4 md:gap-8 w-full relative z-10">
         {/* Header Content */}
-        <div className="w-full max-w-5xl flex flex-col items-center text-center px-4 md:px-0">
+        <div className="w-full max-w-6xl flex flex-col items-center text-center px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -367,15 +373,12 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-            <div className="mb-2">
-              <span>Automating local business growth</span>
+          <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
+            <div className="mb-4">
+              <span>Automating local growth for</span>
             </div>
-            <div className="flex items-center justify-center gap-2 md:gap-4">
-              <span>for</span>
-              <div className="min-w-fit">
-                <AnimatedProfession />
-              </div>
+            <div className="min-h-[80px] flex items-center justify-center">
+              <AnimatedProfession />
             </div>
           </div>
           
