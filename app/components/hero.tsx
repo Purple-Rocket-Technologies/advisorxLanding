@@ -93,7 +93,7 @@ const Button = ({
   );
 };
 
-const PremiumAnimatedProfession = () => {
+const CleanAnimatedProfession = () => {
   const professions = [
     "Financial Advisors",
     "Commercial Insurance Agents", 
@@ -108,7 +108,7 @@ const PremiumAnimatedProfession = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % professions.length);
-    }, 2500); // Slightly slower for premium feel
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [professions.length]);
@@ -120,43 +120,27 @@ const PremiumAnimatedProfession = () => {
           key={currentIndex}
           initial={{ 
             opacity: 0, 
-            y: 40,
-            scale: 0.8,
-            filter: "blur(10px)"
+            y: 20
           }}
           animate={{ 
             opacity: 1, 
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)"
+            y: 0
           }}
           exit={{ 
             opacity: 0, 
-            y: -40,
-            scale: 1.1,
-            filter: "blur(10px)"
+            y: -20
           }}
           transition={{ 
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1], // Premium easing curve
-            scale: { 
-              duration: 0.6,
-              ease: [0.22, 1, 0.36, 1]
-            },
-            filter: {
-              duration: 0.4
-            }
+            duration: 0.5,
+            ease: "easeInOut"
           }}
           className="absolute inset-0 flex items-center justify-center text-center"
         >
-          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight bg-gradient-to-b from-white via-white to-white/80 bg-clip-text text-transparent drop-shadow-lg">
+          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight">
             {professions[currentIndex]}
           </span>
         </motion.div>
       </AnimatePresence>
-      
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent blur-xl" />
     </div>
   );
 };
@@ -402,7 +386,7 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          {/* Main heading with premium typography */}
+          {/* Main heading with clean animation */}
           <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight md:leading-tight mb-6 md:mb-12 text-white">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -410,12 +394,10 @@ const Hero = ({
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="mb-4 md:mb-8"
             >
-              <span className="bg-gradient-to-b from-white via-white to-white/90 bg-clip-text text-transparent">
-                Automating local growth for
-              </span>
+              <span>Automating local growth for</span>
             </motion.div>
             <div className="w-full">
-              <PremiumAnimatedProfession />
+              <CleanAnimatedProfession />
             </div>
           </div>
           

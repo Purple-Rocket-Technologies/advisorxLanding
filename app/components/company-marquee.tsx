@@ -13,7 +13,6 @@ export const CompanyMarquee = () => {
       try {
         const response = await fetch("/api/logos");
         const data = await response.json();
-        console.log("Fetched logos:", data.logos);
         if (data.logos && data.logos.length > 0) {
           setLogos(data.logos);
           setIsLoaded(true);
@@ -43,7 +42,7 @@ export const CompanyMarquee = () => {
           {[1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="w-32 h-16 bg-gray-200 rounded-lg animate-pulse"
+              className="w-40 h-20 bg-gray-200 rounded-lg animate-pulse"
             />
           ))}
         </div>
@@ -62,7 +61,7 @@ export const CompanyMarquee = () => {
   }
 
   return (
-    <div className="w-full overflow-hidden py-12 bg-transparent">
+    <div className="w-full overflow-hidden py-16 bg-transparent">
       {/* Premium marquee container */}
       <div className="relative">
         {/* Gradient fade edges */}
@@ -72,27 +71,24 @@ export const CompanyMarquee = () => {
         {/* Scrolling container */}
         <div className="flex animate-marquee-scroll hover:pause-animation">
           {/* Create multiple sets for seamless loop */}
-          {Array.from({ length: 8 }, (_, setIndex) => (
+          {Array.from({ length: 6 }, (_, setIndex) => (
             <div key={setIndex} className="flex flex-shrink-0">
               {logos.map((logo, logoIndex) => (
                 <div
                   key={`${setIndex}-${logoIndex}`}
-                  className="flex-shrink-0 flex items-center justify-center h-20 w-48 mx-8"
+                  className="flex-shrink-0 flex items-center justify-center h-24 w-56 mx-8"
                 >
                   <div className="relative group">
                     <Image
                       src={`/firm/${logo}`}
                       alt={`Company logo ${logoIndex + 1}`}
-                      width={140}
-                      height={70}
-                      className="h-14 w-auto object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
+                      width={200}
+                      height={100}
+                      className="h-20 w-auto max-w-[200px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
                       onError={(e) => {
                         console.error(`Failed to load image: /firm/${logo}`);
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                      }}
-                      onLoad={() => {
-                        console.log(`Successfully loaded: /firm/${logo}`);
                       }}
                       priority={setIndex === 0 && logoIndex < 3} // Priority for first few images
                     />
@@ -105,11 +101,6 @@ export const CompanyMarquee = () => {
             </div>
           ))}
         </div>
-      </div>
-      
-      {/* Loading indicator for debugging */}
-      <div className="mt-4 text-center text-xs text-gray-400 opacity-50">
-        {logos.length} company logos loaded
       </div>
     </div>
   );
