@@ -165,8 +165,53 @@
     animation-play-state: paused;
   }
 
-  .animate-marquee-scroll:hover {
-    animation-play-state: paused;
+  /* Premium mobile optimizations */
+  @media (max-width: 768px) {
+    .animate-marquee-scroll {
+      animation-duration: 25s; /* Faster on mobile */
+    }
+  }
+
+  /* Premium button hover effects */
+  .premium-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .premium-button:hover::before {
+    left: 100%;
+  }
+
+  /* Smooth scrolling for the whole page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Premium focus states for accessibility */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid hsl(var(--secondary));
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  /* Enhanced mobile touch targets */
+  @media (max-width: 768px) {
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 
   @keyframes spin-slow {
