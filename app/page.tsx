@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Play } from "lucide-react";
 import { CompanyMarquee } from "./components/company-marquee";
 import DashboardPage from "./dashboard/dashboard";
-import WorkflowSection from "./components/workflow-section";
 import EnterpriseFeatures from "./components/enterprise-features";
 import { motion } from "framer-motion";
 import { TestimonialCarousel } from "./components/testimonial-carousel";
@@ -14,6 +13,7 @@ import Hero from "./components/hero";
 import NavBar from "./components/nav";
 import BenefitsSection from "./components/matter";
 import Footer from "./components/footer";
+import WhyItMatters from "./components/why-it-matters";
 
 const AdvisorXLanding = () => {
   const [heroHeight, setHeroHeight] = useState(0);
@@ -57,15 +57,18 @@ const AdvisorXLanding = () => {
 
       <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
         <h3 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
-          Trusted by leading <br /> wealth management firms
+          Trusted by leading <br /> B2B service firms
         </h3>
         <CompanyMarquee />
       </section>
+
+      {/* Why it Matters Section */}
+      <WhyItMatters />
+
       {/*<BenefitsSection />*/}
       <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
           <>
-            <WorkflowSection />
             <div className="absolute w-full h-full">
               <motion.div
                 className="absolute top-0 right-0 w-[500px] max-w-screen h-[500px] bg-primary/20 rounded-full blur-[120px]"
@@ -123,24 +126,62 @@ const AdvisorXLanding = () => {
       </div>
 
       {/* Pricing Section */}
-      <section className="w-full py-20 flex flex-col items-center justify-center md:hidden">
+      <section className="w-full py-20 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center max-w-4xl mx-auto px-6"
         >
           <h3 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent">
-            Ready to transform your practice?
+            Pricing
           </h3>
-          <Button
-            className="bg-primary/10 hover:bg-primary/20 text-primary text-lg px-8 py-6 rounded-full transition-all duration-300"
-            onClick={() => (window.location.href = "/pricing")}
-          >
-            See Pricing
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <p className="text-lg md:text-xl text-gray-700 mb-12">
+            Monthly pricing, no long-term commitment required
+          </p>
+          
+          {/* Pricing Card */}
+          <div className="bg-white rounded-3xl border border-border/20 shadow-2xl p-8 md:p-12 max-w-2xl mx-auto relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/10 to-primary/10 rounded-full blur-2xl" />
+            
+            <div className="relative z-10">
+              <div className="mb-8">
+                <div className="flex items-baseline justify-center gap-2 mb-4">
+                  <span className="text-5xl md:text-6xl font-bold text-foreground">$299.99</span>
+                  <span className="text-xl text-muted-foreground">/month</span>
+                </div>
+                <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20">
+                  Early bird pricing for first 100 firms
+                </div>
+              </div>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  "Up to 3 simultaneous campaigns",
+                  "Scrape any type of local business",
+                  "Fully managed email deliverability",
+                  "CRM and automated marketing",
+                  "Answer engine optimization consulting",
+                  "CMO-level growth strategy",
+                  "Monthly content calendar",
+                  "15+ story-driven LinkedIn posts"
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-left text-foreground">{feature}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300">
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -198,7 +239,7 @@ const AdvisorXLanding = () => {
           >
             <h3 className="text-4xl md:text-6xl font-bold pb-2 text-black bg-gradient-to-b from-secondary via-cyan-800 to-primary bg-clip-text text-transparent">
               Close the loop from
-              <br className="hidden md:block" /> content to warm leads
+              <br className="hidden md:block" /> prospects to paying clients
             </h3>
 
             <motion.div
