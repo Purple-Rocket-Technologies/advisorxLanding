@@ -368,8 +368,15 @@ const Hero = ({
           </motion.div>
 
           <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight md:leading-snug mb-4 md:mb-8 dark:text-white text-white">
-            <span>Automating local business growth for </span>
-            <AnimatedProfession />
+            <div className="mb-2">
+              <span>Automating local business growth</span>
+            </div>
+            <div className="flex items-center justify-center gap-2 md:gap-4">
+              <span>for</span>
+              <div className="min-w-fit">
+                <AnimatedProfession />
+              </div>
+            </div>
           </div>
           
           <motion.p
@@ -448,7 +455,7 @@ const Hero = ({
           >
             <span className="flex items-center gap-1.5 md:gap-2">
               <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
-              7-day free trial
+              60-day money back guarantee
             </span>
             <span className="flex items-center gap-1.5 md:gap-2">
               <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />

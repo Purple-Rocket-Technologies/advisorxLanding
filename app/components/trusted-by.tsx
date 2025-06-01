@@ -12,7 +12,7 @@ export const TrustedBy = () => {
         className="flex flex-col items-start w-fit h-full gap-3 text-white rounded-xl px-4 py-2 border border-border"
       >
         <span className="text-xs md:text-sm text-white font-light italic tracking-wide uppercase">
-          Trusted by Solo & Large RIAs
+          Trusted by leading firms
         </span>
       </motion.div>
     </div>
