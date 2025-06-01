@@ -9,25 +9,25 @@ const WhyItMatters = () => {
     {
       icon: Mail,
       title: "5-12% Reply Rate",
-      description: "Average response rate across industries",
+      description: "Average response rate",
       color: "text-blue-500"
     },
     {
       icon: Target,
       title: "10-30% Interested",
-      description: "Of those who reply show genuine interest",
+      description: "Of replies show interest",
       color: "text-green-500"
     },
     {
       icon: TrendingUp,
       title: "0.5-3% Net Positive",
-      description: "Final conversion to qualified leads",
+      description: "Convert to qualified leads",
       color: "text-purple-500"
     },
     {
       icon: Users,
       title: "Better Coverage",
-      description: "More decision-maker emails than competitors",
+      description: "More decision-maker emails",
       color: "text-orange-500"
     }
   ];
@@ -50,18 +50,12 @@ const WhyItMatters = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-4xl mx-auto space-y-6"
+            className="max-w-3xl mx-auto space-y-6"
           >
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              On average, our response rate is typically in the <strong>5-12% reply rate</strong> (varies a lot by industry), 
-              and typically of those, around <strong>~10-30% are interested</strong> (again a wide range, but this means 
-              that net positive reply rate is typically between <strong>~0.5 - 3%</strong>)
-            </p>
             <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 border border-primary/10">
               <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-medium">
-                <span className="text-primary font-bold">The main difference</span> (and our secret sauce) is that we get much more coverage of business owner emails. 
-                Our AI agent allows us to get much more coverage of decision maker emails vs other solutions, 
-                <span className="text-secondary font-bold"> and is the reason we get better results for our clients</span>
+                <span className="text-primary font-bold">Our secret sauce:</span> We get much more coverage of decision-maker emails than other solutions, 
+                <span className="text-secondary font-bold"> delivering better results for our clients</span>
               </p>
             </div>
           </motion.div>
