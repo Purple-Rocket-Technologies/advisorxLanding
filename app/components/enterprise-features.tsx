@@ -50,7 +50,7 @@ const features = [
   {
     title: "Lead Scraping Engine",
     description:
-      "Automatically scrapes leads specific to your service area and target criteria. Our AI identifies decision-makers at local businesses, filtering by industry, company size, and geographic location to ensure high-quality prospects.",
+      "Automatically scrapes leads specific to your service area and target criteria.",
     ui: {
       type: "lead-scraping",
       label: "Lead Search",
@@ -82,7 +82,7 @@ const features = [
   {
     title: "Decision-Maker Email Discovery",
     description:
-      "Our AI agent finds verified decision-maker emails with industry-leading accuracy. We get much more coverage of business owner emails compared to other solutions, which is our secret sauce for better results.",
+      "Our AI agent finds verified decision-maker emails with industry-leading accuracy.",
     ui: {
       type: "email-finder",
       label: "Email Discovery",
@@ -114,7 +114,7 @@ const features = [
   {
     title: "Automated Email Campaigns",
     description:
-      "Automatically creates and manages email campaigns with best-practice sequences. Our expert team helps you set up campaigns while maintaining full email deliverability and CRM integration for seamless lead nurturing.",
+      "Automatically creates and manages email campaigns with best-practice sequences.",
     ui: {
       type: "campaign",
       label: "Campaign Management",
