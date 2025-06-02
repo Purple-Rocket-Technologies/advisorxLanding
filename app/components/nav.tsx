@@ -52,38 +52,6 @@ export default function NavBar() {
       <div className="flex justify-between items-center w-full max-w-screen md:max-w-[80%] mx-auto px-4 md:px-6">
         <Link href="/">
           <div className="flex items-center gap-3 h-fit">
-            {/* AdvisorX AI logo - Direct SVG for guaranteed visibility */}
-            <div className="w-10 h-10 flex items-center justify-center">
-              {scrolled ? (
-                // Dark logo for scrolled state
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g>
-                    <path d="M4 32 L8 32 L9 28 L15 28 L16 32 L20 32 L14 8 L10 8 Z M10.5 24 L13.5 24 L12 18 Z" 
-                          fill="#1f2937" 
-                          stroke="#1f2937" 
-                          strokeWidth="1"/>
-                    <path d="M22 8 L26 8 L29 15 L32 8 L36 8 L31 18 L36 32 L32 32 L29 25 L26 32 L22 32 L27 18 Z" 
-                          fill="#1f2937" 
-                          stroke="#1f2937" 
-                          strokeWidth="1"/>
-                  </g>
-                </svg>
-              ) : (
-                // White logo for non-scrolled state
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g>
-                    <path d="M4 32 L8 32 L9 28 L15 28 L16 32 L20 32 L14 8 L10 8 Z M10.5 24 L13.5 24 L12 18 Z" 
-                          fill="#ffffff" 
-                          stroke="#ffffff" 
-                          strokeWidth="1"/>
-                    <path d="M22 8 L26 8 L29 15 L32 8 L36 8 L31 18 L36 32 L32 32 L29 25 L26 32 L22 32 L27 18 Z" 
-                          fill="#ffffff" 
-                          stroke="#ffffff" 
-                          strokeWidth="1"/>
-                  </g>
-                </svg>
-              )}
-            </div>
             <span 
               className={`text-xl md:text-2xl font-semibold tracking-tight ${
                 scrolled ? "text-gray-800" : "text-white"
