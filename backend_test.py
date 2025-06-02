@@ -60,18 +60,18 @@ class AdvisorXTester:
         )
         
         if success:
-            # Verify typing speed (53ms)
-            if '53)' in response.text and 'typing phase' in response.text.lower():
-                print("✅ Typing speed is set to 53ms as expected (was 50ms)")
+            # Verify typing speed (55ms)
+            if '55)' in response.text and 'typing phase' in response.text.lower():
+                print("✅ Typing speed is set to 55ms as expected (was 53ms)")
             else:
-                print("❌ Typing speed is not set to 53ms")
+                print("❌ Typing speed is not set to 55ms")
                 success = False
             
-            # Verify erasing speed (33ms)
-            if '33)' in response.text and 'erasing phase' in response.text.lower():
-                print("✅ Erasing speed is set to 33ms as expected (was 30ms)")
+            # Verify erasing speed (36ms)
+            if '36)' in response.text and 'erasing phase' in response.text.lower():
+                print("✅ Erasing speed is set to 36ms as expected (was 33ms)")
             else:
-                print("❌ Erasing speed is not set to 33ms")
+                print("❌ Erasing speed is not set to 36ms")
                 success = False
         
         return success
