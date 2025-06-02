@@ -66,6 +66,16 @@ export default function NavBar() {
         <div className="hidden md:flex space-x-8">
           {navigationItems.map((item) =>
             item.isHash ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`${
+                  scrolled ? "text-gray-800" : "text-white"
+                } hover:text-secondary transition-colors duration-200`}
+              >
+                {item.label}
+              </Link>
+            ) : item.href.startsWith('http') ? (
               <a
                 key={item.label}
                 href={item.href}
