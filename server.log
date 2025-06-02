@@ -91,3 +91,28 @@
  GET /favicon.ico 200 in 1190ms
  GET /favicon.ico 200 in 6ms
  GET /favicon.ico 200 in 6ms
+ ○ Compiling /api/logo ...
+ ✓ Compiled /api/logo in 1758ms (758 modules)
+ GET /api/logo 200 in 1905ms
+ ✓ Compiled /api/logo-dark in 326ms (760 modules)
+ GET /api/logo-dark 200 in 436ms
+ GET / 200 in 609ms
+ GET /api/logo 200 in 102ms
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 1143ms (763 modules)
+ GET /api/logos 200 in 1449ms
+ GET /api/logos 200 in 40ms
+ GET / 200 in 1144ms
+ GET /api/logo 200 in 343ms
+ GET / 200 in 1097ms
+ GET /api/logos 200 in 10ms
+ GET /api/logos 200 in 29ms
+ GET / 200 in 209ms
+ GET /api/logo 200 in 165ms
+ GET /api/logos 200 in 10ms
+ GET /api/logos 200 in 21ms
+ GET /api/logo-dark 200 in 99ms
+ GET / 200 in 178ms
+ GET /api/logo 200 in 99ms
+ GET /api/logos 200 in 21ms
+ GET /api/logos 200 in 7ms
