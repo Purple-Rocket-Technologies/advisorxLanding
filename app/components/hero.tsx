@@ -151,6 +151,26 @@ const Hero = ({
   onHeightChange: (height: number) => void;
 }) => {
   const heroRef = useRef<HTMLElement>(null);
+  
+  // Profession cycling state
+  const professions = [
+    "Financial Advisors",
+    "Commercial Insurance Agents", 
+    "CPAs & Fractional CFOs",
+    "Estate Planning Attorneys",
+    "SBA Lenders",
+    "Service Professionals"
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % professions.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [professions.length]);
 
   useEffect(() => {
     const updateHeight = () => {
