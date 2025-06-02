@@ -358,3 +358,6 @@ Import trace for requested module:
  GET / 200 in 410ms
  GET / 200 in 124ms
  GET / 200 in 17ms
+ ✓ Compiled in 6.1s (1695 modules)
+ GET / 200 in 139ms
+ GET / 200 in 18ms
