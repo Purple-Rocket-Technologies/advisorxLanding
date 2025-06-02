@@ -92,22 +92,6 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="/about"
-                  className="text-white hover:text-secondary transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/security"
-                  className="text-white hover:text-secondary transition-colors"
-                >
-                  Security
-                </a>
-              </li>
-              <li>
-                <a
                   href="#features"
                   className="text-white hover:text-secondary transition-colors"
                 >
