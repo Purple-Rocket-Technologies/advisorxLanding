@@ -156,3 +156,13 @@
  GET / 200 in 124ms
  GET /api/logos 200 in 10ms
  GET /api/logos 200 in 14ms
+ GET / 200 in 61ms
+ GET / 200 in 90ms
+ ✓ Compiled in 3.5s (1456 modules)
+ GET / 200 in 248ms
+ GET / 200 in 13ms
+ ✓ Compiled in 1146ms (1456 modules)
+ GET / 200 in 170ms
+ GET / 200 in 14ms
+ HEAD / 200 in 248ms
+ GET / 200 in 53ms
