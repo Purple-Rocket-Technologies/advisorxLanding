@@ -177,6 +177,97 @@ const AdvisorXLanding = () => {
         <CompanyMarquee />
       </section>
 
+      {/* Metrics Tiles Only - Removed main content box but kept tiles */}
+      <section className="w-full py-24 bg-gradient-to-b from-white to-gray-50/50 relative overflow-hidden">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.5, 0.3, 0.5],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4,
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Premium metrics grid - just the colored tiles */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                value: "5-12%",
+                label: "Reply Rate",
+                description: "Average response rate",
+                gradient: "from-blue-500 to-cyan-500"
+              },
+              {
+                value: "10-30%",
+                label: "Interested",
+                description: "Of replies show interest",
+                gradient: "from-green-500 to-emerald-500"
+              },
+              {
+                value: "0.5-3%",
+                label: "Net Positive",
+                description: "Convert to qualified leads",
+                gradient: "from-purple-500 to-indigo-500"
+              },
+              {
+                value: "Better",
+                label: "Coverage",
+                description: "More decision-maker emails",
+                gradient: "from-orange-500 to-red-500"
+              }
+            ].map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative group"
+              >
+                <div className="relative bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105">
+                  {/* Gradient accent */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${metric.gradient} rounded-t-2xl`} />
+                  
+                  <div className="text-center space-y-4">
+                    <div className={`text-4xl md:text-5xl font-black bg-gradient-to-r ${metric.gradient} bg-clip-text text-transparent`}>
+                      {metric.value}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{metric.label}</h3>
+                      <p className="text-sm text-gray-600">{metric.description}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Subtle hover effect */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${metric.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/*<BenefitsSection />*/}
       <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
