@@ -53,3 +53,40 @@
  GET / 200 in 20ms
  HEAD / 200 in 264ms
  GET / 200 in 113ms
+ GET / 200 in 119ms
+ GET / 200 in 2466ms
+ GET / 200 in 68ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 2s (750 modules)
+ GET /favicon.ico 200 in 2151ms
+ GET /favicon.ico 200 in 7ms
+ GET /favicon.ico 200 in 12ms
+ GET / 200 in 616ms
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 979ms (755 modules)
+ GET /api/logos 200 in 1319ms
+ GET /api/logos 200 in 69ms
+ GET / 200 in 556ms
+ GET /api/logos 200 in 54ms
+ GET /api/logos 200 in 53ms
+ GET / 200 in 1323ms
+ GET /api/logos 200 in 12ms
+ GET /api/logos 200 in 68ms
+ GET / 200 in 120ms
+ GET /api/logos 200 in 92ms
+ GET /api/logos 200 in 8ms
+ GET / 200 in 118ms
+ GET /api/logos 200 in 34ms
+ GET /api/logos 200 in 61ms
+ GET / 200 in 206ms
+ GET /api/logos 200 in 30ms
+ GET /api/logos 200 in 36ms
+ GET / 200 in 124ms
+ GET /api/logos 200 in 17ms
+ GET /api/logos 200 in 34ms
+ GET / 200 in 100ms
+ GET / 200 in 193ms
+ GET /api/logos 200 in 62ms
+ GET /api/logos 200 in 67ms
+ GET / 200 in 354ms
+ GET / 200 in 191ms
