@@ -488,13 +488,17 @@ const AdvisorXLanding = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row justify-center gap-4 md:mt-8"
             >
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm md:text-lg px-8 py-6 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300">
+              <Button 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm md:text-lg px-8 py-6 shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300"
+                onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
+              >
                 Schedule Demo
                 <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button
                 variant="outline"
                 className="text-sm md:text-lg px-8 py-6 border-border hover:bg-accent transition-all duration-300 group"
+                onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
               >
                 Contact Sales
               </Button>
