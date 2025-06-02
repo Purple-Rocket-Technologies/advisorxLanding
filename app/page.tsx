@@ -178,9 +178,6 @@ const AdvisorXLanding = () => {
         <CompanyMarquee />
       </section>
 
-      {/* Why it Matters Section */}
-      <WhyItMatters />
-
       {/*<BenefitsSection />*/}
       <div className="flex flex-col items-center justify-center w-full">
         {typeof window !== "undefined" && window.innerWidth > 1000 && (
