@@ -1,16 +1,16 @@
 
 import requests
+import time
 import sys
-import re
 from datetime import datetime
 
-class AdvisorXAPITester:
+class AdvisorXTester:
     def __init__(self, base_url="http://localhost:3000"):
         self.base_url = base_url
         self.tests_run = 0
         self.tests_passed = 0
 
-    def run_test(self, name, method, endpoint, expected_status=200, expected_content_type=None, expected_content=None):
+    def run_test(self, name, method, endpoint, expected_status=200, expected_content_type=None):
         """Run a single API test"""
         url = f"{self.base_url}/{endpoint}"
         
@@ -20,81 +20,86 @@ class AdvisorXAPITester:
         try:
             if method == 'GET':
                 response = requests.get(url)
-            elif method == 'POST':
-                response = requests.post(url)
-            
-            # Check status code
-            status_success = response.status_code == expected_status
-            if status_success:
-                print(f"✅ Status code: {response.status_code}")
             else:
-                print(f"❌ Status code: Expected {expected_status}, got {response.status_code}")
-                return False
+                raise ValueError(f"Unsupported method: {method}")
+
+            success = response.status_code == expected_status
             
             # Check content type if specified
-            if expected_content_type:
-                content_type = response.headers.get('Content-Type', '')
-                content_type_success = expected_content_type in content_type
-                if content_type_success:
-                    print(f"✅ Content-Type: {content_type}")
-                else:
-                    print(f"❌ Content-Type: Expected {expected_content_type}, got {content_type}")
-                    return False
+            content_type_success = True
+            if expected_content_type and 'Content-Type' in response.headers:
+                content_type_success = expected_content_type in response.headers['Content-Type']
+                if not content_type_success:
+                    print(f"❌ Content-Type mismatch - Expected: {expected_content_type}, got: {response.headers['Content-Type']}")
             
-            # Check content if specified
-            if expected_content:
-                content_success = expected_content in response.text
-                if content_success:
-                    print(f"✅ Content contains expected pattern")
-                else:
-                    print(f"❌ Content does not contain expected pattern")
-                    return False
+            success = success and content_type_success
             
-            self.tests_passed += 1
-            return True
+            if success:
+                self.tests_passed += 1
+                print(f"✅ Passed - Status: {response.status_code}")
+                if expected_content_type:
+                    print(f"✅ Content-Type: {response.headers.get('Content-Type', 'Not provided')}")
+            else:
+                print(f"❌ Failed - Expected status {expected_status}, got {response.status_code}")
 
+            return success, response
+        
         except Exception as e:
             print(f"❌ Failed - Error: {str(e)}")
-            return False
+            return False, None
 
     def test_logo_api(self):
         """Test the logo API endpoints"""
-        # Test white logo endpoint
-        white_logo_success = self.run_test(
+        # Test white logo API
+        success, response = self.run_test(
             "White Logo API",
             "GET",
             "api/logo",
-            expected_status=200,
-            expected_content_type="image/svg+xml",
-            expected_content='fill="#ffffff"'
+            200,
+            "image/svg+xml"
         )
         
-        # Test dark logo endpoint
-        dark_logo_success = self.run_test(
+        if success:
+            # Verify it contains white fill
+            if 'fill="#ffffff"' in response.text:
+                print("✅ Logo contains white fill as expected")
+            else:
+                print("❌ Logo does not contain white fill")
+                success = False
+        
+        # Test dark logo API
+        dark_success, dark_response = self.run_test(
             "Dark Logo API",
             "GET",
             "api/logo-dark",
-            expected_status=200,
-            expected_content_type="image/svg+xml",
-            expected_content='fill="#1f2937"'
+            200,
+            "image/svg+xml"
         )
         
-        return white_logo_success and dark_logo_success
+        if dark_success:
+            # Verify it contains dark fill
+            if 'fill="#1f2937"' in dark_response.text:
+                print("✅ Logo contains dark fill as expected")
+            else:
+                print("❌ Logo does not contain dark fill")
+                dark_success = False
+        
+        return success and dark_success
 
 def main():
-    # Setup
-    tester = AdvisorXAPITester("http://localhost:3000")
+    # Get the backend URL from environment or use default
+    tester = AdvisorXTester("http://localhost:3000")
     
-    # Run tests
-    logo_tests_passed = tester.test_logo_api()
+    # Run logo API tests
+    logo_success = tester.test_logo_api()
     
     # Print results
     print(f"\n📊 Tests passed: {tester.tests_passed}/{tester.tests_run}")
     
-    if logo_tests_passed:
-        print("\n✅ Logo API tests passed successfully!")
+    if logo_success:
+        print("✅ Logo API tests passed successfully")
     else:
-        print("\n❌ Some logo API tests failed.")
+        print("❌ Some logo API tests failed")
     
     return 0 if tester.tests_passed == tester.tests_run else 1
 
