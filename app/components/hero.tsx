@@ -172,17 +172,17 @@ const Hero = ({
     const currentProfession = professions[currentIndex];
     
     if (isTyping) {
-      // Typing phase - buttery smooth slower speed
+      // Typing phase - faster 60ms speed
       if (displayText.length < currentProfession.length) {
         const timeoutId = setTimeout(() => {
           setDisplayText(currentProfession.slice(0, displayText.length + 1));
-        }, 65); // Much slower for buttery smooth feel
+        }, 60); // Faster 60ms typing speed
         return () => clearTimeout(timeoutId);
       } else {
-        // Finished typing, pause longer then do instant transition
+        // Finished typing, brief pause then transition
         const timeoutId = setTimeout(() => {
           setIsTyping(false);
-        }, 1500); // Longer pause to read complete text
+        }, 300); // Short 0.3 second pause
         return () => clearTimeout(timeoutId);
       }
     } else {
@@ -191,7 +191,7 @@ const Hero = ({
         setDisplayText(""); // Instant clear
         setCurrentIndex((prev) => (prev + 1) % professions.length);
         setIsTyping(true);
-      }, 200); // Brief pause before next profession starts
+      }, 100); // Brief pause before next profession starts
       return () => clearTimeout(timeoutId);
     }
   }, [displayText, isTyping, currentIndex, professions]);
