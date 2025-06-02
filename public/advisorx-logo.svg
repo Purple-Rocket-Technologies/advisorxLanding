@@ -1,21 +1,20 @@
-<svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- AX Logo - Clean Interlocking Design -->
-  <g transform="translate(20, 30)">
+<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- AX Logo - Clean Minimalist Design -->
+  <g transform="translate(8, 15)">
     <!-- Letter A -->
-    <path d="M20 140 L35 140 L40 125 L70 125 L75 140 L90 140 L65 70 L45 70 Z M47 105 L63 105 L55 85 Z" 
+    <path d="M5 70 L15 40 L20 40 L30 70 L25 70 L23 63 L12 63 L10 70 Z M14 55 L21 55 L17.5 47 Z" 
           fill="currentColor" 
           stroke="currentColor" 
           stroke-width="0.5"/>
     
-    <!-- Letter X -->
-    <path d="M100 70 L120 70 L135 95 L150 70 L170 70 L145 110 L172 140 L152 140 L135 115 L118 140 L98 140 L125 110 Z" 
+    <!-- Letter X with interlocking design -->
+    <path d="M35 40 L42 40 L50 52 L58 40 L65 40 L54 56 L66 70 L59 70 L50 58 L41 70 L34 70 L46 56 Z" 
           fill="currentColor" 
           stroke="currentColor" 
           stroke-width="0.5"/>
     
-    <!-- Interlocking element -->
-    <path d="M85 105 L105 105 L105 115 L85 115 Z" 
-          fill="currentColor" 
-          opacity="0.8"/>
+    <!-- Interlocking connection -->
+    <path d="M25 55 L35 55 L35 58 L25 58 Z" 
+          fill="currentColor"/>
   </g>
 </svg>
