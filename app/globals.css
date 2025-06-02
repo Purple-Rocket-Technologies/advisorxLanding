@@ -156,7 +156,7 @@
   }
 
   .animate-marquee-scroll {
-    animation: marquee-scroll 35s linear infinite;
+    animation: marquee-scroll 20s linear infinite; /* Much faster - was 35s */
     width: 600%; /* 6 times the original width for 6 repetitions */
   }
 
@@ -168,7 +168,7 @@
   /* Premium mobile optimizations */
   @media (max-width: 768px) {
     .animate-marquee-scroll {
-      animation-duration: 25s; /* Faster on mobile */
+      animation-duration: 15s; /* Even faster on mobile - was 25s */
     }
   }
 
