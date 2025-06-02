@@ -161,6 +161,15 @@ export default function NavBar() {
             <div className="flex flex-col items-center pt-8 space-y-8 bg-white w-full px-12 py-5 ">
               {navigationItems.map((item) =>
                 item.isHash ? (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-gray-800 text-lg hover:text-secondary transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ) : item.href.startsWith('http') ? (
                   <a
                     key={item.label}
                     href={item.href}
