@@ -68,7 +68,7 @@ export const CompanyMarquee = () => {
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
         
-        {/* Scrolling container - tighter spacing */}
+        {/* Scrolling container - much larger logos and spacing */}
         <div className="flex animate-marquee-scroll hover:pause-animation">
           {/* Create multiple sets for seamless loop */}
           {Array.from({ length: 8 }, (_, setIndex) => (
@@ -76,15 +76,15 @@ export const CompanyMarquee = () => {
               {logos.map((logo, logoIndex) => (
                 <div
                   key={`${setIndex}-${logoIndex}`}
-                  className="flex-shrink-0 flex items-center justify-center h-32 w-80 mx-6"
+                  className="flex-shrink-0 flex items-center justify-center h-48 w-96 mx-8"
                 >
                   <div className="relative group">
                     <Image
                       src={`/firm/${logo}`}
                       alt={`Company logo ${logoIndex + 1}`}
-                      width={400}
-                      height={200}
-                      className="h-24 w-auto max-w-[400px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
+                      width={800}
+                      height={400}
+                      className="h-36 w-auto max-w-[800px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
                       onError={(e) => {
                         console.error(`Failed to load image: /firm/${logo}`);
                         const target = e.target as HTMLImageElement;
