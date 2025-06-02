@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '160': '40rem', // 640px
+      },
       animation: {
         "trusted-in": "trusted-in 0.2s ease-out forwards",
         "mask-wave-1": "mask-wave-1 8s ease-in-out infinite",
