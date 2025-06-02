@@ -143,3 +143,44 @@
  GET / 200 in 82ms
  GET / 200 in 117ms
  GET / 200 in 152ms
+ HEAD / 200 in 96ms
+ GET / 200 in 163ms
+ GET / 200 in 99ms
+ GET / 200 in 226ms
+ GET / 200 in 81ms
+ GET / 200 in 83ms
+ GET / 200 in 225ms
+ GET /api/logos 200 in 34ms
+ GET /api/logos 200 in 30ms
+ GET / 200 in 216ms
+ GET /api/logos 200 in 11ms
+ GET /api/logos 200 in 10ms
+ GET / 200 in 72ms
+ GET / 200 in 130ms
+ GET / 200 in 201ms
+ GET /api/logos 200 in 26ms
+ GET /api/logos 200 in 58ms
+ GET / 200 in 121ms
+ GET /api/logos 200 in 14ms
+ GET /api/logos 200 in 34ms
+ GET / 200 in 188ms
+ GET /api/logos 200 in 70ms
+ GET /api/logos 200 in 12ms
+ GET / 200 in 148ms
+ GET /api/logos 200 in 49ms
+ GET / 200 in 148ms
+ GET /api/logos 200 in 90ms
+ GET /api/logos 200 in 87ms
+ GET / 200 in 217ms
+ GET /api/logos 200 in 29ms
+ GET /api/logos 200 in 40ms
+ GET / 200 in 121ms
+ GET /api/logos 200 in 12ms
+ GET /api/logos 200 in 30ms
+ GET / 200 in 117ms
+ GET /api/logos 200 in 14ms
+ GET /api/logos 200 in 10ms
+ GET / 200 in 136ms
+ GET / 200 in 116ms
+ GET /api/logos 200 in 43ms
+ GET /api/logos 200 in 31ms
