@@ -61,14 +61,14 @@ export const CompanyMarquee = () => {
   }
 
   return (
-    <div className="w-full overflow-hidden py-40 bg-transparent">
-      {/* Premium marquee container - 2x larger */}
+    <div className="w-full overflow-hidden py-16 bg-transparent">
+      {/* Premium marquee container - reduced padding */}
       <div className="relative">
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
         
-        {/* Scrolling container - much larger logos and spacing */}
+        {/* Scrolling container - tighter spacing */}
         <div className="flex animate-marquee-scroll hover:pause-animation">
           {/* Create multiple sets for seamless loop */}
           {Array.from({ length: 8 }, (_, setIndex) => (
@@ -76,15 +76,15 @@ export const CompanyMarquee = () => {
               {logos.map((logo, logoIndex) => (
                 <div
                   key={`${setIndex}-${logoIndex}`}
-                  className="flex-shrink-0 flex items-center justify-center h-64 w-160 mx-12"
+                  className="flex-shrink-0 flex items-center justify-center h-32 w-80 mx-6"
                 >
                   <div className="relative group">
                     <Image
                       src={`/firm/${logo}`}
                       alt={`Company logo ${logoIndex + 1}`}
-                      width={600}
-                      height={300}
-                      className="h-48 w-auto max-w-[600px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
+                      width={400}
+                      height={200}
+                      className="h-24 w-auto max-w-[400px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
                       onError={(e) => {
                         console.error(`Failed to load image: /firm/${logo}`);
                         const target = e.target as HTMLImageElement;
