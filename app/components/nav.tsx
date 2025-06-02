@@ -53,7 +53,7 @@ export default function NavBar() {
         <Link href="/">
           <div className="flex items-center gap-3 h-fit">
             <span 
-              className={`text-xl md:text-2xl font-semibold tracking-tight ${
+              className={`text-lg md:text-xl lg:text-2xl font-semibold tracking-tight whitespace-nowrap ${
                 scrolled ? "text-gray-800" : "text-white"
               }`}
               style={{ fontFamily: 'Inter, sans-serif' }}
