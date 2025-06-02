@@ -8,7 +8,6 @@ import { TestimonialCarousel } from "./components/testimonial-carousel";
 import Hero from "./components/hero";
 import NavBar from "./components/nav";
 import Footer from "./components/footer";
-import WhyItMatters from "./components/why-it-matters";
 import EnterpriseFeatures from "./components/enterprise-features";
 
 // Lead Generation Dashboard Component
