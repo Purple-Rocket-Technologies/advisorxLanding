@@ -511,3 +511,10 @@ Import trace for requested module:
  GET / 200 in 16ms
  GET / 200 in 47ms
  GET / 200 in 13ms
+ ✓ Compiled in 2.3s (1695 modules)
+ GET / 200 in 127ms
+ GET / 200 in 82ms
+ GET / 200 in 17ms
+ GET / 200 in 26ms
+ GET / 200 in 16ms
+ HEAD / 200 in 398ms
