@@ -226,12 +226,15 @@ const AdvisorXLanding = () => {
             className="relative w-full md:w-[70%] lg:w-[80%] aspect-video rounded-xl overflow-hidden"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent blur-2xl transform-gpu" />
-            <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
-              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-transparent to-transparent rounded-2xl" />
-              <div className="relative h-full flex items-center justify-center">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:bg-primary transition-colors duration-300 group-hover:shadow-lg group-hover:shadow-primary/25">
-                  <Play className="w-10 h-10 md:w-16 md:h-16 text-white ml-1" />
-                </div>
+            <div className="relative w-full h-full backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-border/50 bg-gradient-to-b from-background/10 to-background/5 group hover:border-primary/20 transition-colors duration-300">
+              <div className="relative h-full rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/mxBDf6wqFcE"
+                  title="AdvisorX AI Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full rounded-xl"
+                />
               </div>
             </div>
           </motion.div>
