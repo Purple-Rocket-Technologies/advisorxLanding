@@ -173,23 +173,23 @@ const Hero = ({
     let timeoutId: NodeJS.Timeout;
     
     if (isTyping) {
-      // Typing phase - fast
+      // Typing phase - slightly slower for better readability
       if (displayText.length < currentProfession.length) {
         timeoutId = setTimeout(() => {
           setDisplayText(currentProfession.slice(0, displayText.length + 1));
-        }, 40); // Fast typing speed
+        }, 50); // Adjusted typing speed (was 40ms)
       } else {
-        // Finished typing, immediately start erasing (no pause)
+        // Finished typing, minimal pause to see complete text
         timeoutId = setTimeout(() => {
           setIsTyping(false);
-        }, 100); // Minimal pause - just enough to see complete text
+        }, 100); // Minimal pause
       }
     } else {
-      // Erasing phase - very fast
+      // Erasing phase - slightly slower
       if (displayText.length > 0) {
         timeoutId = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
-        }, 20); // Very fast erasing
+        }, 30); // Adjusted erasing speed (was 20ms)
       } else {
         // Finished erasing, immediately move to next profession
         setCurrentIndex((prev) => (prev + 1) % professions.length);
