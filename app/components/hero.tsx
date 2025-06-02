@@ -114,7 +114,7 @@ const CleanAnimatedProfession = () => {
   }, [professions.length]);
 
   return (
-    <div className="relative h-20 md:h-24 lg:h-28 w-full flex items-center justify-center overflow-hidden">
+    <div className="relative h-16 md:h-20 lg:h-24 w-full flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -134,9 +134,9 @@ const CleanAnimatedProfession = () => {
             duration: 0.5,
             ease: "easeInOut"
           }}
-          className="absolute inset-0 flex items-center justify-center text-center"
+          className="absolute inset-0 flex items-center justify-center text-center px-4"
         >
-          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight tracking-tight">
+          <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight whitespace-nowrap">
             {professions[currentIndex]}
           </span>
         </motion.div>
@@ -283,7 +283,7 @@ const Hero = ({
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full px-4 py-8 md:px-6 md:py-16 lg:py-20 flex flex-col items-center justify-center max-w-full mx-auto gap-8 md:gap-16 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600"
+      className="relative min-h-screen w-full px-4 py-12 md:px-6 md:py-20 lg:py-24 flex flex-col items-center justify-center max-w-full mx-auto gap-8 md:gap-16 overflow-hidden bg-gradient-to-br from-teal-900 via-primary to-teal-600"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 bg-black/10" />
@@ -381,18 +381,18 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-fit mb-6 md:mb-8"
+            className="w-fit mb-8 md:mb-12"
           >
             <TrustedBy />
           </motion.div>
 
           {/* Main heading with clean animation */}
-          <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight md:leading-tight mb-6 md:mb-12 text-white">
+          <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight md:leading-tight mb-8 md:mb-16 text-white">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="mb-4 md:mb-8"
+              className="mb-6 md:mb-10"
             >
               <span>Automating local growth for</span>
             </motion.div>
@@ -405,13 +405,10 @@ const Hero = ({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="max-w-4xl mb-8 md:mb-12"
+            className="max-w-5xl mb-12 md:mb-16"
           >
-            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 font-light leading-relaxed px-4 md:px-0 mb-4">
-              Our AI sales agent automates lead generation and marketing to local business owners.
-            </p>
-            <p className="text-sm md:text-base lg:text-lg text-white/80 font-light leading-relaxed px-4 md:px-0">
-              Save 10+ hours every week and replace your expensive lead gen agencies.
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 font-light leading-relaxed px-4 md:px-0">
+              Our AI sales agent automates lead generation and marketing to local business owners — save 10+ hours every week and replace your expensive lead gen agencies.
             </p>
           </motion.div>
         </div>
