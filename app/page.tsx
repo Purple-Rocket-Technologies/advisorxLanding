@@ -299,7 +299,7 @@ const AdvisorXLanding = () => {
                 
                 <Button 
                   className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-6 py-3 transition-all duration-300"
-                  onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
+                  onClick={() => window.open("https://calendly.com/advisorxai/30min", "_blank", "noopener,noreferrer")}
                 >
                   Schedule Demo
                 </Button>
