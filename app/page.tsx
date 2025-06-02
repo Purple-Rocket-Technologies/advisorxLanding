@@ -409,7 +409,7 @@ const AdvisorXLanding = () => {
                 
                 <Button 
                   className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm px-6 py-3 transition-all duration-300"
-                  onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
+                  onClick={() => window.open("https://calendly.com/advisorxai/30min", "_blank", "noopener,noreferrer")}
                 >
                   Contact Sales
                 </Button>
