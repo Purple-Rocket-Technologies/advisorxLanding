@@ -141,3 +141,5 @@
  GET /api/logos 200 in 54ms
  GET /api/logos 200 in 49ms
  GET / 200 in 82ms
+ GET / 200 in 117ms
+ GET / 200 in 152ms
