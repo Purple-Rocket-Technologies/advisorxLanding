@@ -75,3 +75,21 @@
  ✓ Compiled in 4.1s (1456 modules)
  GET / 200 in 427ms
  HEAD / 200 in 261ms
+ GET / 200 in 218ms
+ GET / 200 in 150ms
+ GET / 200 in 93ms
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 4.3s (759 modules)
+ GET /api/logos 200 in 4813ms
+ GET / 200 in 400ms
+ GET /api/logos 200 in 14ms
+ GET /api/logos 200 in 76ms
+ GET / 200 in 197ms
+ GET /api/logos 200 in 72ms
+ GET /api/logos 200 in 6ms
+ GET / 200 in 126ms
+ GET /api/logos 200 in 6ms
+ GET /api/logos 200 in 5ms
+ GET / 200 in 177ms
+ GET /api/logos 200 in 12ms
+ GET /api/logos 200 in 7ms
