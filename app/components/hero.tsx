@@ -458,43 +458,25 @@ const Hero = ({
               </h1>
             </motion.div>
             
-            {/* Profession cycling with enhanced styling */}
+            {/* Typewriter profession cycling with premium styling */}
             <div className="w-full mb-4 md:mb-6">
               <div className="relative h-16 md:h-20 lg:h-24 xl:h-28 w-full flex items-center justify-center overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ 
-                      opacity: 0, 
-                      y: 20,
-                      scale: 0.98
-                    }}
-                    animate={{ 
-                      opacity: 1, 
-                      y: 0,
-                      scale: 1
-                    }}
-                    exit={{ 
-                      opacity: 0, 
-                      y: -20,
-                      scale: 0.98
-                    }}
-                    transition={{ 
-                      duration: 0.6,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute inset-0 flex items-center justify-center text-center px-4"
-                  >
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
-                      <span className="bg-gradient-to-r from-secondary via-cyan-400 to-primary bg-clip-text text-transparent drop-shadow-2xl filter contrast-125 brightness-110" style={{
-                        textShadow: '0 0 30px rgba(16, 222, 197, 0.3), 0 0 60px rgba(16, 222, 197, 0.2)',
-                        WebkitTextStroke: '1px rgba(16, 222, 197, 0.1)'
-                      }}>
-                        {professions[currentIndex]}
-                      </span>
-                    </h2>
-                  </motion.div>
-                </AnimatePresence>
+                <div className="text-center px-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
+                    <span className="bg-gradient-to-r from-secondary via-cyan-400 to-primary bg-clip-text text-transparent">
+                      {displayText}
+                      <span 
+                        className={`inline-block w-0.5 md:w-1 bg-gradient-to-b from-secondary to-primary ml-1 ${
+                          showCursor ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        style={{ 
+                          height: '0.9em',
+                          transition: 'opacity 0.1s ease-in-out'
+                        }}
+                      />
+                    </span>
+                  </h2>
+                </div>
               </div>
             </div>
 
