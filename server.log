@@ -350,3 +350,11 @@ Import trace for requested module:
  GET / 200 in 175ms
  GET /api/logos 200 in 9ms
  GET /api/logos 200 in 8ms
+ GET / 200 in 67ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.8s (1685 modules)
+ GET /blog 404 in 2985ms
+ GET /blog 404 in 45ms
+ GET / 200 in 410ms
+ GET / 200 in 124ms
+ GET / 200 in 17ms
