@@ -182,3 +182,127 @@
  GET / 200 in 117ms
  GET /api/logos 200 in 13ms
  GET /api/logos 200 in 39ms
+ ✓ Compiled in 2.9s (1456 modules)
+ GET / 200 in 189ms
+ GET / 200 in 32ms
+ GET / 200 in 16ms
+ GET / 200 in 25ms
+ GET / 200 in 12ms
+ GET / 200 in 13ms
+ ✓ Compiled in 5.3s (1454 modules)
+ GET / 200 in 91ms
+ GET / 200 in 14ms
+ GET / 200 in 42ms
+ GET / 200 in 54ms
+ GET / 200 in 17ms
+ GET / 200 in 49ms
+ ✓ Compiled in 2.2s (1454 modules)
+ GET / 200 in 90ms
+ GET / 200 in 758ms
+ GET / 200 in 391ms
+ GET / 200 in 16ms
+ GET / 200 in 14ms
+ GET / 200 in 11ms
+ GET / 200 in 293ms
+
+Could not open page.tsx in the editor.
+The editor process exited with an error: Terminal editors can only be used on macOS.
+
+To set up the editor integration, add something like REACT_EDITOR=atom to the .env.local file in your project folder and restart the development server.
+
+ ⨯ ./app/components/footer.tsx:2:1
+Module not found: Can't resolve './ui/button'
+  1 | import { motion } from "framer-motion";
+> 2 | import { Button } from "./ui/button";
+    | ^
+  3 |
+  4 | const Footer = () => {
+  5 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./app/components/footer.tsx:2:1
+Module not found: Can't resolve './ui/button'
+  1 | import { motion } from "framer-motion";
+> 2 | import { Button } from "./ui/button";
+    | ^
+  3 |
+  4 | const Footer = () => {
+  5 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/page.tsx
+ HEAD / 500 in 17161ms
+ GET / 500 in 7936ms
+ GET / 500 in 6287ms
+ GET / 500 in 49ms
+ GET / 500 in 39ms
+ GET / 500 in 44ms
+ GET / 500 in 31ms
+ GET / 500 in 38ms
+ GET / 500 in 43ms
+ GET / 500 in 94ms
+ GET / 500 in 100ms
+ GET / 500 in 40ms
+ GET / 500 in 32ms
+ GET / 500 in 16ms
+ GET / 500 in 18ms
+ GET / 500 in 109ms
+ GET / 500 in 147ms
+ GET / 500 in 109ms
+ GET / 500 in 150ms
+ GET / 500 in 56ms
+ GET / 500 in 20ms
+ GET / 500 in 44ms
+ ✓ Compiled /_error in 2.4s (1695 modules)
+ ○ Compiling /_not-found ...
+ GET / 200 in 2698ms
+ ✓ Compiled /_not-found in 5.5s (1685 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ HEAD / 200 in 1864ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 6554ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 288ms
+ GET / 200 in 358ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 103ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 186ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 46ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 476ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 391ms
+ GET / 200 in 374ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 207ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 513ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 390ms
+ GET /_next/static/webpack/ebb5c6622e20178e.webpack.hot-update.json 404 in 315ms
+ GET / 200 in 393ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1031ms (801 modules)
+ GET /favicon.ico 200 in 1220ms
+ GET /favicon.ico 200 in 10ms
+ GET /favicon.ico 200 in 19ms
+ GET /favicon.ico 200 in 7ms
+ GET /favicon.ico 200 in 6ms
+ GET /favicon.ico 200 in 8ms
+ GET /favicon.ico 200 in 7ms
+ GET /favicon.ico 200 in 6ms
+ GET /favicon.ico 200 in 5ms
+ GET /favicon.ico 200 in 93ms
+ GET /favicon.ico 200 in 38ms
+ GET /favicon.ico 200 in 5ms
+ GET /favicon.ico 200 in 9ms
+ GET /favicon.ico 200 in 7ms
+ GET /favicon.ico 200 in 6ms
+ GET /favicon.ico 200 in 17ms
+ GET /favicon.ico 200 in 5ms
+ GET /favicon.ico 200 in 14ms
