@@ -54,10 +54,9 @@ export default function NavBar() {
           <div className="flex items-center gap-3 h-fit">
             {/* AdvisorX AI logo */}
             <img
-              src="/api/logo"
+              src={scrolled ? "/api/logo-dark" : "/api/logo"}
               alt="AdvisorX AI Logo"
-              className={`w-10 h-10 ${scrolled ? "text-gray-800" : "text-white"}`}
-              style={{ filter: scrolled ? 'brightness(0.2)' : 'brightness(1)' }}
+              className="w-10 h-10"
             />
             <span 
               className={`text-xl md:text-2xl font-semibold tracking-tight ${
