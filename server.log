@@ -116,3 +116,27 @@
  GET /api/logo 200 in 99ms
  GET /api/logos 200 in 21ms
  GET /api/logos 200 in 7ms
+ ✓ Compiled in 4.3s (1456 modules)
+ GET / 200 in 141ms
+ GET / 200 in 29ms
+ GET / 200 in 32ms
+ GET / 200 in 28ms
+ GET / 200 in 33ms
+ HEAD / 200 in 367ms
+ GET / 200 in 54ms
+ GET / 200 in 65ms
+ GET / 200 in 162ms
+ ✓ Compiled in 2.7s (1456 modules)
+ GET / 200 in 91ms
+ GET / 200 in 11ms
+ GET / 200 in 11ms
+ GET / 200 in 38ms
+ GET / 200 in 219ms
+ ✓ Compiled /api/logo in 364ms (758 modules)
+ GET /api/logo 200 in 540ms
+ ✓ Compiled in 1895ms (1473 modules)
+ GET / 200 in 111ms
+ GET / 200 in 16ms
+ GET / 200 in 13ms
+ GET / 200 in 10ms
+ GET / 200 in 12ms
