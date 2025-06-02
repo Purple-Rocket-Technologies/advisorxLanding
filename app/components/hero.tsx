@@ -163,14 +163,51 @@ const Hero = ({
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const [showCursor, setShowCursor] = useState(true);
 
+  // Typewriter effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % professions.length);
-    }, 2500);
+    const currentProfession = professions[currentIndex];
+    let timeoutId: NodeJS.Timeout;
+    
+    if (isTyping) {
+      // Typing phase
+      if (displayText.length < currentProfession.length) {
+        timeoutId = setTimeout(() => {
+          setDisplayText(currentProfession.slice(0, displayText.length + 1));
+        }, 80); // Typing speed
+      } else {
+        // Finished typing, wait before erasing
+        timeoutId = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000); // Pause after typing
+      }
+    } else {
+      // Erasing phase
+      if (displayText.length > 0) {
+        timeoutId = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, 60); // Erasing speed
+      } else {
+        // Finished erasing, move to next profession
+        setCurrentIndex((prev) => (prev + 1) % professions.length);
+        setIsTyping(true);
+      }
+    }
 
-    return () => clearInterval(interval);
-  }, [professions.length]);
+    return () => clearTimeout(timeoutId);
+  }, [displayText, isTyping, currentIndex, professions]);
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev);
+    }, 530);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
 
   useEffect(() => {
     const updateHeight = () => {
