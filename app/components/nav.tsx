@@ -51,14 +51,22 @@ export default function NavBar() {
     >
       <div className="flex justify-between items-center w-full max-w-screen md:max-w-[80%] mx-auto px-4 md:px-6">
         <Link href="/">
-          <div className="text-2xl font-bold h-fit">
+          <div className="flex items-center gap-3 h-fit">
             <Image
               src={"/logos/logo.svg"}
-              alt="AdvisorX Logo"
+              alt="AdvisorX AI Logo"
               className={scrolled ? "invert" : ""}
-              width={120}
-              height={10}
+              width={40}
+              height={40}
             />
+            <span 
+              className={`text-xl md:text-2xl font-semibold tracking-tight ${
+                scrolled ? "text-gray-800" : "text-white"
+              }`}
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              AdvisorX AI
+            </span>
           </div>
         </Link>
         {/* Desktop Navigation */}
