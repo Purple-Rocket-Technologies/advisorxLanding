@@ -54,7 +54,7 @@ export default function NavBar() {
           <div className="flex items-center gap-3 h-fit">
             {/* AdvisorX AI logo */}
             <img
-              src="/advisorx-logo.svg"
+              src="/api/logo"
               alt="AdvisorX AI Logo"
               className={`w-10 h-10 ${scrolled ? "text-gray-800" : "text-white"}`}
               style={{ filter: scrolled ? 'brightness(0.2)' : 'brightness(1)' }}
