@@ -1,0 +1,16 @@
+<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- AX Logo Design based on provided image -->
+  <g transform="translate(10, 15)">
+    <!-- Letter A -->
+    <path d="M0 70 L15 20 L25 20 L40 70 L32 70 L28 58 L12 58 L8 70 Z M15 43 L25 43 L20 30 Z" 
+          fill="currentColor" 
+          stroke="currentColor" 
+          stroke-width="1"/>
+    
+    <!-- Letter X -->
+    <path d="M45 20 L55 20 L65 35 L75 20 L85 20 L70 40 L85 70 L75 70 L65 55 L55 70 L45 70 L60 40 Z" 
+          fill="currentColor" 
+          stroke="currentColor" 
+          stroke-width="1"/>
+  </g>
+</svg>
