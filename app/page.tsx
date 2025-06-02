@@ -488,14 +488,13 @@ const AdvisorXLanding = () => {
                 
                 <div className="space-y-3 mb-6">
                   {[
-                    "Ongoing AI consulting for up to a year",
-                    "Customized prompt libraries",
-                    "Setting up AI-powered organization",
-                    "Building custom GPTs",
+                    "6 30-minute consulting sessions",
+                    "100 customized prompts",
+                    "5 custom GPTs",
+                    "Setting up AI-powered organization", 
                     "AI integration across all verticals",
                     "Can layer over $299 subscription",
-                    "Dedicated AI strategist",
-                    "Quarterly AI optimization reviews"
+                    "Priority email support"
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
