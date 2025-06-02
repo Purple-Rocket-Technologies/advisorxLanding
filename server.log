@@ -328,3 +328,13 @@ Import trace for requested module:
  GET / 200 in 92ms
  GET /api/logos 200 in 33ms
  GET /api/logos 200 in 43ms
+ ✓ Compiled in 4.8s (1695 modules)
+ GET / 200 in 302ms
+ GET / 200 in 29ms
+ GET / 200 in 14ms
+ GET / 200 in 17ms
+ GET / 200 in 23ms
+ GET / 200 in 65ms
+ GET / 200 in 54ms
+ HEAD / 200 in 292ms
+ GET / 200 in 108ms
