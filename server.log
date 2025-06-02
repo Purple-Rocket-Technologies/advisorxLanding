@@ -30,3 +30,26 @@
  GET /api/logos 200 in 8043ms
  GET /api/logos 200 in 98ms
  GET / 200 in 508ms
+ GET / 200 in 183ms
+ GET / 200 in 138ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1414ms (755 modules)
+ GET /favicon.ico 200 in 1538ms
+ GET / 200 in 7ms
+ GET / 200 in 517ms
+ ✓ Compiled in 3.1s (1454 modules)
+ GET / 200 in 165ms
+ ✓ Compiled in 1433ms (1454 modules)
+ GET / 200 in 150ms
+ ✓ Compiled in 2.3s (1454 modules)
+ GET / 200 in 129ms
+ GET / 200 in 487ms
+ GET / 200 in 101ms
+ ✓ Compiled in 3.6s (1454 modules)
+ GET / 200 in 97ms
+ GET / 200 in 96ms
+ ✓ Compiled in 2.9s (1444 modules)
+ GET / 200 in 227ms
+ GET / 200 in 20ms
+ HEAD / 200 in 264ms
+ GET / 200 in 113ms
