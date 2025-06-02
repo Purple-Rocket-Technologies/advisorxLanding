@@ -176,7 +176,7 @@ const Hero = ({
       if (displayText.length < currentProfession.length) {
         const timeoutId = setTimeout(() => {
           setDisplayText(currentProfession.slice(0, displayText.length + 1));
-        }, 50); // Slightly faster to account for browser delays
+        }, 53); // Slower typing speed (was 50ms)
         return () => clearTimeout(timeoutId);
       } else {
         // Finished typing, minimal pause
