@@ -242,63 +242,172 @@ const AdvisorXLanding = () => {
       </div>
 
       {/* Pricing Section */}
-      <section className="w-full py-20 flex flex-col items-center justify-center">
+      <section className="relative w-full min-h-fit flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white via-white to-gray-50/90 py-24">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto px-6"
+          className="text-center max-w-7xl mx-auto px-6"
         >
           <h3 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent">
             Pricing
           </h3>
           <p className="text-lg md:text-xl text-gray-700 mb-12">
-            Monthly pricing, no long-term commitment required
+            Choose the perfect plan for your business needs
           </p>
           
-          {/* Pricing Card */}
-          <div className="bg-white rounded-3xl border border-border/20 shadow-2xl p-8 md:p-12 max-w-2xl mx-auto relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/10 to-primary/10 rounded-full blur-2xl" />
+          {/* Three Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            <div className="relative z-10">
-              <div className="mb-8">
-                <div className="flex items-baseline justify-center gap-2 mb-4">
-                  <span className="text-5xl md:text-6xl font-bold text-foreground">$299.99</span>
-                  <span className="text-xl text-muted-foreground">/month</span>
-                </div>
-                <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20">
-                  Early bird pricing for first 100 firms
-                </div>
-              </div>
+            {/* Free Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white rounded-3xl border border-border/20 shadow-lg p-6 md:p-8 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full blur-xl" />
               
-              <div className="space-y-4 mb-8">
-                {[
-                  "Up to 3 simultaneous campaigns",
-                  "Scrape any type of local business",
-                  "Fully managed email deliverability",
-                  "CRM and automated marketing",
-                  "White glove campaign setup",
-                  "Dedicated customer success servicing",
-                  "Answer engine optimization consulting",
-                  "CMO-level growth strategy",
-                  "Monthly content calendar",
-                  "15+ story-driven LinkedIn posts"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-left text-foreground">{feature}</span>
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold mb-2 text-foreground">Free</h4>
+                  <div className="flex items-baseline justify-center gap-2 mb-4">
+                    <span className="text-4xl font-bold text-foreground">$0</span>
+                    <span className="text-lg text-muted-foreground">/month</span>
                   </div>
-                ))}
+                  <p className="text-sm text-muted-foreground">Perfect to get started</p>
+                </div>
+                
+                <div className="space-y-3 mb-6">
+                  {[
+                    "Answer Engine Optimization Consulting",
+                    "How to show up on AI search",
+                    "60-minute growth strategy consulting",
+                    "Identifying local target businesses"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-left text-sm text-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm px-6 py-3 transition-all duration-300">
+                  Schedule Demo
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Professional Plan - Most Popular */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-3xl border-2 border-primary/30 shadow-2xl p-6 md:p-8 relative overflow-hidden transform scale-105"
+            >
+              {/* Most Popular Badge */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-sm font-medium bg-primary text-primary-foreground">
+                Most Popular
               </div>
               
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-secondary/10 to-primary/10 rounded-full blur-2xl" />
+              
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold mb-2 text-foreground">Professional</h4>
+                  <div className="flex items-baseline justify-center gap-2 mb-4">
+                    <span className="text-4xl md:text-5xl font-bold text-foreground">$299.99</span>
+                    <span className="text-lg text-muted-foreground">/month</span>
+                  </div>
+                  <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-3 py-1 rounded-full text-xs font-medium border border-primary/20 mb-2">
+                    Early bird pricing for first 100 firms
+                  </div>
+                  <p className="text-sm text-muted-foreground">Complete lead generation automation</p>
+                </div>
+                
+                <div className="space-y-3 mb-6">
+                  {[
+                    "Up to 3 simultaneous campaigns",
+                    "Scrape any type of local business",
+                    "Fully managed email deliverability",
+                    "CRM and automated marketing",
+                    "White glove campaign setup",
+                    "Dedicated customer success servicing",
+                    "Answer engine optimization consulting",
+                    "CMO-level growth strategy",
+                    "Monthly content calendar",
+                    "15+ story-driven LinkedIn posts"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-left text-sm text-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-6 py-3 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300">
+                  Schedule Demo
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                
+                <p className="text-xs text-muted-foreground mt-3 text-center">
+                  60-day money back guarantee
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Premium Plan */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white rounded-3xl border border-border/20 shadow-lg p-6 md:p-8 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full blur-xl" />
+              
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold mb-2 text-foreground">Premium</h4>
+                  <div className="flex items-baseline justify-center gap-2 mb-4">
+                    <span className="text-4xl font-bold text-foreground">$2,499</span>
+                    <span className="text-lg text-muted-foreground">one-time</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Full AI transformation for your business</p>
+                </div>
+                
+                <div className="space-y-3 mb-6">
+                  {[
+                    "Ongoing AI consulting for up to a year",
+                    "Customized prompt libraries",
+                    "Setting up AI-powered organization",
+                    "Building custom GPTs",
+                    "AI integration across all verticals",
+                    "Can layer over $299 subscription",
+                    "Dedicated AI strategist",
+                    "Quarterly AI optimization reviews"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
+                      <span className="text-left text-sm text-foreground">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm px-6 py-3 transition-all duration-300">
+                  Contact Sales
+                </Button>
+                
+                <p className="text-xs text-muted-foreground mt-3 text-center">
+                  Enterprise-grade AI implementation
+                </p>
+              </div>
+            </motion.div>
+
           </div>
         </motion.div>
       </section>
