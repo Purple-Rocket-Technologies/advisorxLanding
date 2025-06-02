@@ -104,7 +104,7 @@ export default function NavBar() {
             <Button 
                 className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
             >
-                Sign Up
+                Contact Sales
             </Button>
           </div>
 
