@@ -34,15 +34,15 @@ export const CompanyMarquee = () => {
     fetchLogos();
   }, []);
 
-  // Show loading state with skeleton - 2x larger
+  // Show loading state with skeleton - 3x larger
   if (!isLoaded) {
     return (
       <div className="w-full py-32 bg-transparent">
-        <div className="flex justify-center items-center space-x-16 opacity-50">
+        <div className="flex justify-center items-center space-x-8 opacity-50">
           {[1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="w-96 h-48 bg-gray-200 rounded-lg animate-pulse"
+              className="w-96 h-36 bg-gray-200 rounded-lg animate-pulse"
             />
           ))}
         </div>
