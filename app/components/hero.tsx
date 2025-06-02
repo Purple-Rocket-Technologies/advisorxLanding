@@ -167,37 +167,40 @@ const Hero = ({
   const [isTyping, setIsTyping] = useState(true);
   const [showCursor, setShowCursor] = useState(true);
 
-  // Typewriter effect
+  // Typewriter effect with precise timing
   useEffect(() => {
     const currentProfession = professions[currentIndex];
-    let timeoutId: NodeJS.Timeout;
     
     if (isTyping) {
-      // Typing phase - slightly slower for better readability
+      // Typing phase - precise 57ms timing
       if (displayText.length < currentProfession.length) {
-        timeoutId = setTimeout(() => {
-          setDisplayText(currentProfession.slice(0, displayText.length + 1));
-        }, 57); // Adjusted typing speed to 57ms
+        const timeoutId = setTimeout(() => {
+          setDisplayText(prev => currentProfession.slice(0, prev.length + 1));
+        }, 57);
+        return () => clearTimeout(timeoutId);
       } else {
-        // Finished typing, minimal pause to see complete text
-        timeoutId = setTimeout(() => {
+        // Finished typing, minimal pause
+        const timeoutId = setTimeout(() => {
           setIsTyping(false);
-        }, 100); // Minimal pause
+        }, 100);
+        return () => clearTimeout(timeoutId);
       }
     } else {
-      // Erasing phase - slightly slower
+      // Erasing phase - precise 30ms timing
       if (displayText.length > 0) {
-        timeoutId = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 30); // Adjusted erasing speed (was 20ms)
+        const timeoutId = setTimeout(() => {
+          setDisplayText(prev => prev.slice(0, -1));
+        }, 30);
+        return () => clearTimeout(timeoutId);
       } else {
         // Finished erasing, immediately move to next profession
-        setCurrentIndex((prev) => (prev + 1) % professions.length);
-        setIsTyping(true);
+        const timeoutId = setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % professions.length);
+          setIsTyping(true);
+        }, 50); // Small delay to prevent rapid state changes
+        return () => clearTimeout(timeoutId);
       }
     }
-
-    return () => clearTimeout(timeoutId);
   }, [displayText, isTyping, currentIndex, professions]);
 
   // Cursor blinking effect
