@@ -171,8 +171,8 @@ const AdvisorXLanding = () => {
         <LeadGenDashboard />
       </div>
 
-      <section className="w-[95%] text-center mt-40 md:mt-48 flex flex-col items-center">
-        <h3 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
+      <section className="w-[95%] text-center mt-24 md:mt-32 flex flex-col items-center">
+        <h3 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-secondary via-cyan-700 to-primary bg-clip-text text-transparent pb-2">
           Trusted by leading firms
         </h3>
         <CompanyMarquee />
