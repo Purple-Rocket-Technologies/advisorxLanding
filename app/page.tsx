@@ -157,12 +157,6 @@ const LeadGenDashboard = () => {
 
 const AdvisorXLanding = () => {
   const [heroHeight, setHeroHeight] = useState(0);
-  const minHeightForOverlay = 850; // minimum height needed for overlay effect
-
-  const dashboardStyle =
-    heroHeight >= minHeightForOverlay
-      ? { marginTop: `-${heroHeight * 0.1}px` }
-      : { marginTop: "32px" }; // regular spacing if not enough height
 
   return (
     <div className="min-h-screen bg-background dark:bg-black text-neutral-dark dark:text-base-white flex flex-col items-center overflow-x-hidden">
@@ -171,10 +165,9 @@ const AdvisorXLanding = () => {
       {/* Hero Section */}
 
       <Hero onHeightChange={setHeroHeight} />
-      <div
-        className="flex justify-center transition-all duration-300"
-        style={dashboardStyle}
-      >
+      
+      {/* Added much more space before the dashboard */}
+      <div className="flex justify-center transition-all duration-300 mt-32 md:mt-48 lg:mt-56">
         <LeadGenDashboard />
       </div>
 
