@@ -402,3 +402,9 @@ Import trace for requested module:
  GET / 200 in 209ms
  GET /api/logos 200 in 24ms
  GET /api/logos 200 in 46ms
+ ✓ Compiled in 5.5s (1695 modules)
+ HEAD / 200 in 477ms
+ GET / 200 in 49ms
+ GET / 200 in 46ms
+ GET / 200 in 52ms
+ GET / 200 in 88ms
