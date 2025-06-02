@@ -309,10 +309,10 @@ const AdvisorXLanding = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-3xl border-2 border-primary/30 shadow-2xl p-6 md:p-8 relative overflow-hidden transform scale-105"
+              className="bg-white rounded-3xl border-2 border-primary/30 shadow-2xl p-6 md:p-8 relative overflow-visible transform scale-105 mt-6"
             >
-              {/* Most Popular Badge */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-sm font-medium bg-primary text-primary-foreground">
+              {/* Most Popular Badge - Fixed positioning */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full text-sm font-medium bg-primary text-primary-foreground z-20 shadow-lg">
                 Most Popular
               </div>
               
