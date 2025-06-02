@@ -52,10 +52,13 @@ export default function NavBar() {
       <div className="flex justify-between items-center w-full max-w-screen md:max-w-[80%] mx-auto px-4 md:px-6">
         <Link href="/">
           <div className="flex items-center gap-3 h-fit">
-            {/* Placeholder for new AdvisorX AI logo - replace src with your logo */}
-            <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">AX</span>
-            </div>
+            {/* AdvisorX AI logo */}
+            <img
+              src="/advisorx-logo.svg"
+              alt="AdvisorX AI Logo"
+              className={`w-10 h-10 ${scrolled ? "text-gray-800" : "text-white"}`}
+              style={{ filter: scrolled ? 'brightness(0.2)' : 'brightness(1)' }}
+            />
             <span 
               className={`text-xl md:text-2xl font-semibold tracking-tight ${
                 scrolled ? "text-gray-800" : "text-white"
