@@ -14,3 +14,44 @@
  ✓ Compiled in 1174ms (714 modules)
  ✓ Compiled in 2.2s (1455 modules)
  GET / 200 in 394ms
+ GET / 200 in 150ms
+ GET / 200 in 138ms
+ GET / 200 in 110ms
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 4.6s (1460 modules)
+ GET /api/logos 200 in 5003ms
+ GET /api/logos 200 in 93ms
+ GET / 200 in 1258ms
+ GET /api/logos 200 in 18ms
+ GET /api/logos 200 in 7ms
+ GET / 200 in 183ms
+ GET /api/logos 200 in 19ms
+ GET /api/logos 200 in 8ms
+ GET / 200 in 301ms
+ GET /api/logos 200 in 12ms
+ GET /api/logos 200 in 10ms
+ GET / 200 in 110ms
+ GET /api/logos 200 in 88ms
+ GET /api/logos 200 in 97ms
+ GET / 200 in 302ms
+ GET /api/logos 200 in 44ms
+ GET /api/logos 200 in 7ms
+ GET / 200 in 155ms
+ GET /api/logos 200 in 9ms
+ GET /api/logos 200 in 189ms
+ GET / 200 in 486ms
+ GET /api/logos 200 in 9ms
+ GET /api/logos 200 in 10ms
+ GET / 200 in 115ms
+ GET /api/logos 200 in 52ms
+ GET /api/logos 200 in 54ms
+ GET / 200 in 84ms
+ GET /api/logos 200 in 18ms
+ GET /api/logos 200 in 50ms
+ GET / 200 in 127ms
+ GET /api/logos 200 in 11ms
+ GET / 200 in 74ms
+ GET /api/logos 200 in 11ms
+ GET /api/logos 200 in 51ms
+ GET / 200 in 122ms
+ GET /api/logos 200 in 9ms
