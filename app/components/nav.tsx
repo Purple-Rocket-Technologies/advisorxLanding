@@ -89,7 +89,10 @@ export default function NavBar() {
           )}
         </div>
         <div className="flex items-center gap-4">
-          <Button className="hidden md:block bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40">
+          <Button 
+            className="hidden md:block bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
+            onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
+          >
             Schedule Demo
           </Button>
 
