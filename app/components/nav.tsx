@@ -9,7 +9,7 @@ const navigationItems = [
   // { label: "Founders", href: "/company", isHash: true },
   // { label: "Security", href: "/#security", isHash: true }, // Removed security tab
   { label: "Pricing", href: "/pricing", isHash: false },
-  { label: "Blog", href: "/blog", isHash: false },
+  { label: "Blog", href: "https://substack.com/@jonathanmichaeljm", isHash: false },
 ];
 
 export default function NavBar() {
