@@ -463,10 +463,10 @@ const Hero = ({
               <div className="relative h-16 md:h-20 lg:h-24 xl:h-28 w-full flex items-center justify-center overflow-hidden">
                 <div className="text-center px-4">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
-                    <span className="bg-gradient-to-r from-secondary via-cyan-400 to-primary bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-cyan-300 via-cyan-200 to-white bg-clip-text text-transparent drop-shadow-lg">
                       {displayText}
                       <span 
-                        className={`inline-block w-0.5 md:w-1 bg-gradient-to-b from-secondary to-primary ml-1 ${
+                        className={`inline-block w-0.5 md:w-1 bg-gradient-to-b from-cyan-300 to-white ml-1 ${
                           showCursor ? 'opacity-100' : 'opacity-0'
                         }`}
                         style={{ 
