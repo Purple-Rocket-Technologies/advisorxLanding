@@ -623,7 +623,7 @@ const AdvisorXLanding = () => {
               </div>
             </motion.div>
 
-            {/* Security and Compliance */}
+            {/* Security and Compliance - Accurate claims only */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -635,19 +635,19 @@ const AdvisorXLanding = () => {
                 <div className="w-4 h-4 rounded bg-green-500/10 flex items-center justify-center">
                   <div className="w-2 h-2 rounded bg-green-500"></div>
                 </div>
-                <span>SOC 2 Type II Compliant</span>
+                <span>256-bit SSL Encryption</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded bg-blue-500/10 flex items-center justify-center">
                   <div className="w-2 h-2 rounded bg-blue-500"></div>
                 </div>
-                <span>GDPR & CCPA Compliant</span>
+                <span>Secure Data Processing</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded bg-purple-500/10 flex items-center justify-center">
                   <div className="w-2 h-2 rounded bg-purple-500"></div>
                 </div>
-                <span>Enterprise-grade Security</span>
+                <span>Privacy Protected</span>
               </div>
             </motion.div>
 
