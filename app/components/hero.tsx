@@ -167,36 +167,32 @@ const Hero = ({
   const [isTyping, setIsTyping] = useState(true);
   const [showCursor, setShowCursor] = useState(true);
 
-  // Typewriter effect with high-precision timing
+  // Smooth typewriter effect with copy/delete transition
   useEffect(() => {
     const currentProfession = professions[currentIndex];
     
     if (isTyping) {
-      // Typing phase - aggressive 57ms timing
+      // Typing phase - buttery smooth slower speed
       if (displayText.length < currentProfession.length) {
         const timeoutId = setTimeout(() => {
           setDisplayText(currentProfession.slice(0, displayText.length + 1));
-        }, 55); // Further slower typing speed (was 53ms)
+        }, 65); // Much slower for buttery smooth feel
         return () => clearTimeout(timeoutId);
       } else {
-        // Finished typing, minimal pause
+        // Finished typing, pause longer then do instant transition
         const timeoutId = setTimeout(() => {
           setIsTyping(false);
-        }, 80);
+        }, 1500); // Longer pause to read complete text
         return () => clearTimeout(timeoutId);
       }
     } else {
-      // Erasing phase - fast erasing
-      if (displayText.length > 0) {
-        const timeoutId = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 36); // Further slower erasing speed (was 33ms)
-        return () => clearTimeout(timeoutId);
-      } else {
-        // Finished erasing, immediately move to next profession
+      // Copy/delete animation - instant clear and move to next
+      const timeoutId = setTimeout(() => {
+        setDisplayText(""); // Instant clear
         setCurrentIndex((prev) => (prev + 1) % professions.length);
         setIsTyping(true);
-      }
+      }, 200); // Brief pause before next profession starts
+      return () => clearTimeout(timeoutId);
     }
   }, [displayText, isTyping, currentIndex, professions]);
 
