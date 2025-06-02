@@ -146,3 +146,13 @@
  GET / 200 in 38ms
  GET / 200 in 50ms
  GET / 200 in 22ms
+ ✓ Compiled in 2.8s (1456 modules)
+ GET / 200 in 238ms
+ GET / 200 in 60ms
+ GET / 200 in 47ms
+ GET / 200 in 51ms
+ GET / 200 in 49ms
+ HEAD / 200 in 383ms
+ GET / 200 in 33ms
+ GET / 200 in 165ms
+ GET / 200 in 135ms
