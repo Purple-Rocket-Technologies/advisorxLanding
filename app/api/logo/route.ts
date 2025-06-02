@@ -1,25 +1,21 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  // Return the AX logo as SVG with proper color handling
-  const logoSvg = `<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- AX Logo - Clean Minimalist Design -->
-  <g transform="translate(8, 15)">
+  // Return a bold, visible AX logo as SVG
+  const logoSvg = `<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bold AX Logo Design -->
+  <g>
     <!-- Letter A -->
-    <path d="M5 70 L15 40 L20 40 L30 70 L25 70 L23 63 L12 63 L10 70 Z M14 55 L21 55 L17.5 47 Z" 
+    <path d="M4 32 L8 32 L9 28 L15 28 L16 32 L20 32 L14 8 L10 8 Z M10.5 24 L13.5 24 L12 18 Z" 
           fill="#ffffff" 
           stroke="#ffffff" 
-          stroke-width="0.5"/>
+          stroke-width="1"/>
     
-    <!-- Letter X with interlocking design -->
-    <path d="M35 40 L42 40 L50 52 L58 40 L65 40 L54 56 L66 70 L59 70 L50 58 L41 70 L34 70 L46 56 Z" 
+    <!-- Letter X -->
+    <path d="M22 8 L26 8 L29 15 L32 8 L36 8 L31 18 L36 32 L32 32 L29 25 L26 32 L22 32 L27 18 Z" 
           fill="#ffffff" 
           stroke="#ffffff" 
-          stroke-width="0.5"/>
-    
-    <!-- Interlocking connection -->
-    <path d="M25 55 L35 55 L35 58 L25 58 Z" 
-          fill="#ffffff"/>
+          stroke-width="1"/>
   </g>
 </svg>`;
 
