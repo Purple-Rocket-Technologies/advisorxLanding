@@ -154,6 +154,8 @@ export default function NavBar() {
                   <a
                     key={item.label}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-gray-800 text-lg hover:text-secondary transition-colors duration-200"
                   >
