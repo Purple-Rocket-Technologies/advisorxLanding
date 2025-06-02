@@ -248,7 +248,7 @@ const AdvisorXLanding = () => {
               ))}
             </div>
 
-            {/* Trust Badges */}
+            {/* Trust Badges - Accurate claims only */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -266,13 +266,13 @@ const AdvisorXLanding = () => {
                 <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-blue-600" />
                 </div>
-                <span className="text-sm font-medium text-gray-700">Bank-level Security</span>
+                <span className="text-sm font-medium text-gray-700">SSL Encrypted</span>
               </div>
               <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full border border-gray-200 shadow-sm">
                 <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-purple-600" />
                 </div>
-                <span className="text-sm font-medium text-gray-700">ISO 27001 Certified</span>
+                <span className="text-sm font-medium text-gray-700">Privacy First</span>
               </div>
             </motion.div>
           </div>
