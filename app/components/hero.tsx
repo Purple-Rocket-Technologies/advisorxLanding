@@ -190,7 +190,7 @@ const Hero = ({
       if (displayText.length > 0) {
         const timeoutId = setTimeout(() => {
           setDisplayText(displayText.slice(0, -1));
-        }, 30); // Smoother erasing speed (was 25ms)
+        }, 33); // Slower erasing speed (was 30ms)
         return () => clearTimeout(timeoutId);
       } else {
         // Finished erasing, immediately move to next profession
