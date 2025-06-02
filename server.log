@@ -30,3 +30,34 @@
  GET /api/logos 200 in 35ms
  HEAD /api/logo 200 in 6ms
  GET /api/logo 200 in 7ms
+ GET / 200 in 81ms
+ GET / 200 in 74ms
+ GET / 200 in 16ms
+ GET / 200 in 12ms
+ ✓ Compiled in 3.1s (1456 modules)
+ GET / 200 in 166ms
+ GET / 200 in 13ms
+ ✓ Compiled /api/logo in 332ms (758 modules)
+ GET /api/logo 200 in 544ms
+ GET / 200 in 397ms
+ ✓ Compiled in 1086ms (1473 modules)
+ GET / 200 in 536ms
+ GET / 200 in 541ms
+ GET / 200 in 16ms
+ ✓ Compiled in 2s (1473 modules)
+ GET / 200 in 1301ms
+ GET / 200 in 1496ms
+ GET / 200 in 35ms
+ GET / 200 in 65ms
+ GET / 200 in 66ms
+ GET / 200 in 29ms
+ ✓ Compiled in 4.3s (1473 modules)
+ GET / 200 in 150ms
+ GET / 200 in 157ms
+ GET / 200 in 18ms
+ GET /api/logo 200 in 41ms
+ GET / 200 in 444ms
+ ○ Compiling /api/logo-dark ...
+ ✓ Compiled /api/logo-dark in 1216ms (1461 modules)
+ GET /api/logo-dark 200 in 1297ms
+ HEAD / 200 in 354ms
