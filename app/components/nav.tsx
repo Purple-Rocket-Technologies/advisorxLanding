@@ -98,12 +98,13 @@ export default function NavBar() {
             <Button 
                 variant="outline"
                 className="border-primary text-primary hover:bg-gray-100"
-                onClick={() => window.location.href="https://dashboard.advisorx.ai"}
+                onClick={() => window.location.href="https://agent.advisorx.ai"}
             >
                 Login
             </Button>
             <Button 
                 className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25 hover:shadow-primary/40"
+                onClick={() => window.location.href="https://calendly.com/advisorxai/30min"}
             >
                 Contact Sales
             </Button>
