@@ -306,3 +306,25 @@ Import trace for requested module:
  GET /favicon.ico 200 in 17ms
  GET /favicon.ico 200 in 5ms
  GET /favicon.ico 200 in 14ms
+ GET / 200 in 458ms
+ GET / 200 in 247ms
+ ○ Compiling /api/logos ...
+ ✓ Compiled /api/logos in 3.2s (803 modules)
+ GET / 200 in 595ms
+ GET /api/logos 200 in 41ms
+ GET /api/logos 200 in 46ms
+ GET / 200 in 177ms
+ GET /api/logos 200 in 57ms
+ GET /api/logos 200 in 38ms
+ GET / 200 in 199ms
+ GET /api/logos 200 in 23ms
+ GET /api/logos 200 in 15ms
+ GET / 200 in 203ms
+ GET /api/logos 200 in 11ms
+ GET /api/logos 200 in 10ms
+ GET / 200 in 255ms
+ GET /api/logos 200 in 55ms
+ GET /api/logos 200 in 14ms
+ GET / 200 in 92ms
+ GET /api/logos 200 in 33ms
+ GET /api/logos 200 in 43ms
