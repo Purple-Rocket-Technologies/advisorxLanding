@@ -5,11 +5,11 @@
  ⚠ Port 3000 is in use, trying 3001 instead.
    ▲ Next.js 15.1.3
    - Local:        http://localhost:3001
-   - Network:      http://10.64.138.250:3001
+   - Network:      http://10.64.132.44:3001
 
  ✓ Starting...
- ✓ Ready in 2.2s
+ ✓ Ready in 1957ms
  ○ Compiling / ...
- ✓ Compiled / in 23.4s (1466 modules)
- HEAD / 200 in 24382ms
- ✓ Compiled in 1771ms (715 modules)
+ ✓ Compiled / in 21.4s (1464 modules)
+ HEAD / 200 in 22306ms
+ ✓ Compiled in 1659ms (714 modules)
