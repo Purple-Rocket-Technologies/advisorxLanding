@@ -34,15 +34,15 @@ export const CompanyMarquee = () => {
     fetchLogos();
   }, []);
 
-  // Show loading state with skeleton
+  // Show loading state with skeleton - 2x larger
   if (!isLoaded) {
     return (
-      <div className="w-full py-16 bg-transparent">
-        <div className="flex justify-center items-center space-x-8 opacity-50">
+      <div className="w-full py-32 bg-transparent">
+        <div className="flex justify-center items-center space-x-16 opacity-50">
           {[1, 2, 3, 4, 5].map((i) => (
             <div
               key={i}
-              className="w-48 h-24 bg-gray-200 rounded-lg animate-pulse"
+              className="w-96 h-48 bg-gray-200 rounded-lg animate-pulse"
             />
           ))}
         </div>
@@ -52,23 +52,23 @@ export const CompanyMarquee = () => {
 
   if (logos.length === 0) {
     return (
-      <div className="w-full py-16 bg-transparent">
+      <div className="w-full py-32 bg-transparent">
         <div className="text-center text-gray-500">
-          <p>Company logos loading...</p>
+          <p className="text-xl">Company logos loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full overflow-hidden py-20 bg-transparent">
-      {/* Premium marquee container */}
+    <div className="w-full overflow-hidden py-40 bg-transparent">
+      {/* Premium marquee container - 2x larger */}
       <div className="relative">
         {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-background to-transparent z-10" />
         
-        {/* Scrolling container - much tighter spacing and faster animation */}
+        {/* Scrolling container - much larger logos and spacing */}
         <div className="flex animate-marquee-scroll hover:pause-animation">
           {/* Create multiple sets for seamless loop */}
           {Array.from({ length: 8 }, (_, setIndex) => (
@@ -76,15 +76,15 @@ export const CompanyMarquee = () => {
               {logos.map((logo, logoIndex) => (
                 <div
                   key={`${setIndex}-${logoIndex}`}
-                  className="flex-shrink-0 flex items-center justify-center h-32 w-80 mx-6"
+                  className="flex-shrink-0 flex items-center justify-center h-64 w-160 mx-12"
                 >
                   <div className="relative group">
                     <Image
                       src={`/firm/${logo}`}
                       alt={`Company logo ${logoIndex + 1}`}
-                      width={300}
-                      height={150}
-                      className="h-24 w-auto max-w-[300px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
+                      width={600}
+                      height={300}
+                      className="h-48 w-auto max-w-[600px] object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out"
                       onError={(e) => {
                         console.error(`Failed to load image: /firm/${logo}`);
                         const target = e.target as HTMLImageElement;
