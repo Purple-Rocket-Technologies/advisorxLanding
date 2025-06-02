@@ -113,7 +113,7 @@ export default function NavBar() {
             <Button 
                 variant="outline"
                 className="border-primary text-primary hover:bg-gray-100"
-                onClick={() => window.location.href="https://agent.advisorx.ai"}
+                onClick={() => window.open("https://agent.advisorx.ai", "_blank", "noopener,noreferrer")}
             >
                 Login
             </Button>
