@@ -504,6 +504,56 @@ const AdvisorXLanding = () => {
               </Button>
             </motion.div>
 
+            {/* Premium Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12 text-sm text-gray-600"
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span>30-day money back guarantee</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span>No setup fees or contracts</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                <span>Cancel anytime</span>
+              </div>
+            </motion.div>
+
+            {/* Security and Compliance */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-green-500/10 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded bg-green-500"></div>
+                </div>
+                <span>SOC 2 Type II Compliant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-blue-500/10 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded bg-blue-500"></div>
+                </div>
+                <span>GDPR & CCPA Compliant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-purple-500/10 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded bg-purple-500"></div>
+                </div>
+                <span>Enterprise-grade Security</span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
