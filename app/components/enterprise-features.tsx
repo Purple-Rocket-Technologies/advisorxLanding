@@ -376,7 +376,7 @@ const EnterpriseFeatures = () => {
                 { number: "2", text: "Finds the decision-maker emails" },
                 { number: "3", text: "Generates best practice emails" },
                 { number: "4", text: "Our expert team helps you setup campaigns" },
-                { number: "5", text: "Automatically creates and manages email campaigns" }
+                { number: "5", text: "Creates and manages email campaigns automatically" }
               ].map((step, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary text-white font-bold flex items-center justify-center mb-3">

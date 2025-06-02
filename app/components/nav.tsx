@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const navigationItems = [
   { label: "Features", href: "/#features", isHash: true },
   // { label: "Founders", href: "/company", isHash: true },
-  { label: "Security", href: "/#security", isHash: true },
+  // { label: "Security", href: "/#security", isHash: true }, // Removed security tab
   { label: "Pricing", href: "/pricing", isHash: false },
   { label: "Blog", href: "/blog", isHash: false },
 ];

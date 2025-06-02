@@ -280,6 +280,8 @@ const AdvisorXLanding = () => {
                   "Scrape any type of local business",
                   "Fully managed email deliverability",
                   "CRM and automated marketing",
+                  "White glove campaign setup",
+                  "Dedicated customer success servicing",
                   "Answer engine optimization consulting",
                   "CMO-level growth strategy",
                   "Monthly content calendar",
