@@ -386,19 +386,65 @@ const Hero = ({
             <TrustedBy />
           </motion.div>
 
-          {/* Main heading with clean animation */}
-          <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight md:leading-tight mb-8 md:mb-16 text-white">
+          {/* Enhanced main heading with premium styling */}
+          <div className="mb-8 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="mb-6 md:mb-10"
+              className="mb-6 md:mb-8"
             >
-              <span>Automating local growth for</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight md:leading-tight">
+                <span className="bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent">
+                  Automating local growth for
+                </span>
+              </h1>
             </motion.div>
-            <div className="w-full">
-              <CleanAnimatedProfession />
+            
+            {/* Profession cycling with enhanced styling */}
+            <div className="w-full mb-4 md:mb-6">
+              <div className="relative h-16 md:h-20 lg:h-24 xl:h-28 w-full flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ 
+                      opacity: 0, 
+                      y: 20,
+                      scale: 0.98
+                    }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      scale: 1
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      y: -20,
+                      scale: 0.98
+                    }}
+                    transition={{ 
+                      duration: 0.6,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute inset-0 flex items-center justify-center text-center px-4"
+                  >
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
+                      <span className="bg-gradient-to-r from-secondary via-cyan-400 to-primary bg-clip-text text-transparent drop-shadow-lg">
+                        {professions[currentIndex]}
+                      </span>
+                    </h2>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
+
+            {/* Enhanced accent line */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+              className="mx-auto w-32 md:w-48 h-1 bg-gradient-to-r from-secondary via-cyan-400 to-primary rounded-full"
+            />
           </div>
           
           <motion.div
